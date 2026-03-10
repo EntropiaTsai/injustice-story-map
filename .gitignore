@@ -25,3 +25,8 @@ dist-ssr
 
 # Documentation and research files
 docs/
+
+# Environment variables
+.env
+.env.local
+.env.production.local

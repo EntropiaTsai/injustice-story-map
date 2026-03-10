@@ -47,33 +47,50 @@ export default function ContributeModal({ isOpen, onClose, storyId }: Contribute
     }
   }, [storyId]);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    // 這裡可以串接後端 API 或 Google Forms
-    console.log('提交的資料：', formData);
-    
-    // 顯示成功訊息
-    if (storyId) {
-      alert('感謝您為這個故事補充資料！我們會審核並更新內容。');
-    } else {
-      alert('感謝您的貢獻！我們會審核並處理您提供的資料。');
+    try {
+      // 呼叫 API 提交資料
+      const response = await fetch('/api/contribute', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+
+      if (response.ok && result.success) {
+        // 顯示成功訊息
+        if (storyId) {
+          alert('感謝您為這個故事補充資料！我們會審核並更新內容。\n\n您的投稿編號：' + result.id);
+        } else {
+          alert('感謝您的貢獻！我們會審核並處理您提供的資料。\n\n您的投稿編號：' + result.id);
+        }
+        
+        // 重置表單
+        setFormData({
+          storyId: '',
+          storyName: '',
+          victimName: '',
+          location: '',
+          year: '',
+          articleLinks: '',
+          videoLinks: '',
+          additionalInfo: '',
+          submitterEmail: '',
+        });
+        
+        onClose();
+      } else {
+        alert('提交失敗：' + (result.error || '未知錯誤'));
+      }
+    } catch (error) {
+      console.error('提交錯誤:', error);
+      alert('提交時發生錯誤，請稍後再試');
     }
-    
-    // 重置表單
-    setFormData({
-      storyId: '',
-      storyName: '',
-      victimName: '',
-      location: '',
-      year: '',
-      articleLinks: '',
-      videoLinks: '',
-      additionalInfo: '',
-      submitterEmail: '',
-    });
-    
-    onClose();
   };
 
   if (!isOpen) return null;
