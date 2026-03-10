@@ -1,4 +1,4 @@
-# 台灣不義遺址故事地圖
+# 台灣政治受難事件故事地圖
 
 > 透過互動式地圖，探索你家鄉的歷史記憶
 
@@ -19,8 +19,27 @@
 - 📍 **故事標記點** - 每個點代表一個受難者的故事
 - 📖 **豐富內容** - 詳細的故事敘述與歷史背景
 - 🎥 **多媒體支援** - 圖片、影片、口述歷史音訊
-- 🔍 **搜尋與篩選** - 依地區、年代、類型尋找故事（開發中）
+- 🔗 **官方資料連結** - 連結至國家人權博物館、國史館等官方資料來源
 - 📱 **響應式設計** - 支援手機、平板、電腦
+- 💬 **使用者貢獻** - 歡迎提供新的故事資料
+
+## 🗺️ 目前收錄的故事
+
+本專案目前收錄 12 個歷史事件，時間跨度從 1947 年二二八事件到 1991 年獨台會事件：
+
+- 二二八事件（台北天馬茶房）
+- 高雄蕭朝金牧師事件
+- 高雄余仁德、劉丁居事件
+- 台南吳麗水事件（台南郵電支部案）
+- 台北林家血案
+- 台南湯德章事件
+- 澎湖七一三事件
+- 高雄吳某守與李順法案
+- 台南陳欽生事件（馬來西亞僑生）
+- 新竹獨台會事件
+- 台北台灣獨立建國聯盟案
+
+所有故事內容皆基於國家人權博物館、國史館、法務部等官方資料來源，確保歷史事實的準確性。
 
 ## 🚀 快速開始
 
@@ -33,8 +52,8 @@
 
 ```bash
 # 1. Clone 專案
-git clone https://github.com/your-username/injustice_story_map.git
-cd injustice_story_map
+git clone https://github.com/EntropiaTsai/injustice-story-map.git
+cd injustice-story-map
 
 # 2. 安裝依賴
 npm install
@@ -62,38 +81,33 @@ npm run lint
 ## 📁 專案結構
 
 ```
-injustice_story_map/
-│
-├── docs/                        # 📚 專案文件
-│   ├── PROJECT_PLAN.md         # 完整專案計畫
-│   ├── STORY_COLLECTION_GUIDE.md   # 故事蒐集指南
-│   ├── TECHNICAL_SPECS.md      # 技術規格文件
-│   └── RECRUITMENT.md          # 招募說明
+injustice-story-map/
 │
 ├── public/                      # 🖼️ 靜態資源
 │   └── assets/                 # 圖片、影片等
 │
 ├── src/
 │   ├── components/             # ⚛️ React 組件
-│   │   ├── common/            # 通用組件
-│   │   ├── layout/            # 佈局組件（Header, Footer 等）
+│   │   ├── layout/            # 佈局組件（Header, AboutModal 等）
 │   │   ├── map/               # 地圖相關組件
-│   │   └── story/             # 故事展示組件
+│   │   ├── story/             # 故事展示組件
+│   │   └── ContributeModal.tsx # 使用者貢獻介面
 │   │
 │   ├── data/                   # 📊 資料檔案
-│   │   └── stories.ts         # 故事資料
+│   │   └── stories.ts         # 故事資料（基於官方資料來源）
 │   │
-│   ├── hooks/                  # 🪝 自訂 Hooks
 │   ├── types/                  # 📝 TypeScript 型別定義
 │   ├── utils/                  # 🛠️ 工具函式
-│   ├── styles/                 # 🎨 樣式檔案
+│   │   └── mapStyles.ts       # 地圖樣式設定
 │   │
 │   ├── App.tsx                 # 主應用程式
-│   └── main.tsx                # 入口檔案
+│   ├── main.tsx                # 入口檔案
+│   └── index.css               # 全域樣式
 │
 ├── package.json
 ├── tsconfig.json
 ├── vite.config.ts
+├── tailwind.config.js
 └── README.md
 ```
 
@@ -103,7 +117,8 @@ injustice_story_map/
 - **建置工具**: Vite
 - **地圖**: Leaflet + React Leaflet
 - **樣式**: Tailwind CSS
-- **部署**: Vercel / Netlify / GitHub Pages
+- **部署**: Vercel
+- **地圖圖資**: Google Maps (vintage style)
 
 ## 🤝 如何貢獻
 
@@ -111,11 +126,14 @@ injustice_story_map/
 
 ### 貢獻故事內容
 
-如果你知道更多的不義遺址故事，歡迎提供：
+如果你知道更多的政治受難事件故事，歡迎透過網站上的「貢獻故事」功能提供資料：
 
-1. 閱讀 [`docs/STORY_COLLECTION_GUIDE.md`](docs/STORY_COLLECTION_GUIDE.md)
-2. 按照指南整理故事資料
-3. 提交 Issue 或 Pull Request
+1. 點擊網站右上角的「貢獻故事」按鈕
+2. 填寫受難者資料、事件地點、年代
+3. 提供相關文章連結或影片連結（官方資料來源優先）
+4. 提交後我們會審核並整合至地圖
+
+**重要**：所有故事內容必須基於可驗證的資料來源（如國家人權博物館、國史館、法務部等官方文獻），不接受個人推論或情感描述。
 
 ### 參與開發
 
@@ -125,32 +143,25 @@ injustice_story_map/
 4. 推送到分支 (`git push origin feature/amazing-feature`)
 5. 建立 Pull Request
 
-### 加入團隊
+## 📚 資料來源
 
-我們正在招募：
-- 前端工程師
-- UI/UX 設計師
-- 歷史研究員
-- 田野調查員
-- 內容編輯
-- 社群經營
+本專案所有故事內容皆基於以下官方資料來源：
 
-詳見 [`docs/RECRUITMENT.md`](docs/RECRUITMENT.md)
+- [國家人權博物館 - 國家人權記憶庫](https://memory.nhrm.gov.tw/)
+- [國史館檔案史料文物查詢系統](https://aa.archives.gov.tw/)
+- [法務部 - 平復司法不法](https://www.moj.gov.tw/)
+- [台灣轉型正義資料庫](https://twtjdb.nhrm.gov.tw/)
+- [二二八事件紀念基金會](https://www.228.org.tw/)
+- [監察院調查報告](https://www.cy.gov.tw/)
 
-## 📚 相關文件
-
-- [專案計畫書](docs/PROJECT_PLAN.md) - 完整的專案規劃與團隊分工
-- [故事蒐集指南](docs/STORY_COLLECTION_GUIDE.md) - 如何蒐集與提交故事
-- [技術規格文件](docs/TECHNICAL_SPECS.md) - 給開發者的技術細節
-- [招募說明](docs/RECRUITMENT.md) - 加入我們的團隊
-
-## 🗺️ 路線圖
+## 🗺️ 開發路線圖
 
 ### 第一階段（已完成 ✅）
 - [x] 建立專案基礎架構
 - [x] 實作互動式地圖
 - [x] 完成故事展示介面
-- [x] 加入範例故事資料
+- [x] 整合 12 個官方驗證的歷史事件
+- [x] 實作使用者貢獻介面
 
 ### 第二階段（進行中 🚧）
 - [ ] 蒐集更多故事（目標：30-50 個）
@@ -160,25 +171,22 @@ injustice_story_map/
 
 ### 第三階段（規劃中 📋）
 - [ ] 建立後端 API
-- [ ] 實作使用者投稿系統
-- [ ] 多語言支援
+- [ ] 整合 LLM 處理使用者投稿
+- [ ] 實作審核機制
 - [ ] 社群分享功能
 
 ## 📄 授權
 
 本專案採用 MIT 授權 - 詳見 [LICENSE](LICENSE) 檔案
 
-## 💬 聯絡我們
+## 💬 聯絡方式
 
-- **Email**: [待補充]
-- **Facebook**: [待補充]
-- **Instagram**: [待補充]
-- **GitHub Issues**: [提出問題或建議](https://github.com/your-username/injustice_story_map/issues)
+- **GitHub Issues**: [提出問題或建議](https://github.com/EntropiaTsai/injustice-story-map/issues)
 
 ## 🙏 致謝
 
 - 感謝所有受難者與家屬願意分享故事
-- 感謝國家人權博物館提供的資源
+- 感謝國家人權博物館、國史館提供的公開資料
 - 感謝所有貢獻者的付出
 
 ---
