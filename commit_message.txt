@@ -1,0 +1,6 @@
+fix: 修正 TypeScript 建置錯誤
+
+- 新增 vite-env.d.ts 宣告圖片模組
+- 移除未使用的 hoveredMarkerId state
+- 移除 TileLayer 的 style 屬性（使用 CSS filter 替代）
+- 移除 marker 的 hover 事件處理器

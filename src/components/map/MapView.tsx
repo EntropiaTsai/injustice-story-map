@@ -69,7 +69,6 @@ function MapController({ selectedStory }: { selectedStory: StoryLocation | null 
 }
 
 export default function MapView({ stories, onStorySelect, selectedStoryId }: MapViewProps) {
-  const [hoveredMarkerId, setHoveredMarkerId] = useState<string | null>(null);
   const currentMapStyle: MapStyleKey = 'vintage'; // 固定使用懷舊風格
   
   const taiwanCenter: [number, number] = [23.5, 121];
@@ -99,7 +98,6 @@ export default function MapView({ stories, onStorySelect, selectedStoryId }: Map
           key={currentMapStyle}
           attribution={selectedStyle.attribution}
           url={selectedStyle.url}
-          style={{ filter: selectedStyle.filter }}
         />
         
         {/* 應用濾鏡效果 */}
@@ -116,8 +114,6 @@ export default function MapView({ stories, onStorySelect, selectedStoryId }: Map
             icon={createCustomIcon(story.id === selectedStoryId)}
             eventHandlers={{
               click: () => onStorySelect(story),
-              mouseover: () => setHoveredMarkerId(story.id),
-              mouseout: () => setHoveredMarkerId(null),
             }}
           >
             <Popup>
