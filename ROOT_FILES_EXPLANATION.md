@@ -116,7 +116,7 @@
 **用途**: 專案結構說明  
 **作用**: 詳細說明目錄結構
 
-**可以移到 docs/**: 是的！這個可以考慮
+**位置**: 已置於 `docs/project/PROJECT_STRUCTURE.md`（見 `docs/README.md` 索引）
 
 ---
 
@@ -139,7 +139,7 @@ injustice_story_map/
 ### 這些是文件，可以保持或移動：
 ```
 ├── README.md                  ← 慣例放根目錄
-└── PROJECT_STRUCTURE.md       ← 可移到 docs/（可選）
+└── docs/project/PROJECT_STRUCTURE.md  ← 專案結構說明（與其他文件見 docs/README.md）
 ```
 
 ---

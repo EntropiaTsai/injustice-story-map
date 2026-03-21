@@ -78,6 +78,10 @@ npm run preview
 npm run lint
 ```
 
+## 📚 更多文件
+
+完整索引（專案計畫、技術規格、故事蒐集指南、Agent prompt 等）請見 **[docs/README.md](docs/README.md)**。
+
 ## 📁 專案結構
 
 ```

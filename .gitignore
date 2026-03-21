@@ -23,8 +23,10 @@ dist-ssr
 *.sln
 *.sw?
 
-# Documentation and research files
-docs/
+# 文件見 docs/README.md；agents／guides／project 等應納入版控。
+# 若僅本機保留研究草稿，可改為忽略： docs/research/
+# 本機下載的參考 PDF 不納入版控（體積／授權考量）
+docs/*.pdf
 
 # Environment variables
 .env
