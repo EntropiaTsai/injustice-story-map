@@ -97,7 +97,7 @@ export default function ContributeModal({ isOpen, onClose, storyId }: Contribute
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 z-[2000] flex items-center justify-center p-4">
-      <div className="bg-white rounded-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+      <div className="bg-white text-gray-900 rounded-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto [color-scheme:light]">
         <div className="sticky top-0 bg-white border-b border-gray-200 px-6 py-4 flex justify-between items-center">
           <div>
             <h2 className="text-2xl font-bold text-gray-900">
@@ -148,7 +148,7 @@ export default function ContributeModal({ isOpen, onClose, storyId }: Contribute
               required
               value={formData.victimName}
               onChange={(e) => setFormData({ ...formData, victimName: e.target.value })}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg bg-white text-gray-900 placeholder:text-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               placeholder="例：蕭朝金"
             />
           </div>
@@ -163,7 +163,7 @@ export default function ContributeModal({ isOpen, onClose, storyId }: Contribute
               id="location"
               value={formData.location}
               onChange={(e) => setFormData({ ...formData, location: e.target.value })}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg bg-white text-gray-900 placeholder:text-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               placeholder="例：高雄市岡山區"
             />
           </div>
@@ -178,7 +178,7 @@ export default function ContributeModal({ isOpen, onClose, storyId }: Contribute
               id="year"
               value={formData.year}
               onChange={(e) => setFormData({ ...formData, year: e.target.value })}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg bg-white text-gray-900 placeholder:text-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               placeholder="例：1947"
             />
           </div>
@@ -194,7 +194,7 @@ export default function ContributeModal({ isOpen, onClose, storyId }: Contribute
               rows={4}
               value={formData.articleLinks}
               onChange={(e) => setFormData({ ...formData, articleLinks: e.target.value })}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg bg-white text-gray-900 placeholder:text-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               placeholder="請提供相關文章連結（每行一個）&#10;例如：&#10;https://memory.nhrm.gov.tw/...&#10;https://www.228.org.tw/...&#10;https://storystudio.tw/..."
             />
             <p className="mt-1 text-xs text-gray-500">
@@ -212,7 +212,7 @@ export default function ContributeModal({ isOpen, onClose, storyId }: Contribute
               rows={3}
               value={formData.videoLinks}
               onChange={(e) => setFormData({ ...formData, videoLinks: e.target.value })}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg bg-white text-gray-900 placeholder:text-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               placeholder="YouTube 影片連結（每行一個）&#10;例如：&#10;https://youtu.be/..."
             />
           </div>
@@ -227,7 +227,7 @@ export default function ContributeModal({ isOpen, onClose, storyId }: Contribute
               rows={4}
               value={formData.additionalInfo}
               onChange={(e) => setFormData({ ...formData, additionalInfo: e.target.value })}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg bg-white text-gray-900 placeholder:text-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               placeholder="其他您想分享的資訊，例如：&#10;- 您與受難者的關係&#10;- 家族口述歷史&#10;- 其他重要細節"
             />
           </div>
@@ -242,7 +242,7 @@ export default function ContributeModal({ isOpen, onClose, storyId }: Contribute
               id="submitterEmail"
               value={formData.submitterEmail}
               onChange={(e) => setFormData({ ...formData, submitterEmail: e.target.value })}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg bg-white text-gray-900 placeholder:text-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               placeholder="如果我們需要進一步確認資料，可以聯絡您"
             />
           </div>
