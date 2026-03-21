@@ -80,7 +80,7 @@ npm run lint
 
 ## 📚 更多文件
 
-完整索引（專案計畫、技術規格、故事蒐集指南、Agent prompt 等）請見 **[docs/README.md](docs/README.md)**。
+投稿處理流程的 **Agent 定義與 Gemini prompt** 見 **[docs/agents/](docs/agents/)**（版控）。其餘計畫書、指南、研究筆記若放在本機 `docs/`，預設不納入 Git。
 
 ## 📁 專案結構
 
