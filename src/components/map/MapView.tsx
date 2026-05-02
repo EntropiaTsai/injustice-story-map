@@ -50,28 +50,35 @@ const createClusterIcon = (cluster: { getChildCount: () => number }) => {
 };
 
 // 自訂故事標記圖標
-const createCustomIcon = (isSelected: boolean) => {
+// source=twtjdb：橘色小圓點（待補資料）；一般：藍色含箭頭
+const createCustomIcon = (isSelected: boolean, source?: 'twtjdb') => {
+  if (isSelected) {
+    return L.divIcon({
+      className: 'custom-marker',
+      html: `<div style="background-color:#dc2626;width:30px;height:30px;border-radius:50%;border:3px solid white;box-shadow:0 2px 8px rgba(0,0,0,0.3);display:flex;align-items:center;justify-content:center;cursor:pointer;">
+        <svg width="16" height="16" fill="white" viewBox="0 0 16 16"><path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/></svg>
+      </div>`,
+      iconSize: [30, 30],
+      iconAnchor: [15, 15],
+      popupAnchor: [0, -15],
+    });
+  }
+
+  if (source === 'twtjdb') {
+    return L.divIcon({
+      className: 'custom-marker',
+      html: `<div style="background-color:#d97706;width:20px;height:20px;border-radius:50%;border:2px solid white;box-shadow:0 1px 5px rgba(0,0,0,0.3);cursor:pointer;opacity:0.85;"></div>`,
+      iconSize: [20, 20],
+      iconAnchor: [10, 10],
+      popupAnchor: [0, -10],
+    });
+  }
+
   return L.divIcon({
     className: 'custom-marker',
-    html: `
-      <div style="
-        background-color: ${isSelected ? '#dc2626' : '#3b82f6'};
-        width: 30px;
-        height: 30px;
-        border-radius: 50%;
-        border: 3px solid white;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        transition: all 0.3s ease;
-      ">
-        <svg width="16" height="16" fill="white" viewBox="0 0 16 16">
-          <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/>
-        </svg>
-      </div>
-    `,
+    html: `<div style="background-color:#3b82f6;width:30px;height:30px;border-radius:50%;border:3px solid white;box-shadow:0 2px 8px rgba(0,0,0,0.3);display:flex;align-items:center;justify-content:center;cursor:pointer;">
+      <svg width="16" height="16" fill="white" viewBox="0 0 16 16"><path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/></svg>
+    </div>`,
     iconSize: [30, 30],
     iconAnchor: [15, 15],
     popupAnchor: [0, -15],
@@ -147,7 +154,7 @@ export default function MapView({ stories, onStorySelect, selectedStoryId }: Map
             <Marker
               key={story.id}
               position={[story.lat, story.lng]}
-              icon={createCustomIcon(story.id === selectedStoryId)}
+              icon={createCustomIcon(story.id === selectedStoryId, story.source)}
               eventHandlers={{
                 click: () => onStorySelect(story),
               }}
@@ -178,6 +185,10 @@ export default function MapView({ stories, onStorySelect, selectedStoryId }: Map
         <div className="flex items-center gap-2 text-sm">
           <div className="w-4 h-4 rounded-full bg-blue-500 border-2 border-white"></div>
           <span className="text-gray-700">故事地點</span>
+        </div>
+        <div className="flex items-center gap-2 text-sm mt-2">
+          <div className="w-3 h-3 rounded-full bg-amber-600 border-2 border-white"></div>
+          <span className="text-gray-700">資料庫紀錄（待補）</span>
         </div>
         <div className="flex items-center gap-2 text-sm mt-2">
           <div className="w-4 h-4 rounded-full bg-red-600 border-2 border-white"></div>

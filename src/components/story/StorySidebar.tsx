@@ -57,6 +57,102 @@ export default function StorySidebar({ story, onClose, isOpen, onContribute }: S
 
         {/* 內容區 */}
         <div className="p-6 md:p-8">
+          {/* twtjdb 自動匯入：精簡資料卡 */}
+          {story.source === 'twtjdb' && story.twtjdb && (() => {
+            const t = story.twtjdb;
+            const birthWestern = t.birth_year_roc ? t.birth_year_roc + 1911 : null;
+            const judgmentWestern = t.judgment_year_roc ? t.judgment_year_roc + 1911 : null;
+            return (
+              <>
+                <div className="mb-4">
+                  <span className="px-3 py-1 bg-amber-100 text-amber-800 rounded-full text-sm font-medium">
+                    {story.year}
+                  </span>
+                </div>
+                <h2 className="text-3xl font-bold mb-1 text-gray-900">{story.name}</h2>
+                <p className="text-sm text-amber-700 mb-6 flex items-center gap-1">
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  來自臺灣轉型正義資料庫，故事內容待補充
+                </p>
+
+                <div className="mb-6 rounded-lg border border-gray-200 overflow-hidden">
+                  <div className="bg-gray-50 px-4 py-2 border-b border-gray-200">
+                    <span className="text-sm font-semibold text-gray-600">基本資料</span>
+                  </div>
+                  <table className="w-full text-sm">
+                    <tbody>
+                      {[
+                        ['性別', t.gender],
+                        ['出生年', birthWestern ? `民國${t.birth_year_roc}年（${birthWestern}年）` : null],
+                        ['職業', t.occupation],
+                        ['居住地（被捕前）', t.location_raw],
+                      ].filter(([, v]) => v).map(([label, value]) => (
+                        <tr key={label} className="border-b border-gray-100 last:border-0">
+                          <td className="px-4 py-2 text-gray-500 w-36">{label}</td>
+                          <td className="px-4 py-2 text-gray-800">{value}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+
+                <div className="mb-6 rounded-lg border border-gray-200 overflow-hidden">
+                  <div className="bg-gray-50 px-4 py-2 border-b border-gray-200">
+                    <span className="text-sm font-semibold text-gray-600">終審判決</span>
+                  </div>
+                  <table className="w-full text-sm">
+                    <tbody>
+                      {[
+                        ['裁判機關', t.judgment_authority],
+                        ['裁判年度', judgmentWestern ? `民國${t.judgment_year_roc}年（${judgmentWestern}年）` : null],
+                        ['刑罰', t.penalty_text],
+                        ['組織', t.organization],
+                        ['死刑', t.has_death_penalty ? '是' : null],
+                        ['無期徒刑', t.has_life_sentence ? '是' : null],
+                      ].filter(([, v]) => v).map(([label, value]) => (
+                        <tr key={label} className="border-b border-gray-100 last:border-0">
+                          <td className="px-4 py-2 text-gray-500 w-36">{label}</td>
+                          <td className={`px-4 py-2 ${label === '死刑' || label === '無期徒刑' ? 'text-red-700 font-semibold' : 'text-gray-800'}`}>{value}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+
+                <a
+                  href="https://twtjdb.nhrm.gov.tw/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-blue-600 hover:text-blue-800 hover:underline text-sm mb-8"
+                >
+                  <svg className="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                  臺灣轉型正義資料庫
+                </a>
+
+                <div className="border-t border-gray-200 pt-6">
+                  <button
+                    onClick={handleContribute}
+                    className="w-full bg-green-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-green-700 transition-colors flex items-center justify-center gap-2 shadow-md"
+                  >
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
+                    </svg>
+                    為這個故事補充資料
+                  </button>
+                  <p className="text-sm text-gray-500 text-center mt-2">
+                    如果您知道更多關於此人的故事，歡迎與我們分享
+                  </p>
+                </div>
+              </>
+            );
+          })()}
+
+          {/* 一般手工策展故事 */}
+          {story.source !== 'twtjdb' && <>
           {/* 標題區 */}
           <div className="mb-6">
             <div className="flex items-center gap-2 mb-2">
@@ -102,6 +198,50 @@ export default function StorySidebar({ story, onClose, isOpen, onContribute }: S
               {story.content}
             </div>
           </div>
+
+          {/* 延伸閱讀：有補充敘事時使用醒目區塊，並可併列相關連結 */}
+          {story.extendedReading?.trim() && (
+            <div className="mb-8 rounded-xl border border-amber-200 bg-amber-50/80 p-5">
+              <h4 className="text-lg font-bold text-amber-900 mb-3">
+                延伸閱讀
+              </h4>
+              <div className="text-gray-800 leading-relaxed whitespace-pre-line text-[0.95rem] mb-4">
+                {story.extendedReading}
+              </div>
+              {story.relatedLinks && story.relatedLinks.length > 0 && (
+                <>
+                  <p className="text-sm font-medium text-amber-900/90 mb-2">相關連結</p>
+                  <ul className="space-y-2">
+                    {story.relatedLinks.map((link, index) => (
+                      <li key={index}>
+                        <a
+                          href={link.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-amber-800 hover:text-amber-950 hover:underline flex items-center gap-2 text-sm"
+                        >
+                          <svg
+                            className="w-4 h-4 shrink-0"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                            />
+                          </svg>
+                          {link.title}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </>
+              )}
+            </div>
+          )}
 
           {/* 圖片展示區 */}
           {story.images && story.images.length > 0 && (
@@ -195,8 +335,10 @@ export default function StorySidebar({ story, onClose, isOpen, onContribute }: S
             </div>
           )}
 
-          {/* 相關連結 */}
-          {story.relatedLinks && story.relatedLinks.length > 0 && (
+          {/* 相關連結（無 extendedReading 時維持原有藍色列表） */}
+          {story.relatedLinks &&
+            story.relatedLinks.length > 0 &&
+            !story.extendedReading?.trim() && (
             <div className="mb-8">
               <h4 className="text-xl font-bold mb-4 text-gray-900">延伸閱讀</h4>
               <ul className="space-y-2">
@@ -251,6 +393,7 @@ export default function StorySidebar({ story, onClose, isOpen, onContribute }: S
               這些故事提醒我們珍惜得來不易的民主自由
             </p>
           </div>
+          </>}
         </div>
       </div>
     </>

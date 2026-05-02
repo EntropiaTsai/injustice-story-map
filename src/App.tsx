@@ -1,13 +1,20 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import MapView from './components/map/MapView';
 import StorySidebar from './components/story/StorySidebar';
 import Header from './components/layout/Header';
 import AboutModal from './components/layout/AboutModal';
 import ContributeModal from './components/ContributeModal';
 import { storyData } from './data/stories';
+import { useTwtjdbData } from './hooks/useTwtjdbData';
 import type { StoryLocation } from './types';
 
 function App() {
+  const { data: twtjdbStories } = useTwtjdbData();
+  const allStories = useMemo(
+    () => [...storyData, ...twtjdbStories],
+    [twtjdbStories]
+  );
+
   const [selectedStory, setSelectedStory] = useState<StoryLocation | null>(null);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isAboutModalOpen, setIsAboutModalOpen] = useState(false);
@@ -46,7 +53,7 @@ function App() {
       
       <main className="flex-1 pt-[72px] relative">
         <MapView
-          stories={storyData}
+          stories={allStories}
           onStorySelect={handleStorySelect}
           selectedStoryId={selectedStory?.id || null}
         />
