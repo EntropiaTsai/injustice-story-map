@@ -1,6 +1,9 @@
 import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
+import MarkerClusterGroup from 'react-leaflet-cluster';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
+import 'react-leaflet-cluster/lib/assets/MarkerCluster.css';
+import 'react-leaflet-cluster/lib/assets/MarkerCluster.Default.css';
 import type { StoryLocation } from '../../types';
 import { mapStyles, type MapStyleKey } from '../../utils/mapStyles';
 
@@ -18,6 +21,33 @@ const DefaultIcon = L.icon({
 });
 
 L.Marker.prototype.options.icon = DefaultIcon;
+
+// 群集圖標：大小依數量分三級，配合地圖深色風格
+const createClusterIcon = (cluster: { getChildCount: () => number }) => {
+  const count = cluster.getChildCount();
+  const size = count > 50 ? 52 : count > 10 ? 44 : 36;
+  const fontSize = count > 99 ? 11 : 13;
+  return L.divIcon({
+    className: 'custom-cluster-icon',
+    html: `<div style="
+      background: rgba(30,41,59,0.88);
+      border: 2.5px solid rgba(255,255,255,0.85);
+      border-radius: 50%;
+      width: ${size}px;
+      height: ${size}px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 700;
+      font-size: ${fontSize}px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.45);
+      font-family: sans-serif;
+    ">${count}</div>`,
+    iconSize: [size, size],
+    iconAnchor: [size / 2, size / 2],
+  });
+};
 
 // 自訂故事標記圖標
 const createCustomIcon = (isSelected: boolean) => {
@@ -106,30 +136,38 @@ export default function MapView({ stories, onStorySelect, selectedStoryId }: Map
           }
         `}</style>
         
-        {stories.map((story) => (
-          <Marker
-            key={story.id}
-            position={[story.lat, story.lng]}
-            icon={createCustomIcon(story.id === selectedStoryId)}
-            eventHandlers={{
-              click: () => onStorySelect(story),
-            }}
-          >
-            <Popup>
-              <div className="p-2">
-                <h3 className="font-bold text-lg mb-1">{story.name}</h3>
-                <p className="text-sm text-gray-600 mb-2">{story.victimName}</p>
-                <p className="text-sm mb-2">{story.summary}</p>
-                <button
-                  onClick={() => onStorySelect(story)}
-                  className="text-blue-600 hover:text-blue-800 text-sm font-medium"
-                >
-                  查看完整故事 →
-                </button>
-              </div>
-            </Popup>
-          </Marker>
-        ))}
+        <MarkerClusterGroup
+          iconCreateFunction={createClusterIcon}
+          maxClusterRadius={60}
+          spiderfyOnMaxZoom={true}
+          showCoverageOnHover={false}
+          chunkedLoading
+        >
+          {stories.map((story) => (
+            <Marker
+              key={story.id}
+              position={[story.lat, story.lng]}
+              icon={createCustomIcon(story.id === selectedStoryId)}
+              eventHandlers={{
+                click: () => onStorySelect(story),
+              }}
+            >
+              <Popup>
+                <div className="p-2">
+                  <h3 className="font-bold text-lg mb-1">{story.name}</h3>
+                  <p className="text-sm text-gray-600 mb-2">{story.victimName}</p>
+                  <p className="text-sm mb-2">{story.summary}</p>
+                  <button
+                    onClick={() => onStorySelect(story)}
+                    className="text-blue-600 hover:text-blue-800 text-sm font-medium"
+                  >
+                    查看完整故事 →
+                  </button>
+                </div>
+              </Popup>
+            </Marker>
+          ))}
+        </MarkerClusterGroup>
         
         <MapController selectedStory={selectedStory || null} />
       </MapContainer>

@@ -28,6 +28,20 @@ dist-ssr
 !/docs/agents/
 !/docs/agents/**
 
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+
+# Agent 本機 prompt／輸出（勿提交）
+scripts/gemini/private/
+scripts/gemini/pipeline/runs/
+
+# 原始資料（大型檔案，僅本機）
+data/reference/
+data/processed/twtjdb_persons.json
+data/processed/twtjdb_pending.json
+
 # Environment variables
 .env
 .env.local
