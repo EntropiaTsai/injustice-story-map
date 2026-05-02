@@ -1,0 +1,19 @@
+請依「專案經理 PM」角色處理以下投稿。
+
+若你沒有表單 JSON、只有一段敘述或筆記，請改用同目錄的 `user_pm_direct_data.example.txt` 結構（「原始資料」區塊貼滿即可）。
+
+【投稿 JSON】
+{
+  "id": "contribution_example_001",
+  "type": "new_story",
+  "victimName": "（範例）",
+  "location": "（範例地點）",
+  "year": "1950",
+  "articleLinks": ["https://example.org/article"],
+  "videoLinks": [],
+  "additionalInfo": "此為測試用投稿。",
+  "submitterEmail": ""
+}
+
+【既有故事摘要】（若無可刪除此段）
+（貼上既有 stories 的 id／名稱／關鍵字列表，或寫「無」）
