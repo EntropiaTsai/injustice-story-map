@@ -49,13 +49,31 @@ const createClusterIcon = (cluster: { getChildCount: () => number }) => {
   });
 };
 
-// 自訂故事標記圖標
-// source=twtjdb：橘色小圓點（待補資料）；一般：藍色含箭頭
-const createCustomIcon = (isSelected: boolean, source?: 'twtjdb') => {
-  if (isSelected) {
+type PenaltyLevel = 'death' | 'heavy' | 'light' | 'unknown';
+
+const PENALTY_COLOR: Record<PenaltyLevel, string> = {
+  death:   '#dc2626', // 紅
+  heavy:   '#d97706', // 橘
+  light:   '#3b82f6', // 藍
+  unknown: '#6b7280', // 灰
+};
+
+// 依刑罰等級決定顏色；curated 故事較大且有箭頭，twtjdb 較小純圓點
+// 選中時加白色外環以區別
+const createCustomIcon = (
+  isSelected: boolean,
+  penaltyLevel: PenaltyLevel = 'unknown',
+  isCurated: boolean = false
+) => {
+  const color = PENALTY_COLOR[penaltyLevel];
+  const selectedRing = isSelected
+    ? `outline:3px solid white;outline-offset:2px;`
+    : '';
+
+  if (isCurated) {
     return L.divIcon({
       className: 'custom-marker',
-      html: `<div style="background-color:#dc2626;width:30px;height:30px;border-radius:50%;border:3px solid white;box-shadow:0 2px 8px rgba(0,0,0,0.3);display:flex;align-items:center;justify-content:center;cursor:pointer;">
+      html: `<div style="background-color:${color};width:30px;height:30px;border-radius:50%;border:3px solid white;box-shadow:0 2px 8px rgba(0,0,0,0.3);display:flex;align-items:center;justify-content:center;cursor:pointer;${selectedRing}">
         <svg width="16" height="16" fill="white" viewBox="0 0 16 16"><path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/></svg>
       </div>`,
       iconSize: [30, 30],
@@ -64,24 +82,12 @@ const createCustomIcon = (isSelected: boolean, source?: 'twtjdb') => {
     });
   }
 
-  if (source === 'twtjdb') {
-    return L.divIcon({
-      className: 'custom-marker',
-      html: `<div style="background-color:#d97706;width:20px;height:20px;border-radius:50%;border:2px solid white;box-shadow:0 1px 5px rgba(0,0,0,0.3);cursor:pointer;opacity:0.85;"></div>`,
-      iconSize: [20, 20],
-      iconAnchor: [10, 10],
-      popupAnchor: [0, -10],
-    });
-  }
-
   return L.divIcon({
     className: 'custom-marker',
-    html: `<div style="background-color:#3b82f6;width:30px;height:30px;border-radius:50%;border:3px solid white;box-shadow:0 2px 8px rgba(0,0,0,0.3);display:flex;align-items:center;justify-content:center;cursor:pointer;">
-      <svg width="16" height="16" fill="white" viewBox="0 0 16 16"><path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/></svg>
-    </div>`,
-    iconSize: [30, 30],
-    iconAnchor: [15, 15],
-    popupAnchor: [0, -15],
+    html: `<div style="background-color:${color};width:20px;height:20px;border-radius:50%;border:2px solid white;box-shadow:0 1px 5px rgba(0,0,0,0.3);cursor:pointer;opacity:0.85;${selectedRing}"></div>`,
+    iconSize: [20, 20],
+    iconAnchor: [10, 10],
+    popupAnchor: [0, -10],
   });
 };
 
@@ -148,7 +154,7 @@ export default function MapView({ stories, onStorySelect, selectedStoryId }: Map
           <Marker
             key={story.id}
             position={[story.lat, story.lng]}
-            icon={createCustomIcon(story.id === selectedStoryId, story.source)}
+            icon={createCustomIcon(story.id === selectedStoryId, story.penaltyLevel as PenaltyLevel, true)}
             zIndexOffset={1000}
             eventHandlers={{ click: () => onStorySelect(story) }}
           >
@@ -180,7 +186,7 @@ export default function MapView({ stories, onStorySelect, selectedStoryId }: Map
             <Marker
               key={story.id}
               position={[story.lat, story.lng]}
-              icon={createCustomIcon(story.id === selectedStoryId, story.source)}
+              icon={createCustomIcon(story.id === selectedStoryId, story.penaltyLevel as PenaltyLevel, false)}
               eventHandlers={{ click: () => onStorySelect(story) }}
             >
               <Popup>
@@ -207,16 +213,24 @@ export default function MapView({ stories, onStorySelect, selectedStoryId }: Map
       <div className="absolute bottom-6 left-6 bg-white rounded-lg shadow-lg p-4 z-[1000]">
         <h4 className="font-bold text-sm mb-2 text-gray-900">圖例</h4>
         <div className="flex items-center gap-2 text-sm">
-          <div className="w-4 h-4 rounded-full bg-blue-500 border-2 border-white"></div>
-          <span className="text-gray-700">故事地點</span>
+          <div className="w-3 h-3 rounded-full flex-shrink-0" style={{backgroundColor:'#dc2626'}}></div>
+          <span className="text-gray-700">死刑／槍決</span>
         </div>
-        <div className="flex items-center gap-2 text-sm mt-2">
-          <div className="w-3 h-3 rounded-full bg-amber-600 border-2 border-white flex-shrink-0"></div>
-          <span className="text-gray-700">資料庫紀錄（縮小地圖可見）</span>
+        <div className="flex items-center gap-2 text-sm mt-1">
+          <div className="w-3 h-3 rounded-full flex-shrink-0" style={{backgroundColor:'#d97706'}}></div>
+          <span className="text-gray-700">有期徒刑 10 年以上</span>
         </div>
-        <div className="flex items-center gap-2 text-sm mt-2">
-          <div className="w-4 h-4 rounded-full bg-red-600 border-2 border-white"></div>
-          <span className="text-gray-700">已選擇</span>
+        <div className="flex items-center gap-2 text-sm mt-1">
+          <div className="w-3 h-3 rounded-full flex-shrink-0" style={{backgroundColor:'#3b82f6'}}></div>
+          <span className="text-gray-700">有期徒刑 10 年以下</span>
+        </div>
+        <div className="flex items-center gap-2 text-sm mt-1">
+          <div className="w-3 h-3 rounded-full flex-shrink-0" style={{backgroundColor:'#6b7280'}}></div>
+          <span className="text-gray-700">刑罰不明</span>
+        </div>
+        <div className="border-t border-gray-200 mt-2 pt-2 flex items-center gap-2 text-sm">
+          <div className="w-4 h-4 rounded-full flex-shrink-0 border-2 border-white" style={{backgroundColor:'#3b82f6', outline:'2px solid white', outlineOffset:'2px'}}></div>
+          <span className="text-gray-500 text-xs">大圓點＝完整故事</span>
         </div>
       </div>
     </div>

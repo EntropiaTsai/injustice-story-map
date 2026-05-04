@@ -4,6 +4,7 @@ export const storyData: StoryLocation[] = [
   // 岡山長老教會 - 蕭朝金牧師（二二八事件）
   {
     id: '1',
+    penaltyLevel: 'death',
     name: '岡山長老教會',
     victimName: '蕭朝金牧師',
     lat: 22.7967,
@@ -62,6 +63,7 @@ export const storyData: StoryLocation[] = [
   // 高雄要塞 - 余仁德（二二八事件）
   {
     id: '2',
+    penaltyLevel: 'death',
     name: '高雄要塞',
     victimName: '余仁德',
     lat: 22.7950,
@@ -91,6 +93,7 @@ export const storyData: StoryLocation[] = [
   // 岡山地區 - 劉丁居（二二八事件）
   {
     id: '3',
+    penaltyLevel: 'death',
     name: '岡山地區',
     victimName: '劉丁居（官方誤記為劉登基）',
     lat: 22.7930,
@@ -120,6 +123,7 @@ export const storyData: StoryLocation[] = [
   // 台南 - 吳麗水（台南郵電支部案）
   {
     id: '4',
+    penaltyLevel: 'death',
     name: '台南市區',
     victimName: '吳麗水',
     lat: 22.9970,
@@ -167,6 +171,7 @@ export const storyData: StoryLocation[] = [
   // 林宅 - 林家血案
   {
     id: '5',
+    penaltyLevel: 'death',
     name: '林宅血案現場',
     victimName: '林義雄家屬（林游阿妹、林亮均、林亭均）',
     lat: 25.0330,
@@ -215,6 +220,7 @@ export const storyData: StoryLocation[] = [
   // 台南 - 湯德章
   {
     id: '6',
+    penaltyLevel: 'death',
     name: '台南市民生綠園（湯德章紀念公園）',
     victimName: '湯德章',
     lat: 22.9917,
@@ -266,6 +272,7 @@ export const storyData: StoryLocation[] = [
   // 澎湖 - 澎湖七一三事件（張敏之等人）
   {
     id: '7',
+    penaltyLevel: 'death',
     name: '澎湖（澎湖七一三事件）',
     victimName: '張敏之等山東流亡師生',
     lat: 23.5711,
@@ -317,6 +324,7 @@ export const storyData: StoryLocation[] = [
   // 台北 - 二二八事件（天馬茶房事件起點）
   {
     id: '8',
+    penaltyLevel: 'death',
     name: '台北原天馬茶房前（二二八事件起點）',
     victimName: '二二八事件受難者',
     lat: 25.0525,
@@ -356,6 +364,7 @@ export const storyData: StoryLocation[] = [
   // 高雄 - 吳某守、李順法（二二八事件後續案件）
   {
     id: '9',
+    penaltyLevel: 'death',
     name: '高雄市區',
     victimName: '吳某守、李順法',
     lat: 22.6273,
@@ -391,6 +400,7 @@ export const storyData: StoryLocation[] = [
   // 台南 - 陳欽生（台南美國新聞處爆炸案）
   {
     id: '10',
+    penaltyLevel: 'heavy',
     name: '台南美國新聞處（成功大學周邊）',
     victimName: '陳欽生',
     lat: 22.9976,
@@ -435,6 +445,7 @@ export const storyData: StoryLocation[] = [
   // 新竹清華大學 - 獨台會事件
   {
     id: '11',
+    penaltyLevel: 'heavy',
     name: '清華大學',
     victimName: '陳正然、廖偉程、王秀惠、林銀福（馬撒歐·尼卡爾）、安正光（Cegau Drululan）',
     lat: 24.7956,
@@ -478,6 +489,7 @@ export const storyData: StoryLocation[] = [
   // 台北 - 台灣獨立建國聯盟案（王康陸）
   {
     id: '12',
+    penaltyLevel: 'light',
     name: '台北市中山北路北區海霸王餐廳',
     victimName: '王康陸',
     lat: 25.0636,
@@ -511,6 +523,7 @@ export const storyData: StoryLocation[] = [
   // 臺北大安 — 孟世傑（第二案言論地為主；第一案見延伸閱讀）
   {
     id: '13',
+    penaltyLevel: 'light',
     name: '中山醫院（仁愛路院區）',
     victimName: '孟世傑',
     lat: 25.0365362,

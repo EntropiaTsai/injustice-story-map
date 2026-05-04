@@ -26,6 +26,8 @@ export interface StoryLocation {
   /** 資料來源：twtjdb 表示從轉型正義資料庫自動匯入，內容待補充 */
   source?: 'twtjdb';
   twtjdb?: TwtjdbMeta;
+  /** 刑罰等級：death 死刑/槍決、heavy 10年以上、light 10年以下、unknown 不明 */
+  penaltyLevel?: 'death' | 'heavy' | 'light' | 'unknown';
 }
 
 export interface TwtjdbMeta {
