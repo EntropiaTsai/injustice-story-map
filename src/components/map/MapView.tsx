@@ -111,10 +111,10 @@ export default function MapView({ stories, onStorySelect, selectedStoryId }: Map
   const selectedStory = stories.find(s => s.id === selectedStoryId);
   const selectedStyle = mapStyles[currentMapStyle];
 
-  // 台澎金馬的地理邊界（更嚴格的限制）
+  // 台澎金馬的地理邊界
   const taiwanBounds: L.LatLngBoundsExpression = [
-    [21.8, 119.3],  // 西南角（涵蓋東沙、南沙最南端）
-    [25.3, 122.1]   // 東北角（涵蓋馬祖最北端）
+    [21.8, 117.5],  // 西南角：117.5°E 涵蓋金門（118.3°E）
+    [26.5, 122.1]   // 東北角：26.5°N 涵蓋馬祖（26.1°N）
   ];
 
   return (
