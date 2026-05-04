@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "count": 811
+    "count": 821
   },
   "persons": [
     {
@@ -3581,6 +3581,27 @@
       "location_raw": "台灣省苗栗縣"
     },
     {
+      "id": "12944",
+      "name": "詹銀森",
+      "aliases": [],
+      "gender": "男",
+      "birth_year_roc": 1955,
+      "occupation": "陸軍第二九二師步八營一連一兵彈藥",
+      "judgment": {
+        "authority": "陸軍各單位 (各地防衛司令部、各軍團、軍、師、團、營、連等單位)",
+        "year_roc": 66,
+        "penalty_text": "公訴不受理",
+        "has_death_penalty": false,
+        "has_life_sentence": false,
+        "organization": "暫無資料"
+      },
+      "source": "twtjdb",
+      "location_status": "ready",
+      "lat": 23.7092,
+      "lng": 120.4313,
+      "location_raw": "雲林縣"
+    },
+    {
       "id": "12946",
       "name": "賴溪河",
       "aliases": [],
@@ -4995,6 +5016,27 @@
       "location_raw": "台北縣"
     },
     {
+      "id": "13269",
+      "name": "戈學品",
+      "aliases": [],
+      "gender": "男",
+      "birth_year_roc": 1920,
+      "occupation": "魚販",
+      "judgment": {
+        "authority": "台灣警備總司令部",
+        "year_roc": 63,
+        "penalty_text": "感化教育3年",
+        "has_death_penalty": false,
+        "has_life_sentence": false,
+        "organization": null
+      },
+      "source": "twtjdb",
+      "location_status": "ready",
+      "lat": 25.033,
+      "lng": 121.5654,
+      "location_raw": "台北市"
+    },
+    {
       "id": "13273",
       "name": "王春亭",
       "aliases": [],
@@ -5079,6 +5121,27 @@
       "location_raw": "台南市"
     },
     {
+      "id": "13298",
+      "name": "翁清安",
+      "aliases": [],
+      "gender": "男",
+      "birth_year_roc": 1920,
+      "occupation": "傭工",
+      "judgment": {
+        "authority": "金門防衛司令部",
+        "year_roc": 63,
+        "penalty_text": "有期徒刑3年6月",
+        "has_death_penalty": false,
+        "has_life_sentence": false,
+        "organization": null
+      },
+      "source": "twtjdb",
+      "location_status": "ready",
+      "lat": 23.6978,
+      "lng": 120.9605,
+      "location_raw": "台灣省彰化市"
+    },
+    {
       "id": "13302",
       "name": "葉絡祥",
       "aliases": [],
@@ -5098,6 +5161,27 @@
       "lat": 25.012,
       "lng": 121.4651,
       "location_raw": "台北縣"
+    },
+    {
+      "id": "13305",
+      "name": "邵炳燦",
+      "aliases": [],
+      "gender": "男",
+      "birth_year_roc": 1952,
+      "occupation": "自耕農",
+      "judgment": {
+        "authority": "金門防衛司令部",
+        "year_roc": 63,
+        "penalty_text": "有期徒刑3年6月",
+        "has_death_penalty": false,
+        "has_life_sentence": false,
+        "organization": null
+      },
+      "source": "twtjdb",
+      "location_status": "ready",
+      "lat": 23.6978,
+      "lng": 120.9605,
+      "location_raw": "台灣省彰化市"
     },
     {
       "id": "13308",
@@ -6486,6 +6570,27 @@
       "location_raw": "台北縣"
     },
     {
+      "id": "13757",
+      "name": "楊黑松",
+      "aliases": [],
+      "gender": "男",
+      "birth_year_roc": 1952,
+      "occupation": "陸軍上兵",
+      "judgment": {
+        "authority": "陸軍各單位 (各地防衛司令部、各軍團、軍、師、團、營、連等單位)",
+        "year_roc": 64,
+        "penalty_text": "有期徒刑7年，後減刑有期徒刑4年8月",
+        "has_death_penalty": false,
+        "has_life_sentence": false,
+        "organization": "暫無資料"
+      },
+      "source": "twtjdb",
+      "location_status": "ready",
+      "lat": 22.6273,
+      "lng": 120.3014,
+      "location_raw": "高雄市"
+    },
+    {
       "id": "13762",
       "name": "彭金隆",
       "aliases": [],
@@ -6717,6 +6822,27 @@
       "location_raw": "台北市"
     },
     {
+      "id": "13794",
+      "name": "黃清池",
+      "aliases": [],
+      "gender": "男",
+      "birth_year_roc": 1957,
+      "occupation": "店員",
+      "judgment": {
+        "authority": "金門防衛司令部",
+        "year_roc": 65,
+        "penalty_text": "有期徒刑3年6月",
+        "has_death_penalty": false,
+        "has_life_sentence": false,
+        "organization": null
+      },
+      "source": "twtjdb",
+      "location_status": "ready",
+      "lat": 24.4493,
+      "lng": 118.3767,
+      "location_raw": "福建省金門縣"
+    },
+    {
       "id": "13796",
       "name": "康健心",
       "aliases": [],
@@ -6778,6 +6904,27 @@
       "lat": 24.1477,
       "lng": 120.6736,
       "location_raw": "台中市"
+    },
+    {
+      "id": "13800",
+      "name": "劉順忠",
+      "aliases": [],
+      "gender": "男",
+      "birth_year_roc": 1957,
+      "occupation": "陸軍一兵",
+      "judgment": {
+        "authority": "金門防衛司令部",
+        "year_roc": 67,
+        "penalty_text": "有期徒刑4年，褫奪公權5年",
+        "has_death_penalty": false,
+        "has_life_sentence": false,
+        "organization": null
+      },
+      "source": "twtjdb",
+      "location_status": "ready",
+      "lat": 24.5602,
+      "lng": 120.8214,
+      "location_raw": "苗栗縣"
     },
     {
       "id": "13805",
@@ -15431,6 +15578,48 @@
       "location_raw": "台南市"
     },
     {
+      "id": "23117",
+      "name": "魏玉民",
+      "aliases": [],
+      "gender": "男",
+      "birth_year_roc": 1959,
+      "occupation": "陸軍反共救國軍指揮部砲兵營高砲連一兵砲手",
+      "judgment": {
+        "authority": "陸軍各單位 (各地防衛司令部、各軍團、軍、師、團、營、連等單位)",
+        "year_roc": 70,
+        "penalty_text": "有期徒刑2年1月",
+        "has_death_penalty": false,
+        "has_life_sentence": false,
+        "organization": "暫無資料"
+      },
+      "source": "twtjdb",
+      "location_status": "ready",
+      "lat": 23.4518,
+      "lng": 120.2554,
+      "location_raw": "嘉義縣"
+    },
+    {
+      "id": "23122",
+      "name": "楊春深",
+      "aliases": [],
+      "gender": "男",
+      "birth_year_roc": 1937,
+      "occupation": "無",
+      "judgment": {
+        "authority": "台灣南部地區警備總司令",
+        "year_roc": 72,
+        "penalty_text": "感化教育2年",
+        "has_death_penalty": false,
+        "has_life_sentence": false,
+        "organization": null
+      },
+      "source": "twtjdb",
+      "location_status": "ready",
+      "lat": 22.5519,
+      "lng": 120.5487,
+      "location_raw": "屏東縣"
+    },
+    {
       "id": "23125",
       "name": "任顯群",
       "aliases": [
@@ -16734,6 +16923,27 @@
         "authority": "台灣警備總司令部",
         "year_roc": 72,
         "penalty_text": "感化教育3年",
+        "has_death_penalty": false,
+        "has_life_sentence": false,
+        "organization": null
+      },
+      "source": "twtjdb",
+      "location_status": "ready",
+      "lat": 25.033,
+      "lng": 121.5654,
+      "location_raw": "台北市"
+    },
+    {
+      "id": "23913",
+      "name": "丘景元",
+      "aliases": [],
+      "gender": "男",
+      "birth_year_roc": 1952,
+      "occupation": "商",
+      "judgment": {
+        "authority": "台灣警備總司令部",
+        "year_roc": 76,
+        "penalty_text": "有期徒刑12年減處有期徒刑6年減處有期徒刑4年",
         "has_death_penalty": false,
         "has_life_sentence": false,
         "organization": null

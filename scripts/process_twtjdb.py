@@ -75,16 +75,16 @@ def extract_residence(f_txt: str | None) -> str | None:
         return None
 
     # 優先比對「住○○縣/市」，再抓「籍設○○縣/市」
-    # 字元類別排除冒號（：:），避免抓到「住址：福建省金門縣」之類格式
     patterns = [
-        r"住([台臺]?灣?[省]?[^\s，。、（）():：\d]{2,6}(?:縣|市))",
-        r"籍設([台臺]?灣?[省]?[^\s，。、（）():：\d]{2,6}(?:縣|市))",
+        r"住([台臺]?灣?[省]?[^\s，。、（）()\d]{2,6}(?:縣|市))",
+        r"籍設([台臺]?灣?[省]?[^\s，。、（）()\d]{2,6}(?:縣|市))",
     ]
     for pattern in patterns:
         m = re.search(pattern, f_txt)
         if m:
-            # 額外清除殘留的前導冒號或空白（防禦性處理）
-            return re.sub(r'^[：:\s]+', '', m.group(1)).strip()
+            # 清除前導冒號／空白（如「住：福建省金門縣」格式）
+            cleaned = re.sub(r'^[：:\s]+', '', m.group(1)).strip()
+            return cleaned if cleaned else None
     return None
 
 

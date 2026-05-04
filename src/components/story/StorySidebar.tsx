@@ -60,7 +60,9 @@ export default function StorySidebar({ story, onClose, isOpen, onContribute }: S
           {/* twtjdb 自動匯入：精簡資料卡 */}
           {story.source === 'twtjdb' && story.twtjdb && (() => {
             const t = story.twtjdb;
-            const birthWestern = t.birth_year_roc ? t.birth_year_roc + 1911 : null;
+            // birth_year_roc 實際儲存西元年（來自 Excel birth_h 欄位）
+            const birthWestern = t.birth_year_roc ?? null;
+            const birthRoc = birthWestern ? birthWestern - 1911 : null;
             const judgmentWestern = t.judgment_year_roc ? t.judgment_year_roc + 1911 : null;
             return (
               <>
@@ -85,7 +87,7 @@ export default function StorySidebar({ story, onClose, isOpen, onContribute }: S
                     <tbody>
                       {[
                         ['性別', t.gender],
-                        ['出生年', birthWestern ? `民國${t.birth_year_roc}年（${birthWestern}年）` : null],
+                        ['出生年', birthRoc ? `民國${birthRoc}年（${birthWestern}年）` : null],
                         ['職業', t.occupation],
                         ['居住地（被捕前）', t.location_raw],
                       ].filter(([, v]) => v).map(([label, value]) => (
