@@ -75,14 +75,16 @@ def extract_residence(f_txt: str | None) -> str | None:
         return None
 
     # 優先比對「住○○縣/市」，再抓「籍設○○縣/市」
+    # 字元類別排除冒號（：:），避免抓到「住址：福建省金門縣」之類格式
     patterns = [
-        r"住([台臺]?灣?[省]?[^\s，。、（）()\d]{2,6}(?:縣|市))",
-        r"籍設([台臺]?灣?[省]?[^\s，。、（）()\d]{2,6}(?:縣|市))",
+        r"住([台臺]?灣?[省]?[^\s，。、（）():：\d]{2,6}(?:縣|市))",
+        r"籍設([台臺]?灣?[省]?[^\s，。、（）():：\d]{2,6}(?:縣|市))",
     ]
     for pattern in patterns:
         m = re.search(pattern, f_txt)
         if m:
-            return m.group(1).strip()
+            # 額外清除殘留的前導冒號或空白（防禦性處理）
+            return re.sub(r'^[：:\s]+', '', m.group(1)).strip()
     return None
 
 
@@ -97,10 +99,18 @@ def geocode(raw_location: str | None) -> tuple[float, float] | None:
 
 
 def clean_name(name: str | None) -> str:
-    """保留主要姓名（頓號前），別名放到 aliases。"""
+    """保留主要姓名（頓號前），別名放到 aliases。
+    清除規則：
+    - 「空格＋中文數字」（如 " 一" " 二"）→ 案件序號，移除
+    - 末尾阿拉伯數字（如 "陳光榮1"）→ 案件序號，移除
+    - 中文數字在姓名中間或末尾無空格（如林守一、繆一良）→ 保留
+    """
     if not name:
         return ""
-    return str(name).split("、")[0].strip().split(" ")[0].strip()
+    primary = str(name).split("、")[0].strip()
+    primary = primary.split(" ")[0].strip()          # 移除「空格＋任何後綴」
+    primary = re.sub(r'\d+$', '', primary).strip()   # 移除末尾阿拉伯數字
+    return primary
 
 
 def extract_aliases(name: str | None) -> list[str]:
