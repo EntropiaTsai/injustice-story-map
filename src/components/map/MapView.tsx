@@ -229,7 +229,7 @@ export default function MapView({ stories, onStorySelect, selectedStoryId }: Map
           <span className="text-gray-700">其他</span>
         </div>
         <div className="border-t border-gray-200 mt-2 pt-2 flex items-center gap-2 text-sm">
-          <div className="w-4 h-4 rounded-full flex-shrink-0 border-2 border-white" style={{backgroundColor:'#3b82f6', outline:'2px solid white', outlineOffset:'2px'}}></div>
+          
           <span className="text-gray-500 text-xs">● 基本紀錄（僅知人物與地點）</span>
           <span className="text-gray-500 text-xs">➝ 完整事件（含歷史敘述）</span>
         </div>
