@@ -149,6 +149,7 @@ export default function MapView({ stories, onStorySelect, selectedStoryId }: Map
             key={story.id}
             position={[story.lat, story.lng]}
             icon={createCustomIcon(story.id === selectedStoryId, story.source)}
+            zIndexOffset={1000}
             eventHandlers={{ click: () => onStorySelect(story) }}
           >
             <Popup>
