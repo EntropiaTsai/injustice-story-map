@@ -26,8 +26,8 @@ function jitter(id: string): [number, number] {
   for (const c of id) {
     h = (Math.imul(31, h) + c.charCodeAt(0)) | 0;
   }
-  const lat = ((h & 0xffff) / 0xffff - 0.5) * 0.22;
-  const lng = (((h >> 16) & 0xffff) / 0xffff - 0.5) * 0.28;
+  const lat = ((h & 0xffff) / 0xffff - 0.5) * 0.06;
+  const lng = (((h >> 16) & 0xffff) / 0xffff - 0.5) * 0.08;
   return [lat, lng];
 }
 
