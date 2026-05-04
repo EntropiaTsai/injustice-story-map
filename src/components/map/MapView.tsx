@@ -226,7 +226,7 @@ export default function MapView({ stories, onStorySelect, selectedStoryId }: Map
         </div>
         <div className="flex items-center gap-2 text-sm mt-1">
           <div className="w-3 h-3 rounded-full flex-shrink-0" style={{backgroundColor:'#6b7280'}}></div>
-          <span className="text-gray-700">刑罰不明</span>
+          <span className="text-gray-700">其他</span>
         </div>
         <div className="border-t border-gray-200 mt-2 pt-2 flex items-center gap-2 text-sm">
           <div className="w-4 h-4 rounded-full flex-shrink-0 border-2 border-white" style={{backgroundColor:'#3b82f6', outline:'2px solid white', outlineOffset:'2px'}}></div>
