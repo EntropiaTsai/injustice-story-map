@@ -1,4 +1,5 @@
-import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
+import { useState, useCallback } from 'react';
+import { MapContainer, TileLayer, Marker, Popup, useMap, useMapEvents } from 'react-leaflet';
 import MarkerClusterGroup from 'react-leaflet-cluster';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
@@ -94,19 +95,29 @@ interface MapViewProps {
 // 地圖控制組件 - 用於在選擇故事時移動地圖視圖
 function MapController({ selectedStory }: { selectedStory: StoryLocation | null }) {
   const map = useMap();
-  
+
   if (selectedStory) {
     map.flyTo([selectedStory.lat, selectedStory.lng], 13, {
       duration: 1.5
     });
   }
-  
+
+  return null;
+}
+
+// 偵測縮放層級，用於控制縣市層級資料的顯示
+function ZoomTracker({ onZoomChange }: { onZoomChange: (zoom: number) => void }) {
+  useMapEvents({
+    zoomend: (e) => onZoomChange(e.target.getZoom()),
+  });
   return null;
 }
 
 export default function MapView({ stories, onStorySelect, selectedStoryId }: MapViewProps) {
   const currentMapStyle: MapStyleKey = 'vintage'; // 固定使用懷舊風格
-  
+  const [mapZoom, setMapZoom] = useState(8);
+  const handleZoomChange = useCallback((zoom: number) => setMapZoom(zoom), []);
+
   const taiwanCenter: [number, number] = [23.5, 121];
   const selectedStory = stories.find(s => s.id === selectedStoryId);
   const selectedStyle = mapStyles[currentMapStyle];
@@ -168,38 +179,41 @@ export default function MapView({ stories, onStorySelect, selectedStoryId }: Map
           </Marker>
         ))}
 
-        {/* 資料庫紀錄：縣市層級座標，群集顯示 */}
-        <MarkerClusterGroup
-          iconCreateFunction={createClusterIcon}
-          maxClusterRadius={60}
-          spiderfyOnMaxZoom={true}
-          showCoverageOnHover={false}
-          chunkedLoading
-        >
-          {stories.filter(s => s.source === 'twtjdb').map((story) => (
-            <Marker
-              key={story.id}
-              position={[story.lat, story.lng]}
-              icon={createCustomIcon(story.id === selectedStoryId, story.source)}
-              eventHandlers={{ click: () => onStorySelect(story) }}
-            >
-              <Popup>
-                <div className="p-2">
-                  <h3 className="font-bold text-base mb-1">{story.victimName}</h3>
-                  <p className="text-xs text-gray-500 mb-1">{story.twtjdb?.location_raw} · {story.year}</p>
-                  <p className="text-sm mb-2">{story.summary}</p>
-                  <button
-                    onClick={() => onStorySelect(story)}
-                    className="text-amber-700 hover:text-amber-900 text-sm font-medium"
-                  >
-                    查看資料 →
-                  </button>
-                </div>
-              </Popup>
-            </Marker>
-          ))}
-        </MarkerClusterGroup>
-        
+        {/* 資料庫紀錄：縣市層級座標，群集顯示；放大至街道層級後隱藏（精度不足） */}
+        {mapZoom < 13 && (
+          <MarkerClusterGroup
+            iconCreateFunction={createClusterIcon}
+            maxClusterRadius={60}
+            spiderfyOnMaxZoom={true}
+            showCoverageOnHover={false}
+            chunkedLoading
+          >
+            {stories.filter(s => s.source === 'twtjdb').map((story) => (
+              <Marker
+                key={story.id}
+                position={[story.lat, story.lng]}
+                icon={createCustomIcon(story.id === selectedStoryId, story.source)}
+                eventHandlers={{ click: () => onStorySelect(story) }}
+              >
+                <Popup>
+                  <div className="p-2">
+                    <h3 className="font-bold text-base mb-1">{story.victimName}</h3>
+                    <p className="text-xs text-gray-500 mb-1">{story.twtjdb?.location_raw} · {story.year}</p>
+                    <p className="text-sm mb-2">{story.summary}</p>
+                    <button
+                      onClick={() => onStorySelect(story)}
+                      className="text-amber-700 hover:text-amber-900 text-sm font-medium"
+                    >
+                      查看資料 →
+                    </button>
+                  </div>
+                </Popup>
+              </Marker>
+            ))}
+          </MarkerClusterGroup>
+        )}
+
+        <ZoomTracker onZoomChange={handleZoomChange} />
         <MapController selectedStory={selectedStory || null} />
       </MapContainer>
 
@@ -211,8 +225,8 @@ export default function MapView({ stories, onStorySelect, selectedStoryId }: Map
           <span className="text-gray-700">故事地點</span>
         </div>
         <div className="flex items-center gap-2 text-sm mt-2">
-          <div className="w-3 h-3 rounded-full bg-amber-600 border-2 border-white"></div>
-          <span className="text-gray-700">資料庫紀錄（待補）</span>
+          <div className="w-3 h-3 rounded-full bg-amber-600 border-2 border-white flex-shrink-0"></div>
+          <span className="text-gray-700">資料庫紀錄（縮小地圖可見）</span>
         </div>
         <div className="flex items-center gap-2 text-sm mt-2">
           <div className="w-4 h-4 rounded-full bg-red-600 border-2 border-white"></div>
