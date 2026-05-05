@@ -149,32 +149,7 @@ export default function MapView({ stories, onStorySelect, selectedStoryId }: Map
           }
         `}</style>
         
-        {/* 手工策展故事：精確地點，永遠以個別標記顯示，不進群集 */}
-        {stories.filter(s => s.source !== 'twtjdb').map((story) => (
-          <Marker
-            key={story.id}
-            position={[story.lat, story.lng]}
-            icon={createCustomIcon(story.id === selectedStoryId, story.penaltyLevel as PenaltyLevel, true)}
-            zIndexOffset={1000}
-            eventHandlers={{ click: () => onStorySelect(story) }}
-          >
-            <Popup>
-              <div className="p-2">
-                <h3 className="font-bold text-lg mb-1">{story.name}</h3>
-                <p className="text-sm text-gray-600 mb-2">{story.victimName}</p>
-                <p className="text-sm mb-2">{story.summary}</p>
-                <button
-                  onClick={() => onStorySelect(story)}
-                  className="text-blue-600 hover:text-blue-800 text-sm font-medium"
-                >
-                  查看完整故事 →
-                </button>
-              </div>
-            </Popup>
-          </Marker>
-        ))}
-
-        {/* 資料庫紀錄：縣市層級座標加隨機偏移，群集顯示 */}
+        {/* 全部標記統一進群集：策展故事用箭頭，資料庫紀錄用圓點 */}
         <MarkerClusterGroup
           iconCreateFunction={createClusterIcon}
           maxClusterRadius={60}
@@ -182,28 +157,45 @@ export default function MapView({ stories, onStorySelect, selectedStoryId }: Map
           showCoverageOnHover={false}
           chunkedLoading
         >
-          {stories.filter(s => s.source === 'twtjdb').map((story) => (
-            <Marker
-              key={story.id}
-              position={[story.lat, story.lng]}
-              icon={createCustomIcon(story.id === selectedStoryId, story.penaltyLevel as PenaltyLevel, false)}
-              eventHandlers={{ click: () => onStorySelect(story) }}
-            >
-              <Popup>
-                <div className="p-2">
-                  <h3 className="font-bold text-base mb-1">{story.victimName}</h3>
-                  <p className="text-xs text-gray-500 mb-1">{story.twtjdb?.location_raw} · {story.year}</p>
-                  <p className="text-sm mb-2">{story.summary}</p>
-                  <button
-                    onClick={() => onStorySelect(story)}
-                    className="text-amber-700 hover:text-amber-900 text-sm font-medium"
-                  >
-                    查看資料 →
-                  </button>
-                </div>
-              </Popup>
-            </Marker>
-          ))}
+          {stories.map((story) => {
+            const isCurated = story.source !== 'twtjdb';
+            return (
+              <Marker
+                key={story.id}
+                position={[story.lat, story.lng]}
+                icon={createCustomIcon(story.id === selectedStoryId, story.penaltyLevel as PenaltyLevel, isCurated)}
+                eventHandlers={{ click: () => onStorySelect(story) }}
+              >
+                <Popup>
+                  <div className="p-2">
+                    <h3 className="font-bold text-base mb-1">{story.victimName}</h3>
+                    {isCurated ? (
+                      <>
+                        <p className="text-sm mb-2">{story.summary}</p>
+                        <button
+                          onClick={() => onStorySelect(story)}
+                          className="text-blue-600 hover:text-blue-800 text-sm font-medium"
+                        >
+                          查看完整故事 →
+                        </button>
+                      </>
+                    ) : (
+                      <>
+                        <p className="text-xs text-gray-500 mb-1">{story.twtjdb?.location_raw} · {story.year}</p>
+                        <p className="text-sm mb-2">{story.summary}</p>
+                        <button
+                          onClick={() => onStorySelect(story)}
+                          className="text-amber-700 hover:text-amber-900 text-sm font-medium"
+                        >
+                          查看資料 →
+                        </button>
+                      </>
+                    )}
+                  </div>
+                </Popup>
+              </Marker>
+            );
+          })}
         </MarkerClusterGroup>
 
         <MapController selectedStory={selectedStory || null} />

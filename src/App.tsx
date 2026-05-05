@@ -11,20 +11,7 @@ import type { StoryLocation } from './types';
 function App() {
   const { data: twtjdbStories } = useTwtjdbData();
   const allStories = useMemo(() => {
-    // 若 twtjdb 記錄與手工標記距離太近，整組推離，避免群集泡泡蓋住精確地點
-    const THRESHOLD = 0.20; // ~22km：判定「太近」的範圍
-    const PUSH = 0.04;      // ~4km：視覺上錯開即可
-    const adjusted = twtjdbStories.map(story => {
-      const near = storyData.find(
-        c => Math.hypot(c.lat - story.lat, c.lng - story.lng) < THRESHOLD
-      );
-      if (!near) return story;
-      const dlat = story.lat - near.lat;
-      const dlng = story.lng - near.lng;
-      const dist = Math.hypot(dlat, dlng) || 0.001;
-      return { ...story, lat: story.lat + (dlat / dist) * PUSH, lng: story.lng + (dlng / dist) * PUSH };
-    });
-    return [...storyData, ...adjusted];
+    return [...storyData, ...twtjdbStories];
   }, [twtjdbStories]);
 
   const [selectedStory, setSelectedStory] = useState<StoryLocation | null>(null);

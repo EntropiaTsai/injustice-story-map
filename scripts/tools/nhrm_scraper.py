@@ -1,12 +1,12 @@
 """
-國家人權記憶庫 Playwright 爬蟲工具。
+國家人權記憶庫爬蟲工具。
+
+- search_person：用 Playwright 搜尋（搜尋頁需 JS 渲染）
+- get_person_detail：用 httpx 直接 GET HTML（detail 頁 SSR，無需瀏覽器）
 
 可獨立執行：
     python nhrm_scraper.py --name "蕭朝金"
     python nhrm_scraper.py --id 20608
-
-也可作為模組被 agent 匯入：
-    from tools.nhrm_scraper import search_person, get_person_detail
 """
 from __future__ import annotations
 
@@ -17,63 +17,70 @@ import sys
 from pathlib import Path
 from typing import Any
 
+import httpx
+
 BASE_URL = "https://memory.nhrm.gov.tw"
 SEARCH_URL = f"{BASE_URL}/FullSearch/FullSearch"
 DETAIL_URL = f"{BASE_URL}/TopicExploration/Person/Detail"
 
+_HEADERS = {
+    "User-Agent": (
+        "Mozilla/5.0 (compatible; injustice-story-map-research-bot/1.0; "
+        "+https://github.com/EntropiaTsai/injustice-story-map)"
+    ),
+    "Accept-Language": "zh-TW,zh;q=0.9",
+}
+
 
 async def search_person(name: str) -> list[dict[str, Any]]:
-    """以姓名搜尋，回傳候選人清單（含 id、姓名、出生年、簡介摘要）。"""
+    """以姓名搜尋，回傳候選人清單（含 id、link_text）。搜尋頁需 JS，用 Playwright。"""
     from playwright.async_api import async_playwright
 
     results: list[dict[str, Any]] = []
 
     async with async_playwright() as p:
         browser = await p.chromium.launch(headless=True)
-        page = await browser.new_page()
+        page = await browser.new_page(extra_http_headers=_HEADERS)
         await page.goto(f"{SEARCH_URL}?searchKeyword={name}", wait_until="domcontentloaded")
 
-        # 找所有指向 Person/Detail 的連結
         links = await page.eval_on_selector_all(
             "a[href*='/TopicExploration/Person/Detail/']",
             "els => els.map(el => ({ href: el.href, text: el.innerText.trim() }))",
         )
-
-        seen_ids: set[int] = set()
-        for link in links:
-            m = re.search(r"/Detail/(\d+)", link["href"])
-            if not m:
-                continue
-            pid = int(m.group(1))
-            if pid in seen_ids:
-                continue
-            seen_ids.add(pid)
-            results.append({"id": pid, "url": f"{DETAIL_URL}/{pid}", "link_text": link["text"]})
-
         await browser.close()
+
+    seen_ids: set[int] = set()
+    for link in links:
+        m = re.search(r"/Detail/(\d+)", link["href"])
+        if not m:
+            continue
+        pid = int(m.group(1))
+        if pid in seen_ids:
+            continue
+        seen_ids.add(pid)
+        results.append({"id": pid, "url": f"{DETAIL_URL}/{pid}", "link_text": link["text"]})
 
     return results
 
 
 async def get_person_detail(person_id: int) -> dict[str, Any]:
-    """取得特定人員的完整資料（姓名、出生年、籍貫、簡介、平復補償）。"""
-    from playwright.async_api import async_playwright
-
+    """取得特定人員完整資料。detail 頁是 SSR，用 httpx 輕量 GET 即可。"""
     url = f"{DETAIL_URL}/{person_id}"
 
-    async with async_playwright() as p:
-        browser = await p.chromium.launch(headless=True)
-        page = await browser.new_page()
-        await page.goto(url, wait_until="domcontentloaded")
+    async with httpx.AsyncClient(headers=_HEADERS, timeout=20, follow_redirects=True) as client:
+        resp = await client.get(url)
+        resp.raise_for_status()
+        html = resp.text
 
-        # 直接從頁面內嵌的 JS 物件取資料，不需解析 HTML
-        raw: dict | None = await page.evaluate(
-            "() => window.fullSearchViewModel ?? null"
-        )
-        await browser.close()
-
-    if not raw:
+    # 從 HTML 中擷取 window.fullSearchViewModel = {...}
+    m = re.search(r"window\.fullSearchViewModel\s*=\s*(\{.*?\});\s*\n", html, re.DOTALL)
+    if not m:
         return {"error": "找不到資料", "person_id": person_id, "url": url}
+
+    try:
+        raw = json.loads(m.group(1))
+    except json.JSONDecodeError as e:
+        return {"error": f"JSON 解析失敗：{e}", "person_id": person_id, "url": url}
 
     detail = raw.get("DetailViewModel", {})
     main = detail.get("Main") or {}
@@ -95,7 +102,7 @@ async def get_person_detail(person_id: int) -> dict[str, Any]:
     }
 
 
-# ── 同步包裝（供 agent function calling 使用）─────────────────────────────────
+# ── 同步包裝（供 agent 使用）──────────────────────────────────────────────────
 
 def search_person_sync(name: str) -> list[dict[str, Any]]:
     return asyncio.run(search_person(name))
