@@ -213,19 +213,19 @@ export default function MapView({ stories, onStorySelect, selectedStoryId }: Map
       <div className="absolute bottom-6 left-6 bg-white rounded-lg shadow-lg p-4 z-[1000]">
         <h4 className="font-bold text-sm mb-2 text-gray-900">圖例</h4>
         <div className="flex items-center gap-2 text-sm">
-          <div className="w-3 h-3 rounded-full flex-shrink-0" style={{backgroundColor:'#dc2626'}}></div>
+          <div className="w-3 h-3 flex-shrink-0" style={{backgroundColor:'#dc2626'}}></div>
           <span className="text-gray-700">死刑／槍決</span>
         </div>
         <div className="flex items-center gap-2 text-sm mt-1">
-          <div className="w-3 h-3 rounded-full flex-shrink-0" style={{backgroundColor:'#d97706'}}></div>
+          <div className="w-3 h-3 flex-shrink-0" style={{backgroundColor:'#d97706'}}></div>
           <span className="text-gray-700">有期徒刑 10 年以上</span>
         </div>
         <div className="flex items-center gap-2 text-sm mt-1">
-          <div className="w-3 h-3 rounded-full flex-shrink-0" style={{backgroundColor:'#3b82f6'}}></div>
+          <div className="w-3 h-3 flex-shrink-0" style={{backgroundColor:'#3b82f6'}}></div>
           <span className="text-gray-700">有期徒刑 10 年以下</span>
         </div>
         <div className="flex items-center gap-2 text-sm mt-1">
-          <div className="w-3 h-3 rounded-full flex-shrink-0" style={{backgroundColor:'#6b7280'}}></div>
+          <div className="w-3 h-3 flex-shrink-0" style={{backgroundColor:'#6b7280'}}></div>
           <span className="text-gray-700">其他</span>
         </div>
         <div className="border-t border-gray-200 mt-2 pt-2 flex items-center gap-2 text-sm">
