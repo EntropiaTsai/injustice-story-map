@@ -151,16 +151,28 @@ def _parse_detail_html(html: str, nhrm_id: int) -> dict[str, Any]:
         "url_green_island": main.get("URL_GreenIsland") or None,
         "url_jingmei": main.get("URL_Jingmei") or None,
         "introduction": intro_text,
+        "image_url": main.get("ImagePath") or None,
         "penalty": penalty_records,
         "twtjdb_ids": _extract_twtjdb_ids(penalty_list),
         "recoup": [r.get("RecoupAll") for r in recoup_list if r.get("RecoupAll")],
-        "cases": [                                     # 所屬案件
+        "cases": [
             {"id": t["K_Id"], "name": t["CName"]}
             for t in tag_list if t.get("Type") == "Event"
         ],
-        "related_persons": [                           # 同案相關人物
+        "related_persons": [
             {"nhrm_id": t["K_Id"], "name": t["CName"]}
             for t in tag_list if t.get("Type") == "Person"
+        ],
+        "documents": [                                 # 歷史文件（判決書、逮捕卡等掃描）
+            {
+                "doc_id": d.get("H_Main_Id"),
+                "title": d.get("Judg_Name"),
+                "authority": d.get("Authority") or None,
+                "related_persons": d.get("Related_Person") or None,
+                "date": d.get("Auth_Date") or None,
+                "image_url": d.get("OrlPath") or None,
+            }
+            for d in (detail.get("HistoricalSpaceList") or [])
         ],
     }
 
