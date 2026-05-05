@@ -111,6 +111,7 @@ def _parse_detail_html(html: str, nhrm_id: int) -> dict[str, Any]:
     main = detail.get("Main") or {}
     penalty_list = detail.get("Penalty") or []
     recoup_list = detail.get("Recoup") or []
+    tag_list = detail.get("TagResult") or []
 
     # 刑罰記錄（含 twtjdb_id）
     penalty_records = []
@@ -149,10 +150,18 @@ def _parse_detail_html(html: str, nhrm_id: int) -> dict[str, Any]:
         "place": main.get("Place") or None,          # 相關地點（關押地等）
         "url_green_island": main.get("URL_GreenIsland") or None,
         "url_jingmei": main.get("URL_Jingmei") or None,
-        "introduction": intro_text,                  # 傳記文字
+        "introduction": intro_text,
         "penalty": penalty_records,
-        "twtjdb_ids": _extract_twtjdb_ids(penalty_list),   # 跨資料庫連結
+        "twtjdb_ids": _extract_twtjdb_ids(penalty_list),
         "recoup": [r.get("RecoupAll") for r in recoup_list if r.get("RecoupAll")],
+        "cases": [                                     # 所屬案件
+            {"id": t["K_Id"], "name": t["CName"]}
+            for t in tag_list if t.get("Type") == "Event"
+        ],
+        "related_persons": [                           # 同案相關人物
+            {"nhrm_id": t["K_Id"], "name": t["CName"]}
+            for t in tag_list if t.get("Type") == "Person"
+        ],
     }
 
 
