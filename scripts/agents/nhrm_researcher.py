@@ -1,19 +1,24 @@
 """
 NHRM 研究 Agent：以 Gemini function calling 批次查詢國家人權記憶庫。
 
-用法：
+用法（單筆）：
     python nhrm_researcher.py --name "蕭朝金"
-    python nhrm_researcher.py --names "蕭朝金,湯德章,陳欽生"
-    python nhrm_researcher.py --jsonl persons.jsonl   # 每行 {"name": "..."} 的 jsonl
 
-輸出：JSONL 至 stdout，每行一筆結果。
+用法（批次，從 make_name_list.py 產生的 JSONL）：
+    python nhrm_researcher.py --jsonl names.jsonl --out results.jsonl
+
+--out 支援斷點續跑：已處理的 twtjdb_id 會自動跳過。
 """
 from __future__ import annotations
 
 import json
 import sys
+import time
 from pathlib import Path
 from typing import Any
+
+_MAX_RETRIES = 3
+_RETRY_DELAY = 15  # 秒
 
 from google import genai
 from google.genai import types
@@ -131,6 +136,25 @@ def research_person(name: str) -> dict[str, Any]:
         return {"found": False, "name": name, "raw": text}
 
 
+def _load_done_ids(out_path: Path) -> set[str]:
+    """從已存在的輸出檔讀取已處理的 twtjdb_id，用於斷點續跑。"""
+    done: set[str] = set()
+    if not out_path.exists():
+        return done
+    with open(out_path, encoding="utf-8") as f:
+        for line in f:
+            line = line.strip()
+            if not line:
+                continue
+            try:
+                row = json.loads(line)
+                if "twtjdb_id" in row:
+                    done.add(str(row["twtjdb_id"]))
+            except json.JSONDecodeError:
+                pass
+    return done
+
+
 # ── CLI ───────────────────────────────────────────────────────────────────────
 
 if __name__ == "__main__":
@@ -140,19 +164,68 @@ if __name__ == "__main__":
     group = parser.add_mutually_exclusive_group(required=True)
     group.add_argument("--name", help="查詢單一姓名")
     group.add_argument("--names", help="逗號分隔的多個姓名")
-    group.add_argument("--jsonl", help="JSONL 檔路徑，每行含 name 欄位")
+    group.add_argument("--jsonl", help="JSONL 檔路徑，每行含 name（與可選的 twtjdb_id）")
+    parser.add_argument("--out", help="輸出 JSONL 路徑（支援斷點續跑）")
+    parser.add_argument("--delay", type=float, default=2.0, help="每筆之間的延遲秒數（預設 2）")
     args = parser.parse_args()
 
-    names: list[str] = []
+    # 準備名單：list of {"name": str, "twtjdb_id": str | None}
+    rows: list[dict[str, Any]] = []
     if args.name:
-        names = [args.name]
+        rows = [{"name": args.name, "twtjdb_id": None}]
     elif args.names:
-        names = [n.strip() for n in args.names.split(",") if n.strip()]
+        rows = [{"name": n.strip(), "twtjdb_id": None} for n in args.names.split(",") if n.strip()]
     elif args.jsonl:
         with open(args.jsonl, encoding="utf-8") as f:
-            names = [json.loads(line)["name"] for line in f if line.strip()]
+            for line in f:
+                line = line.strip()
+                if not line:
+                    continue
+                obj = json.loads(line)
+                rows.append({"name": obj["name"], "twtjdb_id": obj.get("twtjdb_id")})
 
-    for n in names:
-        result = research_person(n)
-        print(json.dumps(result, ensure_ascii=False))
-        sys.stdout.flush()
+    # 斷點續跑
+    out_path = Path(args.out) if args.out else None
+    done_ids = _load_done_ids(out_path) if out_path else set()
+    if done_ids:
+        print(f"[resume] 已跳過 {len(done_ids)} 筆", file=sys.stderr)
+
+    out_file = open(out_path, "a", encoding="utf-8") if out_path else None
+
+    try:
+        for i, row in enumerate(rows):
+            tid = str(row["twtjdb_id"]) if row["twtjdb_id"] else None
+            if tid and tid in done_ids:
+                continue
+
+            print(f"[{i+1}/{len(rows)}] 查詢：{row['name']}", file=sys.stderr)
+            result = None
+            for attempt in range(1, _MAX_RETRIES + 1):
+                try:
+                    result = research_person(row["name"])
+                    break
+                except Exception as e:
+                    if attempt < _MAX_RETRIES:
+                        print(f"  [retry {attempt}/{_MAX_RETRIES}] {e}，{_RETRY_DELAY}s 後重試", file=sys.stderr)
+                        time.sleep(_RETRY_DELAY)
+                    else:
+                        print(f"  [error] 查詢失敗：{e}", file=sys.stderr)
+                        result = {"found": False, "name": row["name"], "error": str(e)}
+            if result is None:
+                result = {"found": False, "name": row["name"], "error": "unknown"}
+
+            if tid:
+                result["twtjdb_id"] = tid
+
+            line = json.dumps(result, ensure_ascii=False)
+            print(line)
+            sys.stdout.flush()
+            if out_file:
+                out_file.write(line + "\n")
+                out_file.flush()
+
+            if i < len(rows) - 1:
+                time.sleep(args.delay)
+    finally:
+        if out_file:
+            out_file.close()
