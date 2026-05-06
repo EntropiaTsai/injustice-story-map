@@ -5,11 +5,11 @@ import Header from './components/layout/Header';
 import AboutModal from './components/layout/AboutModal';
 import ContributeModal from './components/ContributeModal';
 import { storyData } from './data/stories';
-import { useTwtjdbData } from './hooks/useTwtjdbData';
+import { useNhrmData } from './hooks/useNhrmData';
 import type { StoryLocation } from './types';
 
 function App() {
-  const { data: twtjdbStories } = useTwtjdbData();
+  const { data: twtjdbStories } = useNhrmData();
   const allStories = useMemo(() => {
     return [...storyData, ...twtjdbStories];
   }, [twtjdbStories]);

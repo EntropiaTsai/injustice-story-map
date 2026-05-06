@@ -57,6 +57,191 @@ export default function StorySidebar({ story, onClose, isOpen, onContribute }: S
 
         {/* 內容區 */}
         <div className="p-6 md:p-8">
+          {/* NHRM 記錄 */}
+          {story.source === 'nhrm' && story.nhrm && (() => {
+            const n = story.nhrm;
+            const j = n.judgment;
+            const birthYear = n.birth_year ? `${n.birth_year}` : null;
+            const deathYear = n.death_year ? `${n.death_year}` : null;
+            const lifespan = birthYear && deathYear ? `${birthYear}–${deathYear}`
+              : birthYear ? `${birthYear}–`
+              : deathYear ? `–${deathYear}` : null;
+            const judgmentYear = j?.year_roc ? `民國 ${j.year_roc} 年（${j.year_roc + 1911} 年）` : null;
+            const locationHint: Record<string, string> = {
+              twtjdb: '被捕前居住地',
+              nhrm_city: '籍貫（縣市）',
+              nhrm_intro: '傳記文字推測',
+              native: '籍貫（省）',
+            };
+
+            return (
+              <>
+                {/* 標題區：照片 + 姓名 */}
+                <div className="flex items-start gap-4 mb-6">
+                  {n.image_url && (
+                    <img
+                      src={n.image_url}
+                      alt={story.name}
+                      className="w-24 h-24 object-cover rounded-lg shadow border border-gray-200 flex-shrink-0"
+                    />
+                  )}
+                  <div>
+                    <div className="mb-1">
+                      <span className="px-3 py-1 bg-stone-100 text-stone-700 rounded-full text-sm font-medium">
+                        {lifespan || story.year}
+                      </span>
+                    </div>
+                    <h2 className="text-3xl font-bold text-gray-900">{story.name}</h2>
+                    {n.nickname && <p className="text-sm text-gray-500 mt-0.5">又名 {n.nickname}</p>}
+                  </div>
+                </div>
+
+                {/* 案件 */}
+                {n.cases.length > 0 && (
+                  <div className="mb-4 flex flex-wrap gap-2">
+                    {n.cases.map(c => (
+                      <span key={c.id} className="px-3 py-1 bg-red-50 text-red-800 border border-red-200 rounded-full text-sm">
+                        {c.name}
+                      </span>
+                    ))}
+                  </div>
+                )}
+
+                {/* 傳記 */}
+                {n.introduction && (
+                  <div className="mb-6 text-gray-800 leading-relaxed text-[0.95rem] whitespace-pre-line">
+                    {n.introduction}
+                  </div>
+                )}
+
+                {/* 基本資料 */}
+                <div className="mb-6 rounded-lg border border-gray-200 overflow-hidden">
+                  <div className="bg-gray-50 px-4 py-2 border-b border-gray-200">
+                    <span className="text-sm font-semibold text-gray-600">基本資料</span>
+                  </div>
+                  <table className="w-full text-sm">
+                    <tbody>
+                      {[
+                        ['性別', n.gender],
+                        ['生年', birthYear],
+                        ['卒年', deathYear],
+                        ['籍貫', [n.province, n.city].filter(Boolean).join(' ')],
+                        ['相關地點', n.place],
+                        ['定位依據', n.location_source ? locationHint[n.location_source] : null],
+                      ].filter(([, v]) => v).map(([label, value]) => (
+                        <tr key={label as string} className="border-b border-gray-100 last:border-0">
+                          <td className="px-4 py-2 text-gray-500 w-28">{label}</td>
+                          <td className="px-4 py-2 text-gray-800">{value}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+
+                {/* 判決 */}
+                {j && (
+                  <div className="mb-6 rounded-lg border border-gray-200 overflow-hidden">
+                    <div className="bg-gray-50 px-4 py-2 border-b border-gray-200">
+                      <span className="text-sm font-semibold text-gray-600">終審判決</span>
+                    </div>
+                    <table className="w-full text-sm">
+                      <tbody>
+                        {[
+                          ['裁判機關', j.authority],
+                          ['裁判年度', judgmentYear],
+                          ['刑罰', j.penalty_text],
+                          ['組織', j.organization],
+                          ['死刑', j.has_death_penalty ? '是' : null],
+                          ['無期徒刑', j.has_life_sentence ? '是' : null],
+                        ].filter(([, v]) => v).map(([label, value]) => (
+                          <tr key={label as string} className="border-b border-gray-100 last:border-0">
+                            <td className="px-4 py-2 text-gray-500 w-28">{label}</td>
+                            <td className={`px-4 py-2 ${label === '死刑' || label === '無期徒刑' ? 'text-red-700 font-semibold' : 'text-gray-800'}`}>
+                              {value}
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                )}
+
+                {/* 平復補償 */}
+                {n.recoup.length > 0 && (
+                  <div className="mb-6">
+                    <h4 className="text-sm font-semibold text-gray-600 mb-2">平復補償</h4>
+                    <ul className="space-y-1">
+                      {n.recoup.map((r, i) => (
+                        <li key={i} className="text-sm text-gray-700 flex items-start gap-2">
+                          <span className="text-green-600 mt-0.5 flex-shrink-0">✓</span>
+                          <span>{r}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
+                {/* 同案相關人物 */}
+                {n.related_persons.length > 0 && (
+                  <div className="mb-6">
+                    <h4 className="text-sm font-semibold text-gray-600 mb-2">同案相關人物</h4>
+                    <div className="flex flex-wrap gap-2">
+                      {n.related_persons.map(p => (
+                        <span key={p.nhrm_id} className="px-2 py-1 bg-gray-100 text-gray-700 rounded text-sm">
+                          {p.name}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* 歷史文件 */}
+                {n.documents.length > 0 && (
+                  <div className="mb-6">
+                    <h4 className="text-sm font-semibold text-gray-600 mb-2">相關歷史文件（{n.documents.length} 份）</h4>
+                    <ul className="space-y-2">
+                      {n.documents.map((d, i) => (
+                        <li key={i} className="text-sm">
+                          {d.image_url ? (
+                            <a href={d.image_url} target="_blank" rel="noopener noreferrer"
+                              className="text-blue-600 hover:underline flex items-start gap-1">
+                              <span className="mt-0.5 flex-shrink-0">↗</span>
+                              <span>{d.title || '文件'}{d.date ? `（${d.date}）` : ''}</span>
+                            </a>
+                          ) : (
+                            <span className="text-gray-700">{d.title}</span>
+                          )}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
+                {/* 連結 */}
+                {n.nhrm_url && (
+                  <a href={n.nhrm_url} target="_blank" rel="noopener noreferrer"
+                    className="flex items-center gap-2 text-blue-600 hover:text-blue-800 hover:underline text-sm mb-6">
+                    <svg className="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                    國家人權記憶庫頁面
+                  </a>
+                )}
+
+                <div className="border-t border-gray-200 pt-6">
+                  <button onClick={handleContribute}
+                    className="w-full bg-green-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-green-700 transition-colors flex items-center justify-center gap-2 shadow-md">
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
+                    </svg>
+                    為這個故事補充資料
+                  </button>
+                  <p className="text-sm text-gray-500 text-center mt-2">如果您知道更多關於此人的故事，歡迎與我們分享</p>
+                </div>
+              </>
+            );
+          })()}
+
           {/* twtjdb 自動匯入：精簡資料卡 */}
           {story.source === 'twtjdb' && story.twtjdb && (() => {
             const t = story.twtjdb;

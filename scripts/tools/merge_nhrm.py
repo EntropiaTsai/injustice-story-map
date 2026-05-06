@@ -9,7 +9,8 @@
   4. twtjdb native_province/native_city（籍貫，最後手段）
 
 輸出：
-  data/processed/nhrm_merged.json
+  data/processed/nhrm_merged.json    全部 12,060 筆
+  public/data/nhrm_map_ready.json    僅有座標的筆數（供網頁使用）
 
 用法：
   python merge_nhrm.py
@@ -58,6 +59,43 @@ TAIWAN_LOCATIONS: dict[str, tuple[float, float]] = {
     "綠島":   (22.6607, 121.4920),
     "火燒島": (22.6607, 121.4920),
 }
+
+
+CHINESE_NUMS: dict[str, int] = {
+    '一': 1, '二': 2, '三': 3, '四': 4, '五': 5,
+    '六': 6, '七': 7, '八': 8, '九': 9, '十': 10,
+    '十一': 11, '十二': 12, '十三': 13, '十四': 14, '十五': 15,
+    '十六': 16, '十七': 17, '十八': 18, '十九': 19, '二十': 20,
+}
+
+
+def derive_penalty_level(judgment: dict | None, nhrm_penalty: list) -> str:
+    """從 twtjdb 判決或 NHRM 刑罰欄位推導刑罰等級。"""
+    # 優先用 twtjdb 結構化欄位
+    if judgment:
+        if judgment.get("has_death_penalty") or judgment.get("has_life_sentence"):
+            return "death"
+        text = str(judgment.get("penalty_text") or "")
+        if "死刑" in text:
+            return "death"
+        arabic = [int(m) for m in re.findall(r"有期徒刑(\d+)年", text)]
+        chinese = [v for k, v in CHINESE_NUMS.items() if f"有期徒刑{k}年" in text]
+        years = arabic + chinese
+        if years:
+            return "heavy" if max(years) >= 10 else "light"
+
+    # fallback：NHRM penalty term
+    for p in (nhrm_penalty or []):
+        term = (p.get("term") or "") + (p.get("penalty_text") or "")
+        if "死刑" in term or "無期" in term:
+            return "death"
+        arabic = [int(m) for m in re.findall(r"(\d+)年", term)]
+        chinese = [v for k, v in CHINESE_NUMS.items() if f"{k}年" in term]
+        years = arabic + chinese
+        if years:
+            return "heavy" if max(years) >= 10 else "light"
+
+    return "unknown"
 
 
 def geocode(text: str | None) -> tuple[float, float] | None:
@@ -174,6 +212,9 @@ def merge_one(nhrm: dict, twtjdb: dict[str, dict]) -> dict[str, Any]:
             "organization": j.get("organization"),
         }
 
+    nhrm_penalty = nhrm.get("penalty") or []
+    penalty_level = derive_penalty_level(judgment, nhrm_penalty)
+
     return {
         "nhrm_id": nhrm["nhrm_id"],
         "twtjdb_id": twtjdb_id,
@@ -189,10 +230,12 @@ def merge_one(nhrm: dict, twtjdb: dict[str, dict]) -> dict[str, Any]:
         "lng": lng,
         "location_source": location_source,
         "location_raw": location_raw,
+        "penalty_level": penalty_level,
         "image_url": nhrm.get("image_url"),
         "introduction": nhrm.get("introduction"),
         "nhrm_url": nhrm.get("url"),
         "judgment": judgment,
+        "nhrm_penalty": nhrm_penalty,
         "cases": nhrm.get("cases") or [],
         "related_persons": nhrm.get("related_persons") or [],
         "recoup": nhrm.get("recoup") or [],
@@ -239,20 +282,23 @@ def main(nhrm_path: Path, output_path: Path) -> None:
         else:
             stats["no_twtjdb_match"] += 1
 
-    output = {
-        "_meta": {
-            "nhrm_total": len(nhrm_records),
-            "valid": len(valid),
-            **stats,
-        },
-        "persons": persons,
-    }
+    meta = {"nhrm_total": len(nhrm_records), "valid": len(valid), **stats}
+    output = {"_meta": meta, "persons": persons}
 
     output_path.parent.mkdir(parents=True, exist_ok=True)
     with open(output_path, "w", encoding="utf-8") as f:
         json.dump(output, f, ensure_ascii=False, indent=2)
 
+    # 供網頁使用：只保留有座標的筆數
+    public_path = REPO / "public" / "data" / "nhrm_map_ready.json"
+    public_path.parent.mkdir(parents=True, exist_ok=True)
+    map_ready = [p for p in persons if p["lat"] is not None]
+    with open(public_path, "w", encoding="utf-8") as f:
+        json.dump({"_meta": {**meta, "map_ready": len(map_ready)}, "persons": map_ready},
+                  f, ensure_ascii=False)  # 不縮排，節省檔案大小
+
     print(f"\n完成 → {output_path}", file=sys.stderr)
+    print(f"       → {public_path} ({len(map_ready)} 筆)", file=sys.stderr)
     print(f"  有座標：{stats['with_coords']} 筆", file=sys.stderr)
     print(f"    來源 twtjdb：{stats['source_twtjdb']}", file=sys.stderr)
     print(f"    來源 NHRM city：{stats['source_nhrm_city']}", file=sys.stderr)
