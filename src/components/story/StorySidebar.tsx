@@ -1,5 +1,16 @@
 import type { StoryLocation } from '../../types';
 
+// 移除「歷年辦理匪案彙編：」書名前綴與開頭「匪」字，支援多組織（「、」分隔）
+function normalizeOrg(raw: string | null | undefined): string | null {
+  if (!raw) return null;
+  const parts = raw.split(/[、，,](?=歷年辦理匪案彙編)/);
+  const cleaned = parts.map(p =>
+    p.replace(/歷年辦理匪案彙編[：:]/g, '').replace(/^匪/, '')
+  );
+  const result = cleaned.join('、');
+  return result === '暫無資料' || result === '不詳' ? null : result;
+}
+
 interface StorySidebarProps {
   story: StoryLocation | null;
   onClose: () => void;
@@ -150,7 +161,7 @@ export default function StorySidebar({ story, onClose, isOpen, onContribute }: S
                           ['裁判機關', j.authority],
                           ['裁判年度', judgmentYear],
                           ['刑罰', j.penalty_text],
-                          ['組織', j.organization],
+                          ['組織', normalizeOrg(j.organization)],
                           ['死刑', j.has_death_penalty ? '是' : null],
                           ['無期徒刑', j.has_life_sentence ? '是' : null],
                         ].filter(([, v]) => v).map(([label, value]) => (
@@ -295,7 +306,7 @@ export default function StorySidebar({ story, onClose, isOpen, onContribute }: S
                         ['裁判機關', t.judgment_authority],
                         ['裁判年度', judgmentWestern ? `民國${t.judgment_year_roc}年（${judgmentWestern}年）` : null],
                         ['刑罰', t.penalty_text],
-                        ['組織', t.organization],
+                        ['組織', normalizeOrg(t.organization)],
                         ['死刑', t.has_death_penalty ? '是' : null],
                         ['無期徒刑', t.has_life_sentence ? '是' : null],
                       ].filter(([, v]) => v).map(([label, value]) => (
