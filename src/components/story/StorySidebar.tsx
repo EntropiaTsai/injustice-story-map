@@ -192,19 +192,27 @@ export default function StorySidebar({ story, onClose, isOpen, onContribute }: S
                   </div>
                 )}
 
-                {/* 同案相關人物 */}
-                {n.related_persons.length > 0 && (
-                  <div className="mb-6">
-                    <h4 className="text-sm font-semibold text-gray-600 mb-2">同案相關人物</h4>
-                    <div className="flex flex-wrap gap-2">
-                      {n.related_persons.map(p => (
-                        <span key={p.nhrm_id} className="px-2 py-1 bg-gray-100 text-gray-700 rounded text-sm">
-                          {p.name}
-                        </span>
-                      ))}
+                {/* 同案相關人物（依 nhrm_id 去重） */}
+                {n.related_persons.length > 0 && (() => {
+                  const seen = new Set<number>();
+                  const unique = n.related_persons.filter(p => {
+                    if (seen.has(p.nhrm_id)) return false;
+                    seen.add(p.nhrm_id);
+                    return true;
+                  });
+                  return (
+                    <div className="mb-6">
+                      <h4 className="text-sm font-semibold text-gray-600 mb-2">同案相關人物</h4>
+                      <div className="flex flex-wrap gap-2">
+                        {unique.map(p => (
+                          <span key={p.nhrm_id} className="px-2 py-1 bg-gray-100 text-gray-700 rounded text-sm">
+                            {p.name}
+                          </span>
+                        ))}
+                      </div>
                     </div>
-                  </div>
-                )}
+                  );
+                })()}
 
                 {/* 歷史文件 */}
                 {n.documents.length > 0 && (
