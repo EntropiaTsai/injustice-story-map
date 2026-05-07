@@ -14,7 +14,7 @@ interface NhrmPerson {
   place: string | null;
   lat: number;
   lng: number;
-  location_source: 'twtjdb' | 'nhrm_city' | 'nhrm_intro' | 'native';
+  location_source: 'twtjdb' | 'nhrm_city' | 'nhrm_place' | 'nhrm_intro' | 'native' | 'llm';
   location_raw: string | null;
   penalty_level: 'death' | 'heavy' | 'light' | 'unknown';
   image_url: string | null;

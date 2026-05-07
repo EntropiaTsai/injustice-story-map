@@ -40,7 +40,7 @@ export interface NhrmMeta {
   province: string | null;
   city: string | null;
   place: string | null;
-  location_source: 'twtjdb' | 'nhrm_city' | 'nhrm_intro' | 'native' | null;
+  location_source: 'twtjdb' | 'nhrm_city' | 'nhrm_place' | 'nhrm_intro' | 'native' | 'llm' | null;
   image_url: string | null;
   introduction: string | null;
   nhrm_url: string | null;
