@@ -1,0 +1,449 @@
+{"nhrm_id": 26, "location_raw": null, "lat": null, "lng": null}
+{"nhrm_id": 151, "location_raw": "漁翁島", "lat": null, "lng": null}
+{"nhrm_id": 370, "location_raw": "臺灣大學", "lat": null, "lng": null}
+{"nhrm_id": 467, "location_raw": null, "lat": null, "lng": null}
+{"nhrm_id": 482, "location_raw": null, "lat": null, "lng": null}
+{"nhrm_id": 1395, "location_raw": null, "lat": null, "lng": null}
+{"nhrm_id": 1936, "location_raw": null, "lat": null, "lng": null}
+{"nhrm_id": 2039, "location_raw": null, "lat": null, "lng": null}
+{"nhrm_id": 2428, "location_raw": null, "lat": null, "lng": null}
+{"nhrm_id": 3711, "location_raw": null, "lat": null, "lng": null}
+{"nhrm_id": 3720, "location_raw": null, "lat": null, "lng": null}
+{"nhrm_id": 4480, "location_raw": null, "lat": null, "lng": null}
+{"nhrm_id": 4755, "location_raw": null, "lat": null, "lng": null}
+{"nhrm_id": 4820, "location_raw": null, "lat": null, "lng": null}
+{"nhrm_id": 5341, "location_raw": null, "lat": null, "lng": null}
+{"nhrm_id": 5364, "location_raw": null, "lat": null, "lng": null}
+{"nhrm_id": 5477, "location_raw": null, "lat": null, "lng": null}
+{"nhrm_id": 5596, "location_raw": null, "lat": null, "lng": null}
+{"nhrm_id": 5713, "location_raw": null, "lat": null, "lng": null}
+{"nhrm_id": 5719, "location_raw": null, "lat": null, "lng": null}
+{"nhrm_id": 5789, "location_raw": null, "lat": null, "lng": null}
+{"nhrm_id": 5945, "location_raw": null, "lat": null, "lng": null}
+{"nhrm_id": 5967, "location_raw": null, "lat": null, "lng": null}
+{"nhrm_id": 5978, "location_raw": "鹿港", "lat": null, "lng": null}
+{"nhrm_id": 5989, "location_raw": null, "lat": null, "lng": null}
+{"nhrm_id": 5996, "location_raw": null, "lat": null, "lng": null}
+{"nhrm_id": 6296, "location_raw": null, "lat": null, "lng": null}
+{"nhrm_id": 1, "location_raw": null, "lat": null, "lng": null}
+{"nhrm_id": 25, "location_raw": null, "lat": null, "lng": null}
+{"nhrm_id": 30, "location_raw": null, "lat": null, "lng": null}
+{"nhrm_id": 49, "location_raw": null, "lat": null, "lng": null}
+{"nhrm_id": 76, "location_raw": null, "lat": null, "lng": null}
+{"nhrm_id": 1, "location_raw": "陸軍第八十一師", "lat": null, "lng": null}
+{"nhrm_id": 25, "location_raw": null, "lat": null, "lng": null}
+{"nhrm_id": 30, "location_raw": null, "lat": null, "lng": null}
+{"nhrm_id": 49, "location_raw": null, "lat": null, "lng": null}
+{"nhrm_id": 76, "location_raw": null, "lat": null, "lng": null}
+{"nhrm_id": 14131, "location_raw": "大武測候所", "lat": 22.3557, "lng": 120.8948}
+{"nhrm_id": 20179, "location_raw": "溪洲農會", "lat": 23.8586, "lng": 120.4913}
+{"nhrm_id": 11120, "location_raw": "林內鄉", "lat": 23.7613, "lng": 120.6053}
+{"nhrm_id": 18688, "location_raw": "八里坌碼頭", "lat": 25.1432, "lng": 121.4004}
+{"nhrm_id": 7505, "location_raw": "玉山林場", "lat": 23.4801, "lng": 120.4491}
+{"nhrm_id": 8579, "location_raw": "臺灣廣播公司", "lat": 25.0459, "lng": 121.5249}
+{"nhrm_id": 16061, "location_raw": "臺灣廣播電臺", "lat": 25.0459, "lng": 121.5249}
+{"nhrm_id": 15932, "location_raw": "行政長官公署", "lat": 25.0437, "lng": 121.5073}
+{"nhrm_id": 16759, "location_raw": "行政長官公署", "lat": 25.0437, "lng": 121.5073}
+{"nhrm_id": 20505, "location_raw": "淡江中學", "lat": 25.1711, "lng": 121.4497}
+{"nhrm_id": 22306, "location_raw": "淡江中學", "lat": 25.1711, "lng": 121.4497}
+{"nhrm_id": 6548, "location_raw": "後龍車站", "lat": 24.6216, "lng": 120.7959}
+{"nhrm_id": 7655, "location_raw": "松山煙廠", "lat": 25.0511, "lng": 121.5776}
+{"nhrm_id": 13150, "location_raw": "松山煙廠", "lat": 25.0511, "lng": 121.5776}
+{"nhrm_id": 13162, "location_raw": "松山菸廠", "lat": 25.0511, "lng": 121.5776}
+{"nhrm_id": 15521, "location_raw": "松山菸廠", "lat": 25.0511, "lng": 121.5776}
+{"nhrm_id": 6688, "location_raw": "松山倉庫", "lat": 25.0511, "lng": 121.5776}
+{"nhrm_id": 6930, "location_raw": "灣裡糖廠", "lat": 22.9587, "lng": 120.2068}
+{"nhrm_id": 15241, "location_raw": "灣裡糖廠", "lat": 22.9587, "lng": 120.2068}
+{"nhrm_id": 22307, "location_raw": "灣裡糖廠", "lat": 22.9587, "lng": 120.2068}
+{"nhrm_id": 6778, "location_raw": "八堵火車站", "lat": 25.0795, "lng": 121.6899}
+{"nhrm_id": 8606, "location_raw": "八堵火車站", "lat": 25.0795, "lng": 121.6899}
+{"nhrm_id": 9746, "location_raw": "八堵火車站", "lat": 25.0795, "lng": 121.6899}
+{"nhrm_id": 12891, "location_raw": "八堵車站", "lat": 25.0795, "lng": 121.6899}
+{"nhrm_id": 15577, "location_raw": "八堵火車站", "lat": 25.0795, "lng": 121.6899}
+{"nhrm_id": 18615, "location_raw": "八堵火車站", "lat": 25.0795, "lng": 121.6899}
+{"nhrm_id": 20126, "location_raw": "八堵火車站", "lat": 25.0795, "lng": 121.6899}
+{"nhrm_id": 21109, "location_raw": "八堵火車站", "lat": 25.0795, "lng": 121.6899}
+{"nhrm_id": 22112, "location_raw": "八堵車站", "lat": 25.0795, "lng": 121.6899}
+{"nhrm_id": 9963, "location_raw": "八堵火車站", "lat": 25.0795, "lng": 121.6899}
+{"nhrm_id": 8142, "location_raw": "瑞芳鎮", "lat": 25.1093, "lng": 121.8066}
+{"nhrm_id": 13921, "location_raw": "瑞芳", "lat": 25.1093, "lng": 121.8066}
+{"nhrm_id": 9777, "location_raw": "臺灣鋼鐵公司", "lat": 25.0628, "lng": 121.5118}
+{"nhrm_id": 22302, "location_raw": "臺灣省通運公司", "lat": 25.033, "lng": 121.5654}
+{"nhrm_id": 17186, "lat": 25.0499, "lng": 121.5251, "location_raw": "建國中學", "source": "manual"}
+{"nhrm_id": 14573, "lat": 25.0499, "lng": 121.5251, "location_raw": "建國中學", "source": "manual"}
+{"nhrm_id": 14574, "lat": 25.0499, "lng": 121.5251, "location_raw": "建國中學", "source": "manual"}
+{"nhrm_id": 12043, "lat": 24.7964, "lng": 120.9966, "location_raw": "清華大學後山防空洞", "source": "manual"}
+{"nhrm_id": 12091, "lat": 22.6385, "lng": 120.2751, "location_raw": "壽山看守所", "source": "manual"}
+{"nhrm_id": 10740, "lat": 24.1477, "lng": 120.6736, "location_raw": "二七部隊台中", "source": "manual"}
+{"nhrm_id": 13550, "lat": 23.9769, "lng": 121.6046, "location_raw": "臺灣省東部警備區司令部", "source": "manual"}
+{"nhrm_id": 21946, "lat": 23.9769, "lng": 121.6046, "location_raw": "臺灣省東部警備區司令部", "source": "manual"}
+{"nhrm_id": 16674, "lat": 23.9769, "lng": 121.6046, "location_raw": "臺灣省東部綏靖區司令部", "source": "manual"}
+{"nhrm_id": 16580, "lat": 24.6894, "lng": 121.081, "location_raw": "竹東", "source": "manual"}
+{"nhrm_id": 17962, "lat": 23.752, "lng": 120.6885, "location_raw": "竹山鎮", "source": "manual"}
+{"nhrm_id": 14365, "lat": 23.574, "lng": 120.553, "location_raw": "嘉義梅山小梅", "source": "manual"}
+{"nhrm_id": 20393, "lat": 23.4611, "lng": 120.2463, "location_raw": "朴子鎮", "source": "manual"}
+{"nhrm_id": 22113, "lat": 23.5681, "lng": 120.3018, "location_raw": "北港與新港區界", "source": "manual"}
+{"nhrm_id": 18892, "lat": 22.6271, "lng": 120.2875, "location_raw": "臺灣水泥鼓山廠", "source": "manual"}
+{"nhrm_id": 6616, "lat": 25.0623, "lng": 121.5441, "location_raw": "私立開南商工職業學校", "source": "manual"}
+{"nhrm_id": 7322, "lat": 24.8765, "lng": 121.8493, "location_raw": "烏石鼻", "source": "manual"}
+{"nhrm_id": 11479, "lat": 23.5436, "lng": 120.3481, "location_raw": "新港測候所", "source": "manual"}
+{"nhrm_id": 52, "lat": 22.6607, "lng": 121.492, "location_raw": "原臺灣省保安司令部新生訓導處（綠島）、原臺灣省生產教育實驗所（土城清水）", "source": "case_inherit:吳石等叛亂案"}
+{"nhrm_id": 356, "lat": 22.6607, "lng": 121.492, "location_raw": "原臺灣省保安司令部新生訓導處（綠島）、原臺灣省生產教育實驗所（土城清水）", "source": "case_inherit:吳石等叛亂案"}
+{"nhrm_id": 550, "lat": 22.6607, "lng": 121.492, "location_raw": "原臺灣省保安司令部新生訓導處（綠島）、原臺灣省生產教育實驗所（土城清水）", "source": "case_inherit:吳石等叛亂案"}
+{"nhrm_id": 2691, "lat": 22.6607, "lng": 121.492, "location_raw": "原臺灣省保安司令部新生訓導處（綠島）、國防部泰源感訓監獄、國防部臺灣軍人監獄", "source": "case_inherit:中共中央社會部潛臺共諜陸效文等叛亂案"}
+{"nhrm_id": 3256, "lat": 24.9984, "lng": 121.5415, "location_raw": "軍法處看守所", "source": "case_inherit:國防部參議李玉堂中將案"}
+{"nhrm_id": 6015, "lat": 22.6607, "lng": 121.492, "location_raw": "原臺灣省保安司令部新生訓導處（綠島）", "source": "case_inherit:菲律賓華僑于氏兄弟案"}
+{"nhrm_id": 6016, "lat": 22.6607, "lng": 121.492, "location_raw": "原臺灣省保安司令部新生訓導處（綠島）", "source": "case_inherit:菲律賓華僑于氏兄弟案"}
+{"nhrm_id": 6866, "lat": 22.6607, "lng": 121.492, "location_raw": "原臺灣省保安司令部新生訓導處（綠島）、原臺灣省生產教育實驗所（土城清水）", "source": "case_inherit:吳石等叛亂案"}
+{"nhrm_id": 7112, "lat": 24.9984, "lng": 121.5415, "location_raw": "軍法處看守所", "source": "case_inherit:共諜趙洪自首案"}
+{"nhrm_id": 7164, "lat": 22.6233, "lng": 120.2724, "location_raw": "海軍軍官學校", "source": "case_inherit:海軍官校校長魏濟民等案"}
+{"nhrm_id": 7223, "lat": 24.9984, "lng": 121.5415, "location_raw": "軍法處看守所", "source": "case_inherit:蘇藝林案"}
+{"nhrm_id": 7239, "lat": 24.9984, "lng": 121.5415, "location_raw": "軍法處看守所", "source": "case_inherit:接29號艦管訓案"}
+{"nhrm_id": 7334, "lat": 24.9984, "lng": 121.5415, "location_raw": "軍法處看守所", "source": "case_inherit:蘇藝林案"}
+{"nhrm_id": 7601, "lat": 24.9984, "lng": 121.5415, "location_raw": "軍法處看守所、憲兵第8團", "source": "case_inherit:臺灣民主自治聯盟林正亨等案"}
+{"nhrm_id": 7779, "lat": 24.9984, "lng": 121.5415, "location_raw": "軍法處看守所", "source": "case_inherit:蘇藝林案"}
+{"nhrm_id": 8193, "lat": 25.0437, "lng": 121.5073, "location_raw": "臺灣省保安司令部", "source": "case_inherit:林元枝事件"}
+{"nhrm_id": 8412, "lat": 24.9984, "lng": 121.5415, "location_raw": "軍法處看守所", "source": "case_inherit:海軍鮑一民等共諜案"}
+{"nhrm_id": 8723, "lat": 22.6607, "lng": 121.492, "location_raw": "原臺灣省保安司令部新生訓導處（綠島）、國防部臺灣軍人監獄", "source": "case_inherit:貝萊與杜麟文等案"}
+{"nhrm_id": 9053, "lat": 22.6607, "lng": 121.492, "location_raw": "原臺灣省保安司令部新生訓導處（綠島）", "source": "case_inherit:海軍美頌軍艦毛却非等案"}
+{"nhrm_id": 9054, "lat": 22.6607, "lng": 121.492, "location_raw": "原臺灣省保安司令部新生訓導處（綠島）", "source": "case_inherit:海軍美頌軍艦毛却非等案"}
+{"nhrm_id": 9324, "lat": 24.9984, "lng": 121.5415, "location_raw": "軍法處看守所", "source": "case_inherit:蘇藝林案"}
+{"nhrm_id": 9547, "lat": 22.6607, "lng": 121.492, "location_raw": "原臺灣省保安司令部新生訓導處（綠島）、國防部臺灣軍人監獄", "source": "case_inherit:中華民國海軍白色恐怖事件"}
+{"nhrm_id": 9629, "lat": 24.9984, "lng": 121.5415, "location_raw": "軍法處看守所", "source": "case_inherit:蘇藝林案"}
+{"nhrm_id": 9780, "lat": 25.033, "lng": 121.5654, "location_raw": "國防部軍法局、臺北憲兵隊", "source": "case_inherit:陸軍段澐等案"}
+{"nhrm_id": 9907, "lat": 24.9984, "lng": 121.5415, "location_raw": "軍法處看守所", "source": "case_inherit:海軍鮑一民等共諜案"}
+{"nhrm_id": 10139, "lat": 22.6607, "lng": 121.492, "location_raw": "原臺灣省保安司令部新生訓導處（綠島）", "source": "case_inherit:高雄煉油廠支部周清連等案"}
+{"nhrm_id": 10495, "lat": 25.1276, "lng": 121.7392, "location_raw": "基隆", "source": "case_inherit:橋仔頭糖廠支部李東鍊等案"}
+{"nhrm_id": 11063, "lat": 22.6607, "lng": 121.492, "location_raw": "國防部臺灣軍人監獄、原國防部綠島感訓監獄、臺灣綠島監獄", "source": "case_inherit:高雄事件(美麗島事件)"}
+{"nhrm_id": 11161, "lat": 24.9984, "lng": 121.5415, "location_raw": "軍法處看守所", "source": "case_inherit:共諜趙洪自首案"}
+{"nhrm_id": 11646, "lat": 25.1711, "lng": 121.4497, "location_raw": "淡水", "source": "case_inherit:陳中統案"}
+{"nhrm_id": 11896, "lat": 25.033, "lng": 121.5654, "location_raw": "國防部軍法局、臺北憲兵隊", "source": "case_inherit:陸軍段澐等案"}
+{"nhrm_id": 11980, "lat": 24.9984, "lng": 121.5415, "location_raw": "軍法處看守所", "source": "case_inherit:蘇藝林案"}
+{"nhrm_id": 12019, "lat": 24.9984, "lng": 121.5415, "location_raw": "軍法處看守所", "source": "case_inherit:蘇藝林案"}
+{"nhrm_id": 12115, "lat": 25.033, "lng": 121.5654, "location_raw": "國防部軍法局、臺北憲兵隊", "source": "case_inherit:陸軍段澐等案"}
+{"nhrm_id": 12462, "lat": 24.9984, "lng": 121.5415, "location_raw": "原司法行政部調查局安康接待室、軍法處看守所", "source": "case_inherit:王世一案"}
+{"nhrm_id": 12534, "lat": 22.6607, "lng": 121.492, "location_raw": "原臺灣省保安司令部新生訓導處（綠島）", "source": "case_inherit:綠島再叛亂案"}
+{"nhrm_id": 13186, "lat": 22.6607, "lng": 121.492, "location_raw": "原臺灣省保安司令部新生訓導處（綠島）、國防部臺灣軍人監獄", "source": "case_inherit:華東局潛台組織黃胤昌案"}
+{"nhrm_id": 13189, "lat": 25.0437, "lng": 121.5073, "location_raw": "臺灣省保安司令部", "source": "case_inherit:光明報鍾浩東案"}
+{"nhrm_id": 13236, "lat": 22.6607, "lng": 121.492, "location_raw": "原臺灣省保安司令部新生訓導處（綠島）", "source": "case_inherit:海軍美頌軍艦毛却非等案"}
+{"nhrm_id": 13918, "lat": 22.6607, "lng": 121.492, "location_raw": "原臺灣省保安司令部新生訓導處（綠島）", "source": "case_inherit:高雄煉油廠支部周清連等案"}
+{"nhrm_id": 14356, "lat": 25.0437, "lng": 121.5073, "location_raw": "臺灣省保安司令部", "source": "case_inherit:高雄鹽埕支部張崑泰等案"}
+{"nhrm_id": 14601, "lat": 22.6233, "lng": 120.2724, "location_raw": "海軍軍官學校", "source": "case_inherit:海軍官校校長魏濟民等案"}
+{"nhrm_id": 15527, "lat": 22.6607, "lng": 121.492, "location_raw": "原臺灣省保安司令部新生訓導處（綠島）", "source": "case_inherit:中共臺灣省工委會玉井支部楊鬧雲等案"}
+{"nhrm_id": 15561, "lat": 22.6607, "lng": 121.492, "location_raw": "原臺灣省保安司令部新生訓導處（綠島）、國防部臺灣軍人監獄", "source": "case_inherit:貝萊與杜麟文等案"}
+{"nhrm_id": 15595, "lat": 22.6607, "lng": 121.492, "location_raw": "原臺灣省保安司令部新生訓導處（綠島）、國防部臺灣軍人監獄", "source": "case_inherit:華東局潛台組織黃胤昌案"}
+{"nhrm_id": 16068, "lat": 24.9984, "lng": 121.5415, "location_raw": "軍法處看守所、國防部臺灣軍人監獄", "source": "case_inherit:關仔嶺會議"}
+{"nhrm_id": 16262, "lat": 24.9984, "lng": 121.5415, "location_raw": "軍法處看守所、國防部臺灣軍人監獄", "source": "case_inherit:關仔嶺會議"}
+{"nhrm_id": 16694, "lat": 25.1711, "lng": 121.4497, "location_raw": "淡水", "source": "case_inherit:省工委會郵電支部計梅真等案"}
+{"nhrm_id": 16932, "lat": 22.6607, "lng": 121.492, "location_raw": "原國防部綠島感訓監獄、原臺灣省保安司令部新生訓導處（綠島）", "source": "case_inherit:劉自然事件"}
+{"nhrm_id": 17657, "lat": 25.0437, "lng": 121.5073, "location_raw": "臺灣省保安司令部", "source": "case_inherit:高雄鹽埕支部張崑泰等案"}
+{"nhrm_id": 17669, "lat": 22.6607, "lng": 121.492, "location_raw": "原臺灣省保安司令部新生訓導處（綠島）、原臺灣省生產教育實驗所（土城清水）", "source": "case_inherit:吳石等叛亂案"}
+{"nhrm_id": 17748, "lat": 22.6607, "lng": 121.492, "location_raw": "原臺灣省保安司令部新生訓導處（綠島）、國防部臺灣軍人監獄", "source": "case_inherit:華東局潛台組織黃胤昌案"}
+{"nhrm_id": 18387, "lat": 24.9984, "lng": 121.5415, "location_raw": "軍法處看守所", "source": "case_inherit:蘇藝林案"}
+{"nhrm_id": 18399, "lat": 24.9984, "lng": 121.5415, "location_raw": "軍法處看守所", "source": "case_inherit:蘇藝林案"}
+{"nhrm_id": 18448, "lat": 24.9984, "lng": 121.5415, "location_raw": "軍法處看守所", "source": "case_inherit:共諜趙洪自首案"}
+{"nhrm_id": 18535, "lat": 22.6607, "lng": 121.492, "location_raw": "原臺灣省保安司令部新生訓導處（綠島）、國防部臺灣軍人監獄、原臺灣省生產教育實驗所（土城清水）", "source": "case_inherit:軍人監獄馬時彥等案"}
+{"nhrm_id": 18612, "lat": 25.0437, "lng": 121.5073, "location_raw": "臺灣省保安司令部", "source": "case_inherit:高雄鹽埕支部張崑泰等案"}
+{"nhrm_id": 18964, "lat": 23.1167, "lng": 121.25, "location_raw": "國防部泰源感訓監獄", "source": "case_inherit:中國救國黨案(劉興旺等案)"}
+{"nhrm_id": 19172, "lat": 25.0437, "lng": 121.5073, "location_raw": "臺灣省保安司令部", "source": "case_inherit:高雄工作委員會劉特慎案"}
+{"nhrm_id": 19400, "lat": 22.6607, "lng": 121.492, "location_raw": "原臺灣省保安司令部新生訓導處（綠島）、原臺灣省生產教育實驗所（土城清水）", "source": "case_inherit:國防醫學院學生霍振江等叛亂案"}
+{"nhrm_id": 19450, "lat": 22.6607, "lng": 121.492, "location_raw": "原臺灣省保安司令部新生訓導處（綠島）", "source": "case_inherit:高雄煉油廠支部周清連等案"}
+{"nhrm_id": 20097, "lat": 25.0437, "lng": 121.5073, "location_raw": "臺灣省保安司令部", "source": "case_inherit:光明報鍾浩東案"}
+{"nhrm_id": 20493, "lat": 22.6607, "lng": 121.492, "location_raw": "原臺灣省保安司令部新生訓導處（綠島）、國防部臺灣軍人監獄", "source": "case_inherit:貝萊與杜麟文等案"}
+{"nhrm_id": 20847, "lat": 24.9984, "lng": 121.5415, "location_raw": "軍法處看守所", "source": "case_inherit:接29號艦管訓案"}
+{"nhrm_id": 20918, "lat": 24.9984, "lng": 121.5415, "location_raw": "軍法處看守所", "source": "case_inherit:蘇藝林案"}
+{"nhrm_id": 20953, "lat": 22.6607, "lng": 121.492, "location_raw": "原臺灣省保安司令部新生訓導處（綠島）、國防部臺灣軍人監獄", "source": "case_inherit:貝萊與杜麟文等案"}
+{"nhrm_id": 20963, "lat": 25.033, "lng": 121.5654, "location_raw": "臺灣臺北看守所", "source": "case_inherit:四六事件"}
+{"nhrm_id": 20978, "lat": 22.6233, "lng": 120.2724, "location_raw": "海軍軍官學校", "source": "case_inherit:海軍官校校長魏濟民等案"}
+{"nhrm_id": 21245, "lat": 25.0437, "lng": 121.5073, "location_raw": "臺灣省保安司令部", "source": "case_inherit:光明報鍾浩東案"}
+{"nhrm_id": 21288, "lat": 22.6607, "lng": 121.492, "location_raw": "原臺灣省保安司令部新生訓導處（綠島）、國防部臺灣軍人監獄", "source": "case_inherit:海軍咸寧艦張天福等案"}
+{"nhrm_id": 21526, "lat": 25.033, "lng": 121.5654, "location_raw": "國防部軍法局、臺北憲兵隊", "source": "case_inherit:陸軍段澐等案"}
+{"nhrm_id": 21538, "lat": 24.9984, "lng": 121.5415, "location_raw": "軍法處看守所", "source": "case_inherit:國防部參議李玉堂中將案"}
+{"nhrm_id": 21597, "lat": 24.9984, "lng": 121.5415, "location_raw": "軍法處看守所", "source": "case_inherit:共諜趙洪自首案"}
+{"nhrm_id": 21647, "lat": 25.0437, "lng": 121.5073, "location_raw": "臺灣省保安司令部", "source": "case_inherit:光明報鍾浩東案"}
+{"nhrm_id": 21910, "lat": 22.6607, "lng": 121.492, "location_raw": "原臺灣省保安司令部新生訓導處（綠島）", "source": "case_inherit:高雄煉油廠支部周清連等案"}
+{"nhrm_id": 21956, "lat": 22.6607, "lng": 121.492, "location_raw": "原臺灣省保安司令部新生訓導處（綠島）", "source": "case_inherit:高雄煉油廠支部周清連等案"}
+{"nhrm_id": 22125, "lat": 24.9984, "lng": 121.5415, "location_raw": "軍法處看守所", "source": "case_inherit:接29號艦管訓案"}
+{"nhrm_id": 22126, "lat": 22.6607, "lng": 121.492, "location_raw": "原臺灣省保安司令部新生訓導處（綠島）、國防部臺灣軍人監獄", "source": "case_inherit:海軍咸寧艦張天福等案"}
+{"nhrm_id": 22173, "lat": 22.6607, "lng": 121.492, "location_raw": "原臺灣省保安司令部新生訓導處（綠島）", "source": "case_inherit:高雄煉油廠支部周清連等案"}
+{"nhrm_id": 22175, "lat": 22.6607, "lng": 121.492, "location_raw": "原臺灣省保安司令部軍法處看守所、原臺灣省保安司令部新生訓導處（綠島）", "source": "case_inherit:蘭陽地區工作委員會案"}
+{"nhrm_id": 22184, "lat": 25.033, "lng": 121.5654, "location_raw": "國防部軍法局、臺北憲兵隊", "source": "case_inherit:陸軍段澐等案"}
+{"nhrm_id": 22196, "lat": 22.6607, "lng": 121.492, "location_raw": "原臺灣省保安司令部新生訓導處（綠島）、臺灣臺北監獄、國防部泰源感訓監獄", "source": "case_inherit:中共臺灣省工委會臺中地區縣市工委會支部施部生等案"}
+{"nhrm_id": 22204, "lat": 22.6607, "lng": 121.492, "location_raw": "原臺灣省保安司令部新生訓導處（綠島）、國防部臺灣軍人監獄", "source": "case_inherit:中共臺灣省工作委員會張旺等案"}
+{"nhrm_id": 22225, "lat": 25.0437, "lng": 121.5073, "location_raw": "臺灣省保安司令部", "source": "case_inherit:虎尾永定厝支部鍾心寬等案"}
+{"nhrm_id": 22231, "lat": 22.6607, "lng": 121.492, "location_raw": "原臺灣省保安司令部新生訓導處（綠島）、國防部臺灣軍人監獄", "source": "case_inherit:鹿窟事件"}
+{"nhrm_id": 22237, "lat": 24.9984, "lng": 121.5415, "location_raw": "軍法處看守所", "source": "case_inherit:蘇藝林案"}
+{"nhrm_id": 22263, "lat": 22.6607, "lng": 121.492, "location_raw": "原國防部綠島感訓監獄、臺灣警備總司令部綠島地區警備指揮部", "source": "case_inherit:大同主義青年革命軍案"}
+{"nhrm_id": 22318, "lat": 25.012, "lng": 121.4651, "location_raw": "臺北縣", "source": "case_inherit:武漢大旅社案"}
+{"nhrm_id": 22334, "lat": 22.6607, "lng": 121.492, "location_raw": "原臺灣省保安司令部新生訓導處（綠島）、國防部臺灣軍人監獄", "source": "case_inherit:鹿窟事件"}
+{"nhrm_id": 7750, "lat": 25.0393, "lng": 121.5189, "location_raw": "台北新公園（二二八和平公園）", "source": "manual"}
+{"nhrm_id": 11821, "lat": 23.0393, "lng": 120.315, "location_raw": "台南新化（臺灣畜產試驗所）", "source": "manual"}
+{"nhrm_id": 12907, "lat": 25.064, "lng": 121.5137, "location_raw": "延平學院台北", "source": "manual"}
+{"nhrm_id": 16818, "lat": 23.9769, "lng": 121.6046, "location_raw": "東臺日報社花蓮", "source": "manual"}
+{"nhrm_id": 10460, "lat": 25.0478, "lng": 121.5169, "location_raw": "臺灣省郵電管理委員會台北", "source": "manual"}
+{"nhrm_id": 4, "lat": 22.6607, "lng": 121.492, "location_raw": "國防部臺灣軍人監獄、原臺灣省保安司令部新生訓導處（綠島）", "source": "related_person:解玉成"}
+{"nhrm_id": 29, "lat": 24.9984, "lng": 121.5415, "location_raw": "軍法處看守所", "source": "related_person:孫立人"}
+{"nhrm_id": 35, "lat": 25.033, "lng": 121.5654, "location_raw": "臺北", "source": "related_person:賓正風"}
+{"nhrm_id": 169, "lat": 22.6607, "lng": 121.492, "location_raw": "原國防部保密局臺北看守所、原國防部情報局龍潭看守所、原國防部保密局桃園感訓所、臺灣警備總司令部綠島地區警備指揮部", "source": "related_person:郭廷亮"}
+{"nhrm_id": 354, "lat": 22.6607, "lng": 121.492, "location_raw": "原國防部保密局臺北看守所、原國防部情報局龍潭看守所、原國防部保密局桃園感訓所、臺灣警備總司令部綠島地區警備指揮部", "source": "related_person:郭廷亮"}
+{"nhrm_id": 358, "lat": 23.1167, "lng": 121.25, "location_raw": "軍法處看守所、國防部臺灣軍人監獄、國防部泰源感訓監獄", "source": "related_person:羅恒"}
+{"nhrm_id": 381, "lat": 22.6607, "lng": 121.492, "location_raw": "原國防部保密局臺北看守所、原國防部情報局龍潭看守所、原國防部保密局桃園感訓所、臺灣警備總司令部綠島地區警備指揮部", "source": "related_person:郭廷亮"}
+{"nhrm_id": 399, "lat": 22.6607, "lng": 121.492, "location_raw": "原臺灣省保安司令部新生訓導處（綠島）、7028部隊、國防部臺灣軍人監獄、國防部泰源感訓監獄", "source": "related_person:楊老二"}
+{"nhrm_id": 404, "lat": 22.6607, "lng": 121.492, "location_raw": "原國防部保密局臺北看守所、原國防部情報局龍潭看守所、原國防部保密局桃園感訓所、臺灣警備總司令部綠島地區警備指揮部", "source": "related_person:郭廷亮"}
+{"nhrm_id": 408, "lat": 22.6607, "lng": 121.492, "location_raw": "原國防部保密局臺北看守所、原國防部情報局龍潭看守所、原國防部保密局桃園感訓所、臺灣警備總司令部綠島地區警備指揮部", "source": "related_person:郭廷亮"}
+{"nhrm_id": 421, "lat": 22.6607, "lng": 121.492, "location_raw": "原國防部保密局臺北看守所、原國防部情報局龍潭看守所、原國防部保密局桃園感訓所、臺灣警備總司令部綠島地區警備指揮部", "source": "related_person:郭廷亮"}
+{"nhrm_id": 475, "lat": 22.6607, "lng": 121.492, "location_raw": "原國防部保密局臺北看守所、原國防部情報局龍潭看守所、原國防部保密局桃園感訓所、臺灣警備總司令部綠島地區警備指揮部", "source": "related_person:郭廷亮"}
+{"nhrm_id": 761, "lat": 22.6607, "lng": 121.492, "location_raw": "原國防部綠島感訓監獄、臺灣綠島監獄", "source": "related_person:戴華光"}
+{"nhrm_id": 791, "lat": 22.6607, "lng": 121.492, "location_raw": "原臺灣省保安司令部新生訓導處（綠島）", "source": "related_person:吳福貴"}
+{"nhrm_id": 811, "lat": 22.9999, "lng": 120.227, "location_raw": "臺南", "source": "related_person:陳靜"}
+{"nhrm_id": 915, "lat": 22.6607, "lng": 121.492, "location_raw": "原國防部綠島感訓監獄", "source": "related_person:周鳴"}
+{"nhrm_id": 969, "lat": 22.6607, "lng": 121.492, "location_raw": "原國防部保密局臺北看守所、原國防部情報局龍潭看守所、原國防部保密局桃園感訓所、臺灣警備總司令部綠島地區警備指揮部", "source": "related_person:郭廷亮"}
+{"nhrm_id": 1009, "lat": 22.6607, "lng": 121.492, "location_raw": "原國防部保密局臺北看守所、原國防部情報局龍潭看守所、原國防部保密局桃園感訓所、臺灣警備總司令部綠島地區警備指揮部", "source": "related_person:郭廷亮"}
+{"nhrm_id": 1152, "lat": 22.6607, "lng": 121.492, "location_raw": "原臺灣省保安司令部新生訓導處（綠島）", "source": "related_person:陸建勛"}
+{"nhrm_id": 1336, "lat": 22.6607, "lng": 121.492, "location_raw": "原國防部保密局臺北看守所、原國防部情報局龍潭看守所、原國防部保密局桃園感訓所、臺灣警備總司令部綠島地區警備指揮部", "source": "related_person:郭廷亮"}
+{"nhrm_id": 1339, "lat": 22.6607, "lng": 121.492, "location_raw": "原臺灣省保安司令部新生訓導處（綠島）、7028部隊、國防部臺灣軍人監獄", "source": "related_person:張慶華"}
+{"nhrm_id": 1418, "lat": 23.1167, "lng": 121.25, "location_raw": "國防部泰源感訓監獄", "source": "related_person:周濟剛"}
+{"nhrm_id": 1650, "lat": 24.9716, "lng": 121.5378, "location_raw": "原臺灣警備總司令部軍法處軍事法庭與看守所／原國防部軍法局軍事法庭與看守所（新店二十張）、臺灣省生產教育實驗所", "source": "related_person:梁令惠"}
+{"nhrm_id": 1754, "lat": 25.033, "lng": 121.5654, "location_raw": "台北市", "source": "related_person:劉明"}
+{"nhrm_id": 1913, "lat": 25.033, "lng": 121.5654, "location_raw": "臺北", "source": "related_person:游朗星"}
+{"nhrm_id": 2058, "lat": 25.1276, "lng": 121.7392, "location_raw": "基隆市", "source": "related_person:陳振建"}
+{"nhrm_id": 2259, "lat": 22.6911, "lng": 120.2954, "location_raw": "左營", "source": "related_person:李在春"}
+{"nhrm_id": 2377, "lat": 22.6607, "lng": 121.492, "location_raw": "原臺灣省保安司令部新生訓導處（綠島）、國防部新店監獄", "source": "related_person:李國安"}
+{"nhrm_id": 2482, "lat": 22.6607, "lng": 121.492, "location_raw": "原國防部保密局臺北看守所、原國防部情報局龍潭看守所、原國防部保密局桃園感訓所、臺灣警備總司令部綠島地區警備指揮部", "source": "related_person:郭廷亮"}
+{"nhrm_id": 2514, "lat": 24.9984, "lng": 121.5415, "location_raw": "陸軍第39師司令部、軍法處看守所", "source": "related_person:鄒鑑"}
+{"nhrm_id": 2532, "lat": 22.6607, "lng": 121.492, "location_raw": "國防部臺灣軍人監獄、原國防部綠島感訓監獄", "source": "related_person:張老佩"}
+{"nhrm_id": 2674, "lat": 22.6607, "lng": 121.492, "location_raw": "原國防部保密局臺北看守所、原國防部情報局龍潭看守所、原國防部保密局桃園感訓所、臺灣警備總司令部綠島地區警備指揮部", "source": "related_person:郭廷亮"}
+{"nhrm_id": 2789, "lat": 22.6607, "lng": 121.492, "location_raw": "原國防部保密局臺北看守所、原國防部情報局龍潭看守所、原國防部保密局桃園感訓所、臺灣警備總司令部綠島地區警備指揮部", "source": "related_person:郭廷亮"}
+{"nhrm_id": 3022, "lat": 22.6607, "lng": 121.492, "location_raw": "原國防部保密局臺北看守所、原國防部情報局龍潭看守所、原國防部保密局桃園感訓所、臺灣警備總司令部綠島地區警備指揮部", "source": "related_person:郭廷亮"}
+{"nhrm_id": 3052, "lat": 22.9999, "lng": 120.227, "location_raw": "臺南", "source": "related_person:江雲錦"}
+{"nhrm_id": 3204, "lat": 23.4801, "lng": 120.4491, "location_raw": "嘉義", "source": "related_person:陳永福"}
+{"nhrm_id": 3246, "lat": 22.6607, "lng": 121.492, "location_raw": "原國防部保密局臺北看守所、原國防部情報局龍潭看守所、原國防部保密局桃園感訓所、臺灣警備總司令部綠島地區警備指揮部", "source": "related_person:郭廷亮"}
+{"nhrm_id": 3249, "lat": 23.1167, "lng": 121.25, "location_raw": "國防部泰源感訓監獄", "source": "related_person:李創"}
+{"nhrm_id": 3314, "lat": 23.1167, "lng": 121.25, "location_raw": "臺灣警備總司令部軍法處看守所、國防部泰源感訓監獄", "source": "related_person:洪清波"}
+{"nhrm_id": 3826, "lat": 22.6607, "lng": 121.492, "location_raw": "國防部軍法局看守所、原國防部綠島感訓監獄", "source": "related_person:李鴻"}
+{"nhrm_id": 3941, "lat": 24.9795, "lng": 121.4617, "location_raw": "臺灣省生產教育實驗所", "source": "related_person:江世鴻"}
+{"nhrm_id": 4010, "lat": 23.1167, "lng": 121.25, "location_raw": "軍法處看守所、國防部泰源感訓監獄", "source": "related_person:黃福沙"}
+{"nhrm_id": 4039, "lat": 25.033, "lng": 121.5654, "location_raw": "軍法處看守所、臺北憲兵隊", "source": "related_person:韓若春"}
+{"nhrm_id": 4061, "lat": 22.6607, "lng": 121.492, "location_raw": "原臺灣省保安司令部新生訓導處（綠島）、國防部軍法局", "source": "related_person:徐瀛濤"}
+{"nhrm_id": 4207, "lat": 25.0437, "lng": 121.5073, "location_raw": "臺灣省保安司令部", "source": "related_person:林我鶴"}
+{"nhrm_id": 4718, "lat": 25.033, "lng": 121.5654, "location_raw": "台北市", "source": "related_person:賀中立"}
+{"nhrm_id": 4731, "lat": 25.033, "lng": 121.5654, "location_raw": "臺北", "source": "related_person:游朗星"}
+{"nhrm_id": 5040, "lat": 24.9795, "lng": 121.4617, "location_raw": "國防部臺灣軍人監獄、臺灣省生產教育實驗所", "source": "related_person:潘宗禮"}
+{"nhrm_id": 5194, "lat": 23.5711, "lng": 119.5795, "location_raw": "澎湖縣", "source": "related_person:洪言彬"}
+{"nhrm_id": 5545, "lat": 25.033, "lng": 121.5654, "location_raw": "臺北", "source": "related_person:鍾盈春"}
+{"nhrm_id": 5553, "lat": 24.9984, "lng": 121.5415, "location_raw": "軍法處看守所、國防部臺灣軍人監獄", "source": "related_person:陳榮"}
+{"nhrm_id": 5777, "lat": 24.9984, "lng": 121.5415, "location_raw": "軍法處看守所", "source": "related_person:劉春生"}
+{"nhrm_id": 5910, "lat": 22.6607, "lng": 121.492, "location_raw": "原臺灣省保安司令部新生訓導處（綠島）、國防部臺灣軍人監獄", "source": "related_person:左靜秋"}
+{"nhrm_id": 5914, "lat": 23.1167, "lng": 121.25, "location_raw": "國防部泰源感訓監獄、國防部臺灣軍人監獄", "source": "related_person:陳宣耿"}
+{"nhrm_id": 5919, "lat": 24.9984, "lng": 121.5415, "location_raw": "軍法處看守所", "source": "related_person:路世坤"}
+{"nhrm_id": 6033, "lat": 22.6273, "lng": 120.3014, "location_raw": "高雄縣", "source": "related_person:宗坤福"}
+{"nhrm_id": 6104, "lat": 23.5711, "lng": 119.5795, "location_raw": "陸軍第39師司令部、澎湖新生隊", "source": "related_person:賀振宇"}
+{"nhrm_id": 6212, "lat": 24.9795, "lng": 121.4617, "location_raw": "臺灣仁愛教育實驗所", "source": "related_person:李先根"}
+{"nhrm_id": 6584, "lat": 22.9999, "lng": 120.227, "location_raw": "台南縣", "source": "related_person:陳文彬"}
+{"nhrm_id": 6675, "lat": 24.9984, "lng": 121.5415, "location_raw": "軍法處看守所、憲兵第8團", "source": "related_person:陳力群"}
+{"nhrm_id": 7049, "lat": 22.6273, "lng": 120.3014, "location_raw": "高雄市", "source": "related_person:寧人"}
+{"nhrm_id": 7115, "lat": 25.0437, "lng": 121.5073, "location_raw": "臺灣省保安司令部", "source": "related_person:郭萬河"}
+{"nhrm_id": 7116, "lat": 23.1167, "lng": 121.25, "location_raw": "國防部泰源感訓監獄、臺灣省生產教育實驗所", "source": "related_person:薛根全"}
+{"nhrm_id": 7118, "lat": 25.0437, "lng": 121.5073, "location_raw": "臺灣省保安司令部", "source": "related_person:孫玉林"}
+{"nhrm_id": 7170, "lat": 23.1167, "lng": 121.25, "location_raw": "軍法處看守所、國防部泰源感訓監獄", "source": "related_person:黃種人"}
+{"nhrm_id": 7218, "lat": 24.9984, "lng": 121.5415, "location_raw": "軍法處看守所", "source": "related_person:張經魁"}
+{"nhrm_id": 7224, "lat": 22.6233, "lng": 120.2724, "location_raw": "海軍軍官學校", "source": "related_person:任行"}
+{"nhrm_id": 7227, "lat": 23.9586, "lng": 120.571, "location_raw": "海軍反共先鋒訓練營", "source": "related_person:官明"}
+{"nhrm_id": 7287, "lat": 25.0437, "lng": 121.5073, "location_raw": "臺灣省保安司令部", "source": "related_person:張伯哲"}
+{"nhrm_id": 7330, "lat": 25.033, "lng": 121.5654, "location_raw": "台北市", "source": "related_person:朱傳譽"}
+{"nhrm_id": 7392, "lat": 23.7092, "lng": 120.4313, "location_raw": "雲林縣", "source": "related_person:許廷獒"}
+{"nhrm_id": 7469, "lat": 25.033, "lng": 121.5654, "location_raw": "臺北", "source": "related_person:林元枝"}
+{"nhrm_id": 7575, "lat": 25.033, "lng": 121.5654, "location_raw": "臺北", "source": "related_person:鄧進益"}
+{"nhrm_id": 7608, "lat": 22.6607, "lng": 121.492, "location_raw": "軍法處看守所、原臺灣省保安司令部新生訓導處（綠島）", "source": "related_person:郝九思"}
+{"nhrm_id": 7749, "lat": 25.0393, "lng": 121.5189, "location_raw": "台北新公園（二二八和平公園）", "source": "related_person:余振基"}
+{"nhrm_id": 7775, "lat": 25.033, "lng": 121.5654, "location_raw": "臺北", "source": "related_person:高泰"}
+{"nhrm_id": 7776, "lat": 25.033, "lng": 121.5654, "location_raw": "臺北", "source": "related_person:高泰"}
+{"nhrm_id": 7805, "lat": 25.033, "lng": 121.5654, "location_raw": "國防部軍法局、臺北憲兵隊", "source": "related_person:郭遠之"}
+{"nhrm_id": 7889, "lat": 22.6607, "lng": 121.492, "location_raw": "陸軍總司令部軍法處看守所、原臺灣省保安司令部新生訓導處（綠島）", "source": "related_person:劉興旺"}
+{"nhrm_id": 8025, "lat": 25.0437, "lng": 121.5073, "location_raw": "臺灣省保安司令部", "source": "related_person:陳維芳"}
+{"nhrm_id": 8030, "lat": 24.7021, "lng": 121.7378, "location_raw": "宜蘭縣", "source": "related_person:吳順"}
+{"nhrm_id": 8096, "lat": 25.033, "lng": 121.5654, "location_raw": "陸軍1410部隊、臺北憲兵隊", "source": "related_person:陳贊明"}
+{"nhrm_id": 8103, "lat": 22.6607, "lng": 121.492, "location_raw": "國防部情報局看守所、原國防部綠島感訓監獄", "source": "related_person:黃瑞麟"}
+{"nhrm_id": 8119, "lat": 22.6607, "lng": 121.492, "location_raw": "原臺灣省保安司令部保安處看守所（東本願寺）、軍法處看守所、原臺灣臺北監獄（臺北愛國東路）、內湖新生總隊、原臺灣省保安司令部新生訓導處（綠島）、原臺灣省生產教育實驗所（土城清水）、小琉球職業訓導第三總隊", "source": "related_person:張則周"}
+{"nhrm_id": 8168, "lat": 25.0437, "lng": 121.5073, "location_raw": "臺灣省保安司令部", "source": "related_person:林其柏"}
+{"nhrm_id": 8199, "lat": 24.7021, "lng": 121.7378, "location_raw": "宜蘭縣", "source": "related_person:吳順"}
+{"nhrm_id": 8585, "lat": 25.0437, "lng": 121.5073, "location_raw": "臺灣省保安司令部", "source": "related_person:曾金厚"}
+{"nhrm_id": 8916, "lat": 23.1167, "lng": 121.25, "location_raw": "國防部泰源感訓監獄", "source": "related_person:李銘"}
+{"nhrm_id": 8935, "lat": 24.9984, "lng": 121.5415, "location_raw": "軍法處看守所", "source": "related_person:孔廣曉"}
+{"nhrm_id": 9052, "lat": 25.0437, "lng": 121.5073, "location_raw": "臺灣省保安司令部、國防部臺灣軍人監獄", "source": "related_person:王恕銘"}
+{"nhrm_id": 9083, "lat": 25.012, "lng": 121.4651, "location_raw": "臺北縣", "source": "related_person:李山林"}
+{"nhrm_id": 9203, "lat": 24.9795, "lng": 121.4617, "location_raw": "臺灣省生產教育實驗所", "source": "related_person:高國日"}
+{"nhrm_id": 9264, "lat": 24.9795, "lng": 121.4617, "location_raw": "陸軍第87軍司令部、臺灣仁愛教育實驗所", "source": "related_person:王隆富"}
+{"nhrm_id": 9319, "lat": 25.1711, "lng": 121.4497, "location_raw": "淡江中學", "source": "related_person:洪維和"}
+{"nhrm_id": 9417, "lat": 23.9872, "lng": 121.6015, "location_raw": "花蓮", "source": "related_person:李邦驥"}
+{"nhrm_id": 9442, "lat": 23.1167, "lng": 121.25, "location_raw": "臺灣警備總司令部軍法處看守所、國防部臺灣軍人監獄、國防部泰源感訓監獄", "source": "related_person:梁載中"}
+{"nhrm_id": 9474, "lat": 25.0437, "lng": 121.5073, "location_raw": "臺灣省保安司令部", "source": "related_person:李朋"}
+{"nhrm_id": 9542, "lat": 24.1477, "lng": 120.6736, "location_raw": "臺中", "source": "related_person:林正亨"}
+{"nhrm_id": 9599, "lat": 24.3636, "lng": 120.5638, "location_raw": "原臺灣省生產教育實驗所（土城清水）", "source": "related_person:朱惕生"}
+{"nhrm_id": 9685, "lat": 25.033, "lng": 121.5654, "location_raw": "軍法處看守所、臺灣臺北看守所", "source": "related_person:黃金揚"}
+{"nhrm_id": 9781, "lat": 24.9984, "lng": 121.5415, "location_raw": "陸軍第39師司令部、軍法處看守所", "source": "related_person:張敏之"}
+{"nhrm_id": 9809, "lat": 25.033, "lng": 121.5654, "location_raw": "臺北", "source": "related_person:王新發"}
+{"nhrm_id": 9873, "lat": 24.9984, "lng": 121.5415, "location_raw": "軍法處看守所、臺灣省生產教育實驗所", "source": "related_person:劉懋"}
+{"nhrm_id": 9894, "lat": 24.9984, "lng": 121.5415, "location_raw": "軍法處看守所、憲兵第4團", "source": "related_person:羅定天"}
+{"nhrm_id": 10077, "lat": 26.1505, "lng": 119.9289, "location_raw": "福建連江縣", "source": "related_person:邱番仔"}
+{"nhrm_id": 10303, "lat": 23.1167, "lng": 121.25, "location_raw": "國防部情報局看守所、國防部泰源感訓監獄", "source": "related_person:董克敏"}
+{"nhrm_id": 10433, "lat": 23.4518, "lng": 120.2554, "location_raw": "嘉義縣", "source": "related_person:劉家順"}
+{"nhrm_id": 10483, "lat": 25.033, "lng": 121.5654, "location_raw": "臺北", "source": "related_person:王添灯"}
+{"nhrm_id": 10850, "lat": 25.0437, "lng": 121.5073, "location_raw": "臺灣省保安司令部", "source": "related_person:林樹森"}
+{"nhrm_id": 10994, "lat": 24.9984, "lng": 121.5415, "location_raw": "軍法處看守所", "source": "related_person:邱宏臣"}
+{"nhrm_id": 11175, "lat": 22.6273, "lng": 120.3014, "location_raw": "高雄市", "source": "related_person:寧人"}
+{"nhrm_id": 11352, "lat": 24.9795, "lng": 121.4617, "location_raw": "臺灣仁愛教育實驗所", "source": "related_person:何清波"}
+{"nhrm_id": 11355, "lat": 24.9795, "lng": 121.4617, "location_raw": "臺灣省生產教育實驗所", "source": "related_person:施巨源"}
+{"nhrm_id": 11461, "lat": 23.9872, "lng": 121.6015, "location_raw": "花蓮", "source": "related_person:陳際穠"}
+{"nhrm_id": 11495, "lat": 25.0437, "lng": 121.5073, "location_raw": "臺灣省保安司令部", "source": "related_person:嚴明森"}
+{"nhrm_id": 11521, "lat": 25.0437, "lng": 121.5073, "location_raw": "臺灣省保安司令部", "source": "related_person:陳明得"}
+{"nhrm_id": 11895, "lat": 23.9872, "lng": 121.6015, "location_raw": "花蓮", "source": "related_person:陳際穠"}
+{"nhrm_id": 11943, "lat": 23.1167, "lng": 121.25, "location_raw": "國防部泰源感訓監獄", "source": "related_person:郭觀國"}
+{"nhrm_id": 12102, "lat": 24.9795, "lng": 121.4617, "location_raw": "臺灣省生產教育實驗所", "source": "related_person:王仁信"}
+{"nhrm_id": 12111, "lat": 25.0437, "lng": 121.5073, "location_raw": "臺灣省保安司令部、國防部臺灣軍人監獄", "source": "related_person:王甲寰"}
+{"nhrm_id": 12177, "lat": 24.9795, "lng": 121.4617, "location_raw": "臺灣省生產教育實驗所", "source": "related_person:金雲喜"}
+{"nhrm_id": 12262, "lat": 23.9872, "lng": 121.6015, "location_raw": "花蓮", "source": "related_person:陳際穠"}
+{"nhrm_id": 12287, "lat": 25.033, "lng": 121.5654, "location_raw": "空軍總司令部、臺北憲兵隊", "source": "related_person:趙星吾"}
+{"nhrm_id": 12309, "lat": 25.033, "lng": 121.5654, "location_raw": "臺灣省保安司令部、臺北憲兵隊", "source": "related_person:姚錦"}
+{"nhrm_id": 12567, "lat": 24.1477, "lng": 120.6736, "location_raw": "臺中", "source": "related_person:黃蹈中"}
+{"nhrm_id": 12607, "lat": 25.0437, "lng": 121.5073, "location_raw": "臺灣省保安司令部", "source": "related_person:高火旺"}
+{"nhrm_id": 12619, "lat": 22.6607, "lng": 121.492, "location_raw": "軍法處看守所、原國防部綠島感訓監獄", "source": "related_person:楊子杰"}
+{"nhrm_id": 12756, "lat": 23.1167, "lng": 121.25, "location_raw": "國防部泰源感訓監獄、國防部臺灣軍人監獄、臺灣警備總司令部軍法處看守所", "source": "related_person:陳美霓"}
+{"nhrm_id": 12793, "lat": 22.6273, "lng": 120.3014, "location_raw": "高雄市", "source": "related_person:解雲清"}
+{"nhrm_id": 12820, "lat": 23.4801, "lng": 120.4491, "location_raw": "嘉義", "source": "related_person:劉石柱"}
+{"nhrm_id": 12852, "lat": 25.0437, "lng": 121.5073, "location_raw": "臺灣省保安司令部", "source": "related_person:李竹"}
+{"nhrm_id": 12885, "lat": 23.1167, "lng": 121.25, "location_raw": "軍法處看守所、國防部泰源感訓監獄", "source": "related_person:郭漢卿"}
+{"nhrm_id": 12960, "lat": 24.9984, "lng": 121.5415, "location_raw": "軍法處看守所、國防部臺灣軍人監獄", "source": "related_person:江可模"}
+{"nhrm_id": 13277, "lat": 25.0437, "lng": 121.5073, "location_raw": "臺灣省保安司令部", "source": "related_person:王森官"}
+{"nhrm_id": 13319, "lat": 23.9872, "lng": 121.6015, "location_raw": "花蓮", "source": "related_person:陳澄"}
+{"nhrm_id": 13333, "lat": 23.9586, "lng": 120.571, "location_raw": "海軍反共先鋒訓練營", "source": "related_person:張國權"}
+{"nhrm_id": 13381, "lat": 24.9984, "lng": 121.5415, "location_raw": "軍法處看守所、國防部臺灣軍人監獄", "source": "related_person:雷震"}
+{"nhrm_id": 13392, "lat": 24.9984, "lng": 121.5415, "location_raw": "臺灣警備總司令部軍法處看守所", "source": "related_person:張蔚藍"}
+{"nhrm_id": 13566, "lat": 24.3636, "lng": 120.5638, "location_raw": "原臺灣省生產教育實驗所（土城清水）", "source": "related_person:王梨花"}
+{"nhrm_id": 13568, "lat": 25.033, "lng": 121.5654, "location_raw": "臺北", "source": "related_person:游賜一"}
+{"nhrm_id": 13574, "lat": 23.9609, "lng": 120.9718, "location_raw": "南投縣", "source": "related_person:吳克禮"}
+{"nhrm_id": 13628, "lat": 25.033, "lng": 121.5654, "location_raw": "臺北", "source": "related_person:呂沙棠"}
+{"nhrm_id": 13683, "lat": 25.0437, "lng": 121.5073, "location_raw": "臺灣省保安司令部", "source": "related_person:楊清誥"}
+{"nhrm_id": 13802, "lat": 23.1167, "lng": 121.25, "location_raw": "軍法處看守所、國防部泰源感訓監獄", "source": "related_person:盧偉幹"}
+{"nhrm_id": 13817, "lat": 25.033, "lng": 121.5654, "location_raw": "空軍總司令部、臺北憲兵隊", "source": "related_person:李俊榆"}
+{"nhrm_id": 13820, "lat": 22.6607, "lng": 121.492, "location_raw": "臺灣警備總司令部看守所、原國防部綠島感訓監獄", "source": "related_person:朱子超"}
+{"nhrm_id": 13904, "lat": 24.1477, "lng": 120.6736, "location_raw": "臺中縣", "source": "related_person:林孟義"}
+{"nhrm_id": 13917, "lat": 23.7082, "lng": 120.4394, "location_raw": "虎尾", "source": "related_person:温炎煋"}
+{"nhrm_id": 14026, "lat": 25.0437, "lng": 121.5073, "location_raw": "臺灣省保安司令部", "source": "related_person:鮑居東"}
+{"nhrm_id": 14035, "lat": 25.033, "lng": 121.5654, "location_raw": "台北市", "source": "related_person:陳團保"}
+{"nhrm_id": 14139, "lat": 24.9984, "lng": 121.5415, "location_raw": "軍法處看守所", "source": "related_person:莊天眷"}
+{"nhrm_id": 14399, "lat": 22.9999, "lng": 120.227, "location_raw": "臺南", "source": "related_person:杜麟文"}
+{"nhrm_id": 14498, "lat": 24.9795, "lng": 121.4617, "location_raw": "臺灣仁愛教育實驗所", "source": "related_person:林振興"}
+{"nhrm_id": 14667, "lat": 22.6911, "lng": 120.2954, "location_raw": "左營", "source": "related_person:何有方"}
+{"nhrm_id": 14850, "lat": 25.0437, "lng": 121.5073, "location_raw": "臺灣省保安司令部", "source": "related_person:何鵬雲"}
+{"nhrm_id": 14966, "lat": 24.9984, "lng": 121.5415, "location_raw": "軍法處看守所", "source": "related_person:陳少平"}
+{"nhrm_id": 14998, "lat": 24.9984, "lng": 121.5415, "location_raw": "軍法處看守所", "source": "related_person:李玉堂"}
+{"nhrm_id": 15315, "lat": 25.033, "lng": 121.5654, "location_raw": "臺北市", "source": "related_person:陳義農"}
+{"nhrm_id": 15324, "lat": 25.012, "lng": 121.4651, "location_raw": "臺北縣", "source": "related_person:陳新發"}
+{"nhrm_id": 15327, "lat": 25.0264, "lng": 121.5277, "location_raw": "省立師範", "source": "related_person:陳水木"}
+{"nhrm_id": 15543, "lat": 24.9795, "lng": 121.4617, "location_raw": "臺灣省生產教育實驗所", "source": "related_person:王小虹"}
+{"nhrm_id": 15605, "lat": 25.033, "lng": 121.5654, "location_raw": "臺北市", "source": "related_person:林素月"}
+{"nhrm_id": 15673, "lat": 22.6607, "lng": 121.492, "location_raw": "原國防部保密局臺北看守所、原國防部情報局龍潭看守所、原國防部保密局桃園感訓所、臺灣警備總司令部綠島地區警備指揮部", "source": "related_person:郭廷亮"}
+{"nhrm_id": 15674, "lat": 25.033, "lng": 121.5654, "location_raw": "臺北", "source": "related_person:游賜一"}
+{"nhrm_id": 15747, "lat": 24.9795, "lng": 121.4617, "location_raw": "臺灣省生產教育實驗所", "source": "related_person:何世傑"}
+{"nhrm_id": 15824, "lat": 24.9716, "lng": 121.5378, "location_raw": "國防部新店監獄", "source": "related_person:廖時亮"}
+{"nhrm_id": 15966, "lat": 24.9937, "lng": 121.301, "location_raw": "臺灣南部地區警備司令部看守所、桃園少年輔育院", "source": "related_person:林逢杰"}
+{"nhrm_id": 16024, "lat": 22.6273, "lng": 120.3014, "location_raw": "高雄縣", "source": "related_person:陳萬生"}
+{"nhrm_id": 16179, "lat": 22.9999, "lng": 120.227, "location_raw": "臺南", "source": "related_person:江雲錦"}
+{"nhrm_id": 16232, "lat": 24.1477, "lng": 120.6736, "location_raw": "臺中縣", "source": "related_person:郭萬福"}
+{"nhrm_id": 16388, "lat": 24.9795, "lng": 121.4617, "location_raw": "臺灣仁愛教育實驗所", "source": "related_person:李先根"}
+{"nhrm_id": 16403, "lat": 24.1477, "lng": 120.6736, "location_raw": "臺中", "source": "related_person:黃蹈中"}
+{"nhrm_id": 16445, "lat": 25.0437, "lng": 121.5073, "location_raw": "臺灣省保安司令部", "source": "related_person:何鵬雲"}
+{"nhrm_id": 16494, "lat": 25.033, "lng": 121.5654, "location_raw": "臺北市", "source": "related_person:傅傳魁"}
+{"nhrm_id": 17072, "lat": 25.0437, "lng": 121.5073, "location_raw": "行政長官公署", "source": "related_person:林光輝"}
+{"nhrm_id": 17177, "lat": 24.4493, "lng": 118.3767, "location_raw": "金門縣", "source": "related_person:吳振德"}
+{"nhrm_id": 17231, "lat": 24.9795, "lng": 121.4617, "location_raw": "臺灣省生產教育實驗所", "source": "related_person:施巨源"}
+{"nhrm_id": 17269, "lat": 25.0264, "lng": 121.5277, "location_raw": "臺灣省立師範學院", "source": "related_person:蔡德本"}
+{"nhrm_id": 17321, "lat": 25.0437, "lng": 121.5073, "location_raw": "臺灣省保安司令部", "source": "related_person:周植"}
+{"nhrm_id": 17415, "lat": 25.012, "lng": 121.4651, "location_raw": "台北縣", "source": "related_person:陳明洪"}
+{"nhrm_id": 17466, "lat": 25.0437, "lng": 121.5073, "location_raw": "臺灣省保安司令部", "source": "related_person:陳明得"}
+{"nhrm_id": 17742, "lat": 22.6607, "lng": 121.492, "location_raw": "原臺灣省保安司令部新生訓導處（綠島）、臺灣省保安司令部", "source": "related_person:包松山"}
+{"nhrm_id": 17935, "lat": 25.0437, "lng": 121.5073, "location_raw": "臺灣省保安司令部", "source": "related_person:王冠英"}
+{"nhrm_id": 18183, "lat": 22.6273, "lng": 120.3014, "location_raw": "高雄市", "source": "related_person:寧人"}
+{"nhrm_id": 18254, "lat": 24.1477, "lng": 120.6736, "location_raw": "臺中", "source": "related_person:朱樹楠"}
+{"nhrm_id": 18293, "lat": 25.033, "lng": 121.5654, "location_raw": "臺北市", "source": "related_person:陰法侗"}
+{"nhrm_id": 18366, "lat": 24.9984, "lng": 121.5415, "location_raw": "軍法處看守所、臺灣仁愛教育實驗所", "source": "related_person:陳政敏"}
+{"nhrm_id": 18427, "lat": 25.0437, "lng": 121.5073, "location_raw": "臺灣省保安司令部", "source": "related_person:李逢時"}
+{"nhrm_id": 18475, "lat": 24.9795, "lng": 121.4617, "location_raw": "臺灣省生產教育實驗所", "source": "related_person:曾再生"}
+{"nhrm_id": 18505, "lat": 25.033, "lng": 121.5654, "location_raw": "臺北市", "source": "related_person:林素月"}
+{"nhrm_id": 18573, "lat": 25.0698, "lng": 121.6604, "location_raw": "汐止", "source": "related_person:高興"}
+{"nhrm_id": 18631, "lat": 25.033, "lng": 121.5654, "location_raw": "臺北", "source": "related_person:廖論"}
+{"nhrm_id": 18789, "lat": 25.0437, "lng": 121.5073, "location_raw": "臺灣省保安司令部", "source": "related_person:李朋"}
+{"nhrm_id": 18821, "lat": 25.0437, "lng": 121.5073, "location_raw": "臺灣省保安司令部、國防部臺灣軍人監獄", "source": "related_person:馬乘風"}
+{"nhrm_id": 18828, "lat": 22.6607, "lng": 121.492, "location_raw": "軍法處看守所、原國防部綠島感訓監獄", "source": "related_person:段虹"}
+{"nhrm_id": 18834, "lat": 25.0437, "lng": 121.5073, "location_raw": "原臺灣省保安司令部保安處看守所（東本願寺）", "source": "related_person:伍應煊"}
+{"nhrm_id": 18993, "lat": 24.0684, "lng": 120.582, "location_raw": "彰化縣", "source": "related_person:李宗琦"}
+{"nhrm_id": 18999, "lat": 24.9795, "lng": 121.4617, "location_raw": "臺灣省生產教育實驗所", "source": "related_person:王啟先"}
+{"nhrm_id": 19038, "lat": 22.6273, "lng": 120.3014, "location_raw": "高雄市", "source": "related_person:寧人"}
+{"nhrm_id": 19147, "lat": 25.0452, "lng": 121.5201, "location_raw": "中央日報", "source": "related_person:冷健"}
+{"nhrm_id": 19217, "lat": 22.9999, "lng": 120.227, "location_raw": "臺南市", "source": "related_person:郭秋源"}
+{"nhrm_id": 19245, "lat": 23.1167, "lng": 121.25, "location_raw": "國防部泰源感訓監獄、國防部臺灣軍人監獄、臺灣警備總司令部軍法處看守所", "source": "related_person:陳美霓"}
+{"nhrm_id": 19260, "lat": 25.033, "lng": 121.5654, "location_raw": "臺北", "source": "related_person:張天明"}
+{"nhrm_id": 19357, "lat": 22.6273, "lng": 120.3014, "location_raw": "高雄市", "source": "related_person:寧人"}
+{"nhrm_id": 19459, "lat": 24.9937, "lng": 121.301, "location_raw": "桃園", "source": "related_person:劉廣聲"}
+{"nhrm_id": 19496, "lat": 24.9795, "lng": 121.4617, "location_raw": "臺灣省生產教育實驗所", "source": "related_person:施巨源"}
+{"nhrm_id": 19559, "lat": 25.033, "lng": 121.5654, "location_raw": "臺北", "source": "related_person:王添灯"}
+{"nhrm_id": 20180, "lat": 25.1276, "lng": 121.7392, "location_raw": "基隆", "source": "related_person:鄭如霖"}
+{"nhrm_id": 20234, "lat": 25.0698, "lng": 121.6604, "location_raw": "汐止", "source": "related_person:廖賜"}
+{"nhrm_id": 20439, "lat": 24.9795, "lng": 121.4617, "location_raw": "臺灣省生產教育實驗所", "source": "related_person:張建業"}
+{"nhrm_id": 20537, "lat": 22.6607, "lng": 121.492, "location_raw": "軍法處看守所、原國防部綠島感訓監獄", "source": "related_person:杜斯溫"}
+{"nhrm_id": 20572, "lat": 22.6607, "lng": 121.492, "location_raw": "軍法處看守所、原臺灣省保安司令部新生訓導處（綠島）、原臺灣省生產教育實驗所（土城清水）", "source": "related_person:朱瑜"}
+{"nhrm_id": 20920, "lat": 25.0437, "lng": 121.5073, "location_raw": "臺灣省保安司令部", "source": "related_person:王瀛成"}
+{"nhrm_id": 20980, "lat": 25.0452, "lng": 121.5201, "location_raw": "中央日報", "source": "related_person:章華瓊"}
+{"nhrm_id": 21024, "lat": 22.6607, "lng": 121.492, "location_raw": "軍法處看守所、原國防部綠島感訓監獄", "source": "related_person:張隱約"}
+{"nhrm_id": 21062, "lat": 25.0437, "lng": 121.5073, "location_raw": "臺灣省保安司令部", "source": "related_person:盧來生"}
+{"nhrm_id": 21116, "lat": 23.7092, "lng": 120.4313, "location_raw": "雲林", "source": "related_person:陳文魁"}
+{"nhrm_id": 21182, "lat": 25.0437, "lng": 121.5073, "location_raw": "臺灣省保安司令部", "source": "related_person:陳敏男"}
+{"nhrm_id": 21225, "lat": 25.033, "lng": 121.5654, "location_raw": "台北", "source": "related_person:鍾定岩"}
+{"nhrm_id": 21372, "lat": 22.6607, "lng": 121.492, "location_raw": "綠島", "source": "related_person:余明得"}
+{"nhrm_id": 21480, "lat": 25.0437, "lng": 121.5073, "location_raw": "臺灣省保安司令部", "source": "related_person:韓岳"}
+{"nhrm_id": 21628, "lat": 22.6911, "lng": 120.2954, "location_raw": "左營", "source": "related_person:何有方"}
+{"nhrm_id": 21733, "lat": 23.1167, "lng": 121.25, "location_raw": "國防部情報局看守所、國防部泰源感訓監獄", "source": "related_person:董克敏"}
+{"nhrm_id": 21748, "lat": 25.033, "lng": 121.5654, "location_raw": "臺北市", "source": "related_person:陳勤"}
+{"nhrm_id": 21770, "lat": 23.9872, "lng": 121.6015, "location_raw": "花蓮縣", "source": "related_person:簡銅柱"}
+{"nhrm_id": 21792, "lat": 25.0437, "lng": 121.5073, "location_raw": "臺灣省保安司令部", "source": "related_person:王瀛成"}
+{"nhrm_id": 21836, "lat": 25.033, "lng": 121.5654, "location_raw": "臺灣省保安司令部、臺北憲兵隊", "source": "related_person:王冠民"}
+{"nhrm_id": 21971, "lat": 22.6607, "lng": 121.492, "location_raw": "原臺灣省保安司令部新生訓導處（綠島）", "source": "related_person:戴傑"}
+{"nhrm_id": 21986, "lat": 22.6273, "lng": 120.3014, "location_raw": "高雄市", "source": "related_person:寧人"}
+{"nhrm_id": 21990, "lat": 25.0437, "lng": 121.5073, "location_raw": "陸軍第67軍司令部、臺灣省保安司令部", "source": "related_person:王昌麟"}
+{"nhrm_id": 21998, "lat": 25.0437, "lng": 121.5073, "location_raw": "臺灣省保安司令部", "source": "related_person:徐昌廣"}
+{"nhrm_id": 22105, "lat": 25.033, "lng": 121.5654, "location_raw": "臺北市", "source": "related_person:江鳳"}
+{"nhrm_id": 22120, "lat": 22.6273, "lng": 120.3014, "location_raw": "高雄市", "source": "related_person:寧人"}
+{"nhrm_id": 22142, "lat": 25.0437, "lng": 121.5073, "location_raw": "臺灣省保安司令部", "source": "related_person:陳川"}
+{"nhrm_id": 22150, "lat": 25.033, "lng": 121.5654, "location_raw": "臺北市", "source": "related_person:蘇江"}
+{"nhrm_id": 22157, "lat": 25.0437, "lng": 121.5073, "location_raw": "臺灣省保安司令部", "source": "related_person:張伯哲"}
+{"nhrm_id": 22161, "lat": 23.9609, "lng": 120.9718, "location_raw": "南投縣", "source": "related_person:洪其中"}
+{"nhrm_id": 22193, "lat": 25.0437, "lng": 121.5073, "location_raw": "臺灣省保安司令部", "source": "related_person:廖木盛"}
+{"nhrm_id": 22194, "lat": 25.0437, "lng": 121.5073, "location_raw": "臺灣省保安司令部", "source": "related_person:江應發"}
+{"nhrm_id": 22195, "lat": 25.0437, "lng": 121.5073, "location_raw": "臺灣省保安司令部", "source": "related_person:劉志浩"}
+{"nhrm_id": 22197, "lat": 25.0437, "lng": 121.5073, "location_raw": "臺灣省保安司令部", "source": "related_person:李添木"}
+{"nhrm_id": 22201, "lat": 24.9984, "lng": 121.5415, "location_raw": "軍法處看守所", "source": "related_person:張芫芬"}
+{"nhrm_id": 22207, "lat": 24.1477, "lng": 120.6736, "location_raw": "臺中縣", "source": "related_person:林恩闕"}
+{"nhrm_id": 22208, "lat": 25.033, "lng": 121.5654, "location_raw": "國防部軍法局看守所、臺北憲兵隊", "source": "related_person:張北海"}
+{"nhrm_id": 22210, "lat": 25.0437, "lng": 121.5073, "location_raw": "臺灣省保安司令部", "source": "related_person:姜堯鑫"}
+{"nhrm_id": 22218, "lat": 25.033, "lng": 121.5654, "location_raw": "臺北", "source": "related_person:廖惜"}
+{"nhrm_id": 22221, "lat": 22.6607, "lng": 121.492, "location_raw": "軍法處看守所、原國防部綠島感訓監獄", "source": "related_person:王甫"}
+{"nhrm_id": 22224, "lat": 24.0684, "lng": 120.582, "location_raw": "彰化縣", "source": "related_person:辛水波"}
+{"nhrm_id": 22255, "lat": 24.9984, "lng": 121.5415, "location_raw": "軍法處看守所", "source": "related_person:李粹惠"}
+{"nhrm_id": 22266, "lat": 23.1167, "lng": 121.25, "location_raw": "軍法處看守所、國防部泰源感訓監獄", "source": "related_person:李荏年"}
+{"nhrm_id": 22268, "lat": 24.9984, "lng": 121.5415, "location_raw": "軍法處看守所、臺灣仁愛教育實驗所", "source": "related_person:葉偉中"}
+{"nhrm_id": 22270, "lat": 25.033, "lng": 121.5654, "location_raw": "臺北市", "source": "related_person:楊洪業"}
+{"nhrm_id": 22290, "lat": 25.0437, "lng": 121.5073, "location_raw": "臺灣省保安司令部", "source": "related_person:于書紳"}
+{"nhrm_id": 22309, "lat": 25.0437, "lng": 121.5073, "location_raw": "臺灣省保安司令部", "source": "related_person:林聲發"}
+{"nhrm_id": 22310, "lat": 22.6607, "lng": 121.492, "location_raw": "原臺灣省保安司令部新生訓導處（綠島）、國防部臺灣軍人監獄", "source": "related_person:余金成"}
+{"nhrm_id": 33, "lat": 24.9984, "lng": 121.5415, "location_raw": "軍法處看守所", "source": "related_person:李則民"}
+{"nhrm_id": 374, "lat": 24.9984, "lng": 121.5415, "location_raw": "軍法處看守所", "source": "related_person:陳永順"}
+{"nhrm_id": 2170, "lat": 22.9999, "lng": 120.227, "location_raw": "臺南", "source": "related_person:郭立人"}
+{"nhrm_id": 3185, "lat": 22.9999, "lng": 120.227, "location_raw": "臺南", "source": "related_person:郭立人"}
+{"nhrm_id": 3573, "lat": 22.9999, "lng": 120.227, "location_raw": "臺南", "source": "related_person:郭立人"}
+{"nhrm_id": 3749, "lat": 22.6607, "lng": 121.492, "location_raw": "原國防部保密局臺北看守所、原國防部情報局龍潭看守所、原國防部保密局桃園感訓所、臺灣警備總司令部綠島地區警備指揮部", "source": "related_person:沈承基"}
+{"nhrm_id": 3932, "lat": 24.9937, "lng": 121.301, "location_raw": "臺灣南部地區警備司令部看守所、桃園少年輔育院", "source": "related_person:陳敬"}
+{"nhrm_id": 4420, "lat": 22.9999, "lng": 120.227, "location_raw": "臺南", "source": "related_person:郭立人"}
+{"nhrm_id": 10550, "lat": 24.9716, "lng": 121.5378, "location_raw": "原臺灣警備總司令部軍法處軍事法庭與看守所／原國防部軍法局軍事法庭與看守所（新店二十張）、臺灣省生產教育實驗所", "source": "related_person:林皇仙"}
+{"nhrm_id": 13232, "lat": 22.6607, "lng": 121.492, "location_raw": "國防部臺灣軍人監獄、原國防部綠島感訓監獄", "source": "related_person:張大鴿"}
+{"nhrm_id": 15854, "lat": 22.6607, "lng": 121.492, "location_raw": "原臺灣省保安司令部新生訓導處（綠島）、臺灣省保安司令部", "source": "related_person:黃曦農"}
