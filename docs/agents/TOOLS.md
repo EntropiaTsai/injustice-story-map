@@ -294,17 +294,24 @@
 
 ---
 
-### T22 — `official_archive_search`（待確認資料來源）
+### T22 — `nhrm_archive_agent`（本地 NHRM 查詢）
 
 | 欄位 | 內容 |
 |------|------|
 | **給誰用** | §3、PM |
-| **能力說明** | 封裝**已確認可合法使用**之國史館／國家人權館／檔案局等查詢介面（REST、GraphQL 或約定之查詢參數）；將回傳正規化為 §3 可併入考證之 JSON。 |
-| **輸入** | 查詢條件（姓名、事件、年度等，依該館實際欄位） |
-| **輸出** | 命中列表與來源識別（供人工核對） |
-| **實作備註** | 端點、金鑰、頻率限制待找到官方文件後填寫；無 API 時本項可維持**暫不實作** |
+| **能力說明** | 以 Gemini function calling 查詢本地 `nhrm_merged.json`（12,060 筆），無需連網。支援姓名搜尋、nhrm_id 取完整資料、案件名稱搜尋、同案人物查詢。 |
+| **輸入** | 自然語言問題（互動或 `--ask`）、或直接 import 呼叫工具函式 |
+| **輸出** | 自然語言回答（含引用具體資料）；工具函式直接回 JSON |
+| **實作路徑** | [`scripts/agents/nhrm_archive_agent.py`](../../scripts/agents/nhrm_archive_agent.py) |
+| **資料來源** | `data/processed/nhrm_merged.json`（需先執行 `scripts/tools/merge_nhrm.py`） |
 
-**狀態**：待資料來源確認  
+**狀態**：已有
+
+工具函式（可直接 import 使用）：
+- `tool_search_by_name(name, exact=False)` → 摘要清單
+- `tool_get_person(nhrm_id)` → 完整資料
+- `tool_search_by_case(case_name)` → 涉案人員清單
+- `tool_get_related_persons(nhrm_id)` → 同案人物清單  
 
 ---
 
@@ -330,7 +337,7 @@
 | T15 | run_local_preview | §7 | 規劃中 |
 | T20 | gemini_client_wrapper | 共用 | 規劃中 |
 | T21 | private_artifact_store | 共用 | 規劃中 |
-| T22 | official_archive_search | §3、PM | 待資料來源確認 |
+| T22 | nhrm_archive_agent | §3、PM | 已有 |
 
 ---
 
