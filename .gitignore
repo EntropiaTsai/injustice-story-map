@@ -38,6 +38,7 @@ scripts/gemini/private/
 scripts/gemini/pipeline/runs/
 
 # 原始資料（大型檔案，僅本機）
+data/raw/
 data/reference/
 data/processed/twtjdb_persons.json
 data/processed/twtjdb_pending.json
