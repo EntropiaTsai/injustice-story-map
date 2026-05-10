@@ -1,4 +1,5 @@
-import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker, Popup, useMap, useMapEvents } from 'react-leaflet';
+import { useEffect, useRef } from 'react';
 import MarkerClusterGroup from 'react-leaflet-cluster';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
@@ -97,15 +98,23 @@ interface MapViewProps {
   selectedStoryId: string | null;
 }
 
-// 地圖控制組件 - 用於在選擇故事時移動地圖視圖
+// 地圖控制組件 - 僅在選中故事切換時移動，不跟隨每次 re-render
 function MapController({ selectedStory }: { selectedStory: StoryLocation | null }) {
   const map = useMap();
+  const prevIdRef = useRef<string | null>(null);
 
-  if (selectedStory) {
-    map.flyTo([selectedStory.lat, selectedStory.lng], 13, {
-      duration: 1.5
+  // 關閉 popup，避免 popup 自動 pan 與 flyTo 同時觸發
+  useMapEvents({ popupopen: (e) => { e.popup.options.autoPan = false; } });
+
+  useEffect(() => {
+    if (!selectedStory) { prevIdRef.current = null; return; }
+    if (selectedStory.id === prevIdRef.current) return;
+    prevIdRef.current = selectedStory.id;
+    map.flyTo([selectedStory.lat, selectedStory.lng], Math.max(map.getZoom(), 13), {
+      duration: 0.6,
+      easeLinearity: 0.5,
     });
-  }
+  }, [selectedStory, map]);
 
   return null;
 }
@@ -166,7 +175,7 @@ export default function MapView({ stories, onStorySelect, selectedStoryId }: Map
                 icon={createCustomIcon(story.id === selectedStoryId, story.penaltyLevel as PenaltyLevel, isCurated)}
                 eventHandlers={{ click: () => onStorySelect(story) }}
               >
-                <Popup>
+                <Popup autoPan={false}>
                   <div className="p-2">
                     <h3 className="font-bold text-base mb-1">{story.victimName}</h3>
                     {isCurated ? (

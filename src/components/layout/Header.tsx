@@ -3,9 +3,10 @@ import { useState } from 'react';
 interface HeaderProps {
   onAboutClick: () => void;
   onContributeClick: () => void;
+  onNoCoordClick: () => void;
 }
 
-export default function Header({ onAboutClick, onContributeClick }: HeaderProps) {
+export default function Header({ onAboutClick, onContributeClick, onNoCoordClick }: HeaderProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
@@ -46,6 +47,13 @@ export default function Header({ onAboutClick, onContributeClick }: HeaderProps)
               className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
             >
               關於專案
+            </button>
+            <button
+              onClick={onNoCoordClick}
+              className="text-gray-700 hover:text-orange-600 font-medium transition-colors flex items-center gap-1"
+            >
+              <span className="w-2 h-2 rounded-full bg-orange-400 inline-block" />
+              待補座標
             </button>
             <button
               onClick={onContributeClick}
@@ -101,6 +109,16 @@ export default function Header({ onAboutClick, onContributeClick }: HeaderProps)
                 className="text-left py-2 px-4 text-gray-700 hover:bg-gray-100 rounded-lg transition-colors"
               >
                 關於專案
+              </button>
+              <button
+                onClick={() => {
+                  onNoCoordClick();
+                  setIsMenuOpen(false);
+                }}
+                className="text-left py-2 px-4 text-gray-700 hover:bg-gray-100 rounded-lg transition-colors flex items-center gap-2"
+              >
+                <span className="w-2 h-2 rounded-full bg-orange-400 inline-block" />
+                待補座標清單
               </button>
               <button
                 onClick={() => {
