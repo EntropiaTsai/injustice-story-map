@@ -300,11 +300,12 @@ TAIWAN_LOCATIONS: dict[str, tuple[float, float]] = {
     "國防醫學院":       (25.0780, 121.5495),   # 台北市中山區大直
     "海軍軍官學校":     (22.6233, 120.2724),   # 高雄市左營區
     "陸軍官校":         (22.6271, 120.3567),   # 高雄市鳳山
-    "空軍機械學校":     (22.7953, 120.2949),   # 高雄市岡山（空軍基地）
-    "空軍官校":         (22.7953, 120.2949),   # 同上
-    "空軍通信電子學校": (22.7953, 120.2949),   # 同上
-    "空軍航空技術學校": (22.7953, 120.2949),   # 同上
-    "空軍機校":         (22.7953, 120.2949),   # 同上（簡稱）
+    "空軍軍官學校":     (22.7832, 120.2707),   # 高雄市岡山區後協里（Plus Code Q7MC+76）
+    "空軍機械學校":     (22.7832, 120.2707),   # 同上
+    "空軍官校":         (22.7832, 120.2707),   # 同上（簡稱）
+    "空軍通信電子學校": (22.7832, 120.2707),   # 同上
+    "空軍航空技術學校": (22.7832, 120.2707),   # 同上
+    "空軍機校":         (22.7832, 120.2707),   # 同上（簡稱）
     "金門怒潮軍政學校": (24.4493, 118.3767),   # 金門縣
     "政治大學":         (24.9872, 121.5788),   # 台北市文山區指南路
     "政工幹部學校":     (24.9872, 121.5788),   # 同上（政大前身）
@@ -412,10 +413,16 @@ def derive_penalty_level(judgment: dict | None, nhrm_penalty: list) -> str:
     return "unknown"
 
 
+_GEOCODE_SORTED: list[tuple[str, tuple[float, float]]] = []
+
 def geocode(text: str | None) -> tuple[float, float] | None:
+    """比對 TAIWAN_LOCATIONS，優先採最長 key（避免短字匹配遮蔽長字）。"""
+    global _GEOCODE_SORTED
+    if not _GEOCODE_SORTED:
+        _GEOCODE_SORTED = sorted(TAIWAN_LOCATIONS.items(), key=lambda x: -len(x[0]))
     if not text:
         return None
-    for key, coords in TAIWAN_LOCATIONS.items():
+    for key, coords in _GEOCODE_SORTED:
         if key in text:
             return coords
     return None
@@ -633,9 +640,18 @@ def main(nhrm_path: Path, output_path: Path) -> None:
     for rec in valid:
         merged = merge_one(rec, twtjdb)
 
-        # 6. LLM geocoding patch（最後手段，只補無座標記錄）
-        if merged["lat"] is None and rec["nhrm_id"] in llm_patch:
-            p = llm_patch[rec["nhrm_id"]]
+        # 6a. force patch（覆蓋自動 geocoding，source != twtjdb 時才生效）
+        nid = rec["nhrm_id"]
+        if nid in llm_patch and llm_patch[nid].get("force") and merged.get("location_source") != "twtjdb":
+            p = llm_patch[nid]
+            merged["lat"] = p["lat"]
+            merged["lng"] = p["lng"]
+            merged["location_raw"] = p["location_raw"]
+            merged["location_source"] = "llm"
+
+        # 6b. LLM geocoding patch（最後手段，只補無座標記錄）
+        if merged["lat"] is None and nid in llm_patch:
+            p = llm_patch[nid]
             merged["lat"] = p["lat"]
             merged["lng"] = p["lng"]
             merged["location_raw"] = p["location_raw"]

@@ -476,3 +476,5 @@
 {"nhrm_id": 7395, "lat": 25.0437, "lng": 121.5073, "location_raw": "陸軍總司令部", "source": "related_person:翁秉乾"}
 {"nhrm_id": 16094, "lat": 25.0437, "lng": 121.5073, "location_raw": "陸軍總司令部", "source": "related_person:吳忠山"}
 {"nhrm_id": 21968, "lat": 25.0437, "lng": 121.5073, "location_raw": "陸軍總司令部", "source": "related_person:竇正之"}
+{"nhrm_id": 5726, "lat": 22.7832, "lng": 120.2707, "location_raw": "空軍機械學校", "source": "manual:gangshan_academy"}
+{"nhrm_id": 5726, "lat": 22.7832, "lng": 120.2707, "location_raw": "空軍機械學校", "source": "manual:gangshan_academy", "force": true}
