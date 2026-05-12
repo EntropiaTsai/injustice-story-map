@@ -478,3 +478,4 @@
 {"nhrm_id": 21968, "lat": 25.0437, "lng": 121.5073, "location_raw": "陸軍總司令部", "source": "related_person:竇正之"}
 {"nhrm_id": 5726, "lat": 22.7832, "lng": 120.2707, "location_raw": "空軍機械學校", "source": "manual:gangshan_academy"}
 {"nhrm_id": 5726, "lat": 22.7832, "lng": 120.2707, "location_raw": "空軍機械學校", "source": "manual:gangshan_academy", "force": true}
+{"nhrm_id": 3186, "lat": 24.0573, "lng": 120.7178, "location_raw": "霧峰農工（霧峰高農）", "source": "manual:arrest_location", "force": true}
