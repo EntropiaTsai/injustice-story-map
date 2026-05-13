@@ -718,14 +718,15 @@ def main(nhrm_path: Path, output_path: Path) -> None:
                     try:
                         obj = json.loads(line)
                         nid = obj["nhrm_id"]
-                        if obj.get("arrest_location"):
+                        # 只有 user_verified=true 的記錄才允許上地圖
+                        if obj.get("arrest_location") and obj.get("user_verified"):
                             audit_confirmed.add(nid)
                             audit_locations[nid] = obj["arrest_location"]
                             if obj.get("arrest_lat") and obj.get("arrest_lng"):
                                 audit_coords[nid] = (obj["arrest_lat"], obj["arrest_lng"])
                     except (json.JSONDecodeError, KeyError):
                         pass
-    print(f"  audit 確認案發地點：{len(audit_confirmed)} 筆（含座標：{len(audit_coords)} 筆）", file=sys.stderr)
+    print(f"  audit 確認案發地點（user_verified）：{len(audit_confirmed)} 筆（含座標：{len(audit_coords)} 筆）", file=sys.stderr)
 
     # 供網頁使用：
     #   - twtjdb 來源（被捕前居住地）：直接上圖
