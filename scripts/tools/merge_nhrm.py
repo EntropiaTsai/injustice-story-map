@@ -19,6 +19,7 @@
 from __future__ import annotations
 
 import json
+import math
 import random
 import re
 import sys
@@ -704,9 +705,10 @@ def main(nhrm_path: Path, output_path: Path) -> None:
     with open(output_path, "w", encoding="utf-8") as f:
         json.dump(output, f, ensure_ascii=False, indent=2)
 
-    # 讀取 audit 中有確認案發地點的 nhrm_id 集合
+    # 讀取 audit 中有確認案發地點的 nhrm_id 集合，以及 audit 提供的精確座標
     audit_path = REPO / "data/processed/nhrm_audit.jsonl"
     audit_confirmed: set[int] = set()
+    audit_coords: dict[int, tuple[float, float]] = {}  # nhrm_id → (lat, lng)
     if audit_path.exists():
         with open(audit_path, encoding="utf-8") as f:
             for line in f:
@@ -714,11 +716,14 @@ def main(nhrm_path: Path, output_path: Path) -> None:
                 if line:
                     try:
                         obj = json.loads(line)
+                        nid = obj["nhrm_id"]
                         if obj.get("arrest_location"):
-                            audit_confirmed.add(obj["nhrm_id"])
+                            audit_confirmed.add(nid)
+                            if obj.get("arrest_lat") and obj.get("arrest_lng"):
+                                audit_coords[nid] = (obj["arrest_lat"], obj["arrest_lng"])
                     except (json.JSONDecodeError, KeyError):
                         pass
-    print(f"  audit 確認案發地點：{len(audit_confirmed)} 筆", file=sys.stderr)
+    print(f"  audit 確認案發地點：{len(audit_confirmed)} 筆（含座標：{len(audit_coords)} 筆）", file=sys.stderr)
 
     # 供網頁使用：
     #   - twtjdb 來源（被捕前居住地）：直接上圖
@@ -746,11 +751,34 @@ def main(nhrm_path: Path, output_path: Path) -> None:
                 pending_no_coord.append(p)
                 continue
         rec = dict(p)
-        if rec.get("location_source") in _JITTER_SOURCES:
+        # audit 提供的精確案發座標優先於原始 geocoded 座標
+        if nid in audit_coords:
+            rec["lat"], rec["lng"] = audit_coords[nid]
+            rec["location_source"] = "audit"
+        elif rec.get("location_source") in _JITTER_SOURCES:
             rng = random.Random(rec["nhrm_id"])
             rec["lat"] = round(rec["lat"] + rng.uniform(-0.06, 0.06), 6)
             rec["lng"] = round(rec["lng"] + rng.uniform(-0.05, 0.05), 6)
         map_ready.append(rec)
+
+    # 對完全重疊座標做圓形排列（spiderfly 靜態預計算）
+    from collections import defaultdict
+    _coord_groups: dict[tuple[float, float], list[int]] = defaultdict(list)
+    for _i, _rec in enumerate(map_ready):
+        _coord_groups[(_rec["lat"], _rec["lng"])].append(_i)
+    _SPIRAL_FOOT_M = 28.0  # 每個標記間距（公尺），對應 Leaflet 預設值
+    for (_lat0, _lng0), _idxs in _coord_groups.items():
+        _n = len(_idxs)
+        if _n < 2:
+            continue
+        _radius_m = max(15.0, _n * _SPIRAL_FOOT_M / (2 * math.pi))
+        _lat_per_m = 1.0 / 111111.0
+        _lng_per_m = 1.0 / (111111.0 * math.cos(math.radians(_lat0)))
+        for _j, _idx in enumerate(_idxs):
+            _angle = 2 * math.pi * _j / _n
+            map_ready[_idx]["lat"] = round(_lat0 + _radius_m * _lat_per_m * math.cos(_angle), 6)
+            map_ready[_idx]["lng"] = round(_lng0 + _radius_m * _lng_per_m * math.sin(_angle), 6)
+
     with open(public_path, "w", encoding="utf-8") as f:
         json.dump({"_meta": {**meta, "map_ready": len(map_ready)}, "persons": map_ready},
                   f, ensure_ascii=False)  # 不縮排，節省檔案大小
