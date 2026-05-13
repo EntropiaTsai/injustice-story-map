@@ -86,6 +86,8 @@ export default function StorySidebar({ story, onClose, isOpen, onContribute }: S
               nhrm_city: '籍貫（縣市）',
               nhrm_intro: '傳記文字推測',
               native: '籍貫（省）',
+              audit: '人工確認案發地點',
+              llm: 'AI 推測',
             };
 
             return (
@@ -159,6 +161,7 @@ export default function StorySidebar({ story, onClose, isOpen, onContribute }: S
                         ['生年', birthYear],
                         ['卒年', deathYear],
                         ['籍貫', [n.province, n.city].filter(Boolean).join(' ')],
+                        ['案發地點', n.arrest_location],
                         ['相關地點', n.place],
                         ['定位依據', n.location_source ? locationHint[n.location_source] : null],
                       ].filter(([, v]) => v).map(([label, value]) => (

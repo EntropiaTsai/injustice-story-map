@@ -14,8 +14,9 @@ interface NhrmPerson {
   place: string | null;
   lat: number;
   lng: number;
-  location_source: 'twtjdb' | 'nhrm_city' | 'nhrm_place' | 'nhrm_intro' | 'native' | 'llm';
+  location_source: 'twtjdb' | 'nhrm_city' | 'nhrm_place' | 'nhrm_intro' | 'native' | 'llm' | 'audit';
   location_raw: string | null;
+  arrest_location: string | null;
   penalty_level: 'death' | 'heavy' | 'light' | 'unknown';
   image_url: string | null;
   summary: string | null;
@@ -52,6 +53,7 @@ function toStoryLocation(p: NhrmPerson): StoryLocation {
     city: p.city,
     place: p.place,
     location_source: p.location_source,
+    arrest_location: p.arrest_location ?? null,
     image_url: p.image_url,
     summary: p.summary ?? null,
     introduction: p.introduction,

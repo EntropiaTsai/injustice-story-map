@@ -190,7 +190,11 @@ export default function MapView({ stories, onStorySelect, selectedStoryId }: Map
                       </>
                     ) : (
                       <>
-                        <p className="text-xs text-gray-500 mb-1">{story.twtjdb?.location_raw} · {story.year}</p>
+                        {story.nhrm?.arrest_location ? (
+                          <p className="text-xs text-gray-500 mb-1">📍 {story.nhrm.arrest_location}</p>
+                        ) : story.twtjdb?.location_raw ? (
+                          <p className="text-xs text-gray-500 mb-1">{story.twtjdb.location_raw} · {story.year}</p>
+                        ) : null}
                         <p className="text-sm mb-2">{story.summary}</p>
                         <button
                           onClick={() => onStorySelect(story)}

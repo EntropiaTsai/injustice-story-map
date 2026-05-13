@@ -709,6 +709,7 @@ def main(nhrm_path: Path, output_path: Path) -> None:
     audit_path = REPO / "data/processed/nhrm_audit.jsonl"
     audit_confirmed: set[int] = set()
     audit_coords: dict[int, tuple[float, float]] = {}  # nhrm_id → (lat, lng)
+    audit_locations: dict[int, str] = {}              # nhrm_id → arrest_location 文字
     if audit_path.exists():
         with open(audit_path, encoding="utf-8") as f:
             for line in f:
@@ -719,6 +720,7 @@ def main(nhrm_path: Path, output_path: Path) -> None:
                         nid = obj["nhrm_id"]
                         if obj.get("arrest_location"):
                             audit_confirmed.add(nid)
+                            audit_locations[nid] = obj["arrest_location"]
                             if obj.get("arrest_lat") and obj.get("arrest_lng"):
                                 audit_coords[nid] = (obj["arrest_lat"], obj["arrest_lng"])
                     except (json.JSONDecodeError, KeyError):
@@ -727,8 +729,7 @@ def main(nhrm_path: Path, output_path: Path) -> None:
 
     # 供網頁使用：
     #   - twtjdb 來源（被捕前居住地）：直接上圖
-    #   - llm 來源（手動確認或 force patch）：直接上圖
-    #   - 其他來源：只有 audit 確認案發地點者才上圖，其餘移入待補清單
+    #   - llm/其他來源：只有 audit 確認案發地點者才上圖，其餘移入待補清單
     public_path = REPO / "public" / "data" / "nhrm_map_ready.json"
     public_path.parent.mkdir(parents=True, exist_ok=True)
     map_ready = []
@@ -742,11 +743,10 @@ def main(nhrm_path: Path, output_path: Path) -> None:
             pending_no_coord.append(p)
             continue
         if src == "twtjdb":
-            pass  # 最可靠來源，直接上圖
-        elif src == "llm":
-            pass  # 手動確認或 audit 確認，直接上圖
+            pass  # 被捕前居住地，最可靠，直接上圖
         else:
-            # nhrm_city / nhrm_place / nhrm_intro / native：需 audit 確認案發地點
+            # llm / nhrm_city / nhrm_place / nhrm_intro / native：
+            # 統一要求 audit 確認案發地點，避免模糊 geocoding 誤置
             if nid not in audit_confirmed:
                 pending_no_coord.append(p)
                 continue
@@ -755,6 +755,8 @@ def main(nhrm_path: Path, output_path: Path) -> None:
         if nid in audit_coords:
             rec["lat"], rec["lng"] = audit_coords[nid]
             rec["location_source"] = "audit"
+        if nid in audit_locations:
+            rec["arrest_location"] = audit_locations[nid]
         elif rec.get("location_source") in _JITTER_SOURCES:
             rng = random.Random(rec["nhrm_id"])
             rec["lat"] = round(rec["lat"] + rng.uniform(-0.06, 0.06), 6)
