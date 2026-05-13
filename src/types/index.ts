@@ -42,6 +42,7 @@ export interface NhrmMeta {
   place: string | null;
   location_source: 'twtjdb' | 'nhrm_city' | 'nhrm_place' | 'nhrm_intro' | 'native' | 'llm' | null;
   image_url: string | null;
+  summary: string | null;
   introduction: string | null;
   nhrm_url: string | null;
   judgment: {

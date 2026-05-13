@@ -610,6 +610,26 @@ def load_llm_patch() -> dict[int, dict]:
     return patch
 
 
+def load_audit_summaries() -> dict[int, str]:
+    """讀取 nhrm_audit.jsonl，回傳 {nhrm_id: summary}（只取有摘要的記錄）。"""
+    audit_path = REPO / "data/processed/nhrm_audit.jsonl"
+    summaries: dict[int, str] = {}
+    if not audit_path.exists():
+        return summaries
+    with open(audit_path, encoding="utf-8") as f:
+        for line in f:
+            line = line.strip()
+            if line:
+                try:
+                    obj = json.loads(line)
+                    if obj.get("summary"):
+                        summaries[obj["nhrm_id"]] = obj["summary"]
+                except (json.JSONDecodeError, KeyError):
+                    pass
+    print(f"  audit 摘要：{len(summaries)} 筆", file=sys.stderr)
+    return summaries
+
+
 def main(nhrm_path: Path, output_path: Path) -> None:
     print("載入 twtjdb...", file=sys.stderr)
     twtjdb = load_twtjdb()
@@ -622,6 +642,9 @@ def main(nhrm_path: Path, output_path: Path) -> None:
 
     print("載入 LLM geocoding patch...", file=sys.stderr)
     llm_patch = load_llm_patch()
+
+    print("載入 audit 摘要...", file=sys.stderr)
+    audit_summaries = load_audit_summaries()
 
     persons = []
     stats: dict[str, int] = {
@@ -657,6 +680,10 @@ def main(nhrm_path: Path, output_path: Path) -> None:
             merged["location_raw"] = p["location_raw"]
             merged["location_source"] = "llm"
 
+        # 7. 注入 audit 摘要（若有）
+        if nid in audit_summaries:
+            merged["summary"] = audit_summaries[nid]
+
         persons.append(merged)
 
         if merged["lat"] is not None:
@@ -677,15 +704,47 @@ def main(nhrm_path: Path, output_path: Path) -> None:
     with open(output_path, "w", encoding="utf-8") as f:
         json.dump(output, f, ensure_ascii=False, indent=2)
 
-    # 供網頁使用：只保留有座標的筆數，並對縣市級座標加 deterministic jitter
+    # 讀取 audit 中有確認案發地點的 nhrm_id 集合
+    audit_path = REPO / "data/processed/nhrm_audit.jsonl"
+    audit_confirmed: set[int] = set()
+    if audit_path.exists():
+        with open(audit_path, encoding="utf-8") as f:
+            for line in f:
+                line = line.strip()
+                if line:
+                    try:
+                        obj = json.loads(line)
+                        if obj.get("arrest_location"):
+                            audit_confirmed.add(obj["nhrm_id"])
+                    except (json.JSONDecodeError, KeyError):
+                        pass
+    print(f"  audit 確認案發地點：{len(audit_confirmed)} 筆", file=sys.stderr)
+
+    # 供網頁使用：
+    #   - twtjdb 來源（被捕前居住地）：直接上圖
+    #   - llm 來源（手動確認或 force patch）：直接上圖
+    #   - 其他來源：只有 audit 確認案發地點者才上圖，其餘移入待補清單
     public_path = REPO / "public" / "data" / "nhrm_map_ready.json"
     public_path.parent.mkdir(parents=True, exist_ok=True)
     map_ready = []
-    # 精確度低的來源加 deterministic jitter（以 nhrm_id 為種子，重跑結果一致）
+    pending_no_coord = []
     _JITTER_SOURCES = {"twtjdb", "nhrm_city", "nhrm_place", "nhrm_intro", "native"}
     for p in persons:
+        src = p.get("location_source")
+        nid = p["nhrm_id"]
+        # 判斷是否允許上地圖
         if p["lat"] is None:
+            pending_no_coord.append(p)
             continue
+        if src == "twtjdb":
+            pass  # 最可靠來源，直接上圖
+        elif src == "llm":
+            pass  # 手動確認或 audit 確認，直接上圖
+        else:
+            # nhrm_city / nhrm_place / nhrm_intro / native：需 audit 確認案發地點
+            if nid not in audit_confirmed:
+                pending_no_coord.append(p)
+                continue
         rec = dict(p)
         if rec.get("location_source") in _JITTER_SOURCES:
             rng = random.Random(rec["nhrm_id"])
@@ -695,6 +754,10 @@ def main(nhrm_path: Path, output_path: Path) -> None:
     with open(public_path, "w", encoding="utf-8") as f:
         json.dump({"_meta": {**meta, "map_ready": len(map_ready)}, "persons": map_ready},
                   f, ensure_ascii=False)  # 不縮排，節省檔案大小
+
+    no_coord_path = REPO / "public" / "data" / "nhrm_no_coord.json"
+    with open(no_coord_path, "w", encoding="utf-8") as f:
+        json.dump(pending_no_coord, f, ensure_ascii=False)
 
     print(f"\n完成 → {output_path}", file=sys.stderr)
     print(f"       → {public_path} ({len(map_ready)} 筆)", file=sys.stderr)

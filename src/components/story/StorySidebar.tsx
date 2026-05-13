@@ -1,3 +1,4 @@
+import { useState as useStateLocal } from 'react';
 import type { StoryLocation } from '../../types';
 
 // 移除「歷年辦理匪案彙編：」書名前綴與開頭「匪」字，支援多組織（「、」分隔）
@@ -19,6 +20,8 @@ interface StorySidebarProps {
 }
 
 export default function StorySidebar({ story, onClose, isOpen, onContribute }: StorySidebarProps) {
+  const [introExpanded, setIntroExpanded] = useStateLocal(false);
+
   if (!isOpen || !story) return null;
 
   const handleContribute = () => {
@@ -118,12 +121,31 @@ export default function StorySidebar({ story, onClose, isOpen, onContribute }: S
                   </div>
                 )}
 
-                {/* 傳記 */}
-                {n.introduction && (
+                {/* 傳記：若有 AI 摘要則優先顯示，原始簡介可展開 */}
+                {n.summary ? (
+                  <div className="mb-6">
+                    <p className="text-gray-800 leading-relaxed text-[0.95rem]">{n.summary}</p>
+                    {n.introduction && n.introduction.length > 50 && (
+                      <div className="mt-3">
+                        <button
+                          onClick={() => setIntroExpanded(v => !v)}
+                          className="text-xs text-gray-500 hover:text-gray-700 underline-offset-2 hover:underline flex items-center gap-1"
+                        >
+                          {introExpanded ? '▲ 收起完整簡介' : '▼ 查看完整簡介'}
+                        </button>
+                        {introExpanded && (
+                          <div className="mt-3 text-gray-600 leading-relaxed text-sm whitespace-pre-line border-l-2 border-gray-200 pl-3">
+                            {n.introduction}
+                          </div>
+                        )}
+                      </div>
+                    )}
+                  </div>
+                ) : n.introduction ? (
                   <div className="mb-6 text-gray-800 leading-relaxed text-[0.95rem] whitespace-pre-line">
                     {n.introduction}
                   </div>
-                )}
+                ) : null}
 
                 {/* 基本資料 */}
                 <div className="mb-6 rounded-lg border border-gray-200 overflow-hidden">

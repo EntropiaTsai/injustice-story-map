@@ -18,6 +18,7 @@ interface NhrmPerson {
   location_raw: string | null;
   penalty_level: 'death' | 'heavy' | 'light' | 'unknown';
   image_url: string | null;
+  summary: string | null;
   introduction: string | null;
   nhrm_url: string | null;
   judgment: NhrmMeta['judgment'];
@@ -35,9 +36,10 @@ function toStoryLocation(p: NhrmPerson): StoryLocation {
     ? `民國 ${j.year_roc} 年`
     : '年代不詳';
 
-  const summary = p.introduction
-    ? p.introduction.slice(0, 120).replace(/\n/g, ' ') + (p.introduction.length > 120 ? '…' : '')
-    : j?.penalty_text || '資料待補';
+  const summary = p.summary
+    || (p.introduction
+      ? p.introduction.slice(0, 120).replace(/\n/g, ' ') + (p.introduction.length > 120 ? '…' : '')
+      : j?.penalty_text || '資料待補');
 
   const nhrm: NhrmMeta = {
     nhrm_id: p.nhrm_id,
@@ -51,6 +53,7 @@ function toStoryLocation(p: NhrmPerson): StoryLocation {
     place: p.place,
     location_source: p.location_source,
     image_url: p.image_url,
+    summary: p.summary ?? null,
     introduction: p.introduction,
     nhrm_url: p.nhrm_url,
     judgment: p.judgment,
