@@ -13,8 +13,9 @@ import type { StoryLocation } from './types';
 function App() {
   const { data: nhrmStories } = useNhrmData();
   const pipelineStories = usePipelineStories();
+  // 地圖只顯示人工策展故事；twtjdb/nhrm 資料待人工複查後逐筆加回
   const allStories = useMemo(() => {
-    return [...storyData, ...pipelineStories, ...nhrmStories];
+    return [...storyData];
   }, [nhrmStories, pipelineStories]);
 
   const [selectedStory, setSelectedStory] = useState<StoryLocation | null>(null);
